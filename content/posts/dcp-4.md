@@ -1,7 +1,11 @@
 ---
 title: "Coding Problem: First Missing Positive Integer"
-date: 2021-08-28T11:19:07+05:30
+date: 2021-03-01T18:07:55.126Z
 tags: ["data-structures", "algorithms"]
+authorLink: https://akshatshah21.github.io/
+description: "Given an array of integers, find the first missing positive integer in linear time and constant space."
+summary: "Given an array of integers, find the first missing positive integer in linear time and constant space."
+categories: ["coding-problems"]
 draft: false
 ---
 

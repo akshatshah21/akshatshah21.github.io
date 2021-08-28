@@ -1,8 +1,12 @@
 ---
 title: "Coding Problem: Two Sum"
-date: 2021-08-28T11:12:34+05:30
-draft: false
+date: 2021-01-21T17:30:51.330Z
 tags: ["data-structures", "algorithms"]
+authorLink: https://akshatshah21.github.io/
+description: "Given a list of numbers and a number `k`, return whether any two numbers from the list add up to `k`."
+summary: "Given a list of numbers and a number `k`, return whether any two numbers from the list add up to `k`."
+categories: ["coding-problems"]
+draft: false
 ---
 > [DailyCodingProblem](https://www.dailycodingproblem.com/) is a great website that sends coding problems to your inbox daily.
 

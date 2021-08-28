@@ -23,7 +23,7 @@ theme = "LoveIt"
   # ("sha256", "sha384", "sha512", "md5")
   fingerprint = ""
   # LoveIt NEW | 0.2.0 date format
-  dateFormat = "2006-01-02"
+  dateFormat = "Jan 2 2006"
   # website images for Open Graph and Twitter Cards
   images = ["/static/favicon.svg"]
 
@@ -106,7 +106,7 @@ theme = "LoveIt"
     # special amount of posts in each section page
     paginate = 20
     # date format (month and day)
-    dateFormat = "01-02"
+    dateFormat = "Jan 2"
     # amount of RSS pages
     rss = 10
 
@@ -115,7 +115,7 @@ theme = "LoveIt"
     # special amount of posts in each list page
     paginate = 20
     # date format (month and day)
-    dateFormat = "01-02"
+    dateFormat = "Jan 2"
     # amount of RSS pages
     rss = 10
 
@@ -233,7 +233,7 @@ theme = "LoveIt"
     # LoveIt NEW | 0.2.0 whether to enable the fontawesome extended syntax
     fontawesome = true
     # whether to show link to Raw Markdown content of the content
-    linkToMarkdown = true
+    linkToMarkdown = false
     # LoveIt NEW | 0.2.4 whether to show the full text content in RSS
     rssFullText = false
     # LoveIt NEW | 0.2.0 Table of the contents config

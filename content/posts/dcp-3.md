@@ -1,7 +1,11 @@
 ---
 title: "Coding Problem: Serialize a Binary Tree"
-date: 2021-08-28T11:14:53+05:30
+date: 2021-03-01T18:03:44.743Z
 tags: ["data-structures", "algorithms"]
+authorLink: https://akshatshah21.github.io/
+description: "Design an algorithm to serialize and deserialize a binary tree."
+summary: "Design an algorithm to serialize and deserialize a binary tree."
+categories: ["coding-problems"]
 draft: false
 ---
 

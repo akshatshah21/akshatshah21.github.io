@@ -4,24 +4,18 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
 <meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>Coding Problem: First Missing Positive Integer - Akshat Shah</title><meta name=Description content="Akshat Shah's website"><meta property="og:title" content="Coding Problem: First Missing Positive Integer">
-<meta property="og:description" content="DailyCodingProblem is a great website that sends coding problems to your inbox daily.
- The Question  Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well.
- You can solve this question on LeetCode.
-Solutions Use a &ldquo;map&rdquo; to mark presence A simple way (albeit requiring linear auxilliary space) is to traverse through the given array, and mark all the positive number present in the array as present using a simple boolean array of size equal to the maximum number present in the array.">
+<title>Coding Problem: First Missing Positive Integer - Akshat Shah</title><meta name=Description content="Given an array of integers, find the first missing positive integer in linear time and constant space."><meta property="og:title" content="Coding Problem: First Missing Positive Integer">
+<meta property="og:description" content="Given an array of integers, find the first missing positive integer in linear time and constant space.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://akshatshah21.github.io/dcp-4/"><meta property="og:image" content="http://akshatshah21.github.io/static/favicon.svg"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-08-28T11:19:07+05:30">
-<meta property="article:modified_time" content="2021-08-28T11:19:07+05:30">
+<meta property="article:published_time" content="2021-03-01T18:07:55+00:00">
+<meta property="article:modified_time" content="2021-03-01T18:07:55+00:00">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="http://akshatshah21.github.io/static/favicon.svg">
 <meta name=twitter:title content="Coding Problem: First Missing Positive Integer">
-<meta name=twitter:description content="DailyCodingProblem is a great website that sends coding problems to your inbox daily.
- The Question  Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well.
- You can solve this question on LeetCode.
-Solutions Use a &ldquo;map&rdquo; to mark presence A simple way (albeit requiring linear auxilliary space) is to traverse through the given array, and mark all the positive number present in the array as present using a simple boolean array of size equal to the maximum number present in the array.">
+<meta name=twitter:description content="Given an array of integers, find the first missing positive integer in linear time and constant space.">
 <meta name=application-name content="Akshat Shah">
-<meta name=apple-mobile-web-app-title content="Akshat Shah"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#00aba9"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#42bc42><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://akshatshah21.github.io/dcp-4/><link rel=prev href=http://akshatshah21.github.io/dcp-3/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Coding Problem: First Missing Positive Integer","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/akshatshah21.github.io\/dcp-4\/"},"genre":"posts","keywords":"data-structures, algorithms","wordcount":636,"url":"http:\/\/akshatshah21.github.io\/dcp-4\/","datePublished":"2021-08-28T11:19:07+05:30","dateModified":"2021-08-28T11:19:07+05:30","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Akshat Shah"},"description":""}</script></head>
+<meta name=apple-mobile-web-app-title content="Akshat Shah"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#00aba9"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#42bc42><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://akshatshah21.github.io/dcp-4/><link rel=prev href=http://akshatshah21.github.io/dcp-3/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Coding Problem: First Missing Positive Integer","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/akshatshah21.github.io\/dcp-4\/"},"genre":"posts","keywords":"data-structures, algorithms","wordcount":636,"url":"http:\/\/akshatshah21.github.io\/dcp-4\/","datePublished":"2021-03-01T18:07:55+00:00","dateModified":"2021-03-01T18:07:55+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Akshat Shah"},"description":"Given an array of integers, find the first missing positive integer in linear time and constant space."}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -88,8 +82,8 @@ Cancel
 <h2 class=toc-title>Contents</h2>
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">Coding Problem: First Missing Positive Integer</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=" author" class=author><i class="fas fa-user-circle fa-fw"></i>Akshat Shah</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;636 words&nbsp;
+<div class=post-meta-line><span class=post-author><a href=https://akshatshah21.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Akshat Shah</a></span>&nbsp;<span class=post-category>included in <a href=/categories/coding-problems/><i class="far fa-folder fa-fw"></i>coding-problems</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Mar 1 2021">Mar 1 2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;636 words&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -194,14 +188,12 @@ return n+1
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>Updated on 2021-08-28</span>
+<span>Updated on Mar 1 2021</span>
 </div>
 <div class=post-info-license></div>
 </div>
 <div class=post-info-line>
-<div class=post-info-md><span>
-<a class=link-to-markdown href=/dcp-4/index.md target=_blank>Read Markdown</a>
-</span></div>
+<div class=post-info-md></div>
 <div class=post-info-share>
 <span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=http://akshatshah21.github.io/dcp-4/ data-title="Coding Problem: First Missing Positive Integer" data-hashtags=data-structures,algorithms><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=http://akshatshah21.github.io/dcp-4/ data-hashtag=data-structures><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=http://akshatshah21.github.io/dcp-4/ data-title="Coding Problem: First Missing Positive Integer" data-web><i class="fab fa-whatsapp fa-fw"></i></a></span>
 </div>

@@ -129,7 +129,7 @@ theme = "LoveIt"
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/img/me.jpg"
+      avatarURL = "/img/me2.jpeg"
       # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
       title = "Akshat Shah"
       # subtitle shown in home page

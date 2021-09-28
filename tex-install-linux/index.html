@@ -1,0 +1,266 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>A Guide to Install Tex on Linux - Akshat Shah</title><meta name=Description content="A guide to install Tex on Linux"><meta property="og:title" content="A Guide to Install Tex on Linux">
+<meta property="og:description" content="A guide to install Tex on Linux">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://akshatshah21.github.io/tex-install-linux/"><meta property="og:image" content="http://akshatshah21.github.io/static/favicon.svg"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-09-28T15:27:19+05:30">
+<meta property="article:modified_time" content="2021-09-28T15:27:19+05:30">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="http://akshatshah21.github.io/static/favicon.svg">
+<meta name=twitter:title content="A Guide to Install Tex on Linux">
+<meta name=twitter:description content="A guide to install Tex on Linux">
+<meta name=application-name content="Akshat Shah">
+<meta name=apple-mobile-web-app-title content="Akshat Shah"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#00aba9"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#42bc42><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://akshatshah21.github.io/tex-install-linux/><link rel=prev href=http://akshatshah21.github.io/dcp-4/><link rel=next href=http://akshatshah21.github.io/reading-list-sept-2021/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"A Guide to Install Tex on Linux","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/akshatshah21.github.io\/tex-install-linux\/"},"genre":"posts","keywords":"latex, linux","wordcount":944,"url":"http:\/\/akshatshah21.github.io\/tex-install-linux\/","datePublished":"2021-09-28T15:27:19+05:30","dateModified":"2021-09-28T15:27:19+05:30","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Akshat Shah"},"description":"A guide to install Tex on Linux"}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Akshat Shah">Akshat Shah</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/ title="About Akshat"> About </a><a class=menu-item href=/posts/ title="Akshat's posts"> Posts </a><a class=menu-item href=/tags/> Tags </a><a class=menu-item href=/categories/> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Akshat Shah">Akshat Shah</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+Cancel
+</a>
+</div><a class=menu-item href=/about/ title="About Akshat">About</a><a class=menu-item href=/posts/ title="Akshat's posts">Posts</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/categories/ title>Categories</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">A Guide to Install Tex on Linux</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://akshatshah21.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Akshat Shah</a></span>&nbsp;<span class=post-category>included in <a href=/categories/tools/><i class="far fa-folder fa-fw"></i>tools</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="Sep 28 2021">Sep 28 2021</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;944 words&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#the-story>The Story</a></li>
+<li><a href=#what-is-tex>What is Tex?</a></li>
+<li><a href=#tex-live-installation>TeX Live Installation</a></li>
+<li><a href=#installing-a-latex-editor>Installing a LaTeX editor</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h1 id=the-story>The Story</h1>
+<p>Recently, I wanted to install a Tex system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&mldr;), but I found myself unable to update Tex packages because of a cryptic SSL peer certificate error. I reported this in an <a href=https://github.com/MiKTeX/miktex/issues/935 target=_blank rel="noopener noreffer">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
+<p>Next, I tried to install TeX Live. It seemed simple enough, with a <code>sudo apt install texlive</code>. Can&rsquo;t get any easier than this, right?</p>
+<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href=https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5 target=_blank rel="noopener noreffer">this post on Tex Stack Exchange</a>, but this didn&rsquo;t work out.</p>
+<p>So I decided to ditch APT, and tried following the <a href=https://www.tug.org/texlive/quickinstall.html target=_blank rel="noopener noreffer">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around 5GB of Tex software - fonts, packages, et cetera. For someone beginning with Tex, this did not sit well with me.</p>
+<p>Enough with this rant, let me list down the steps that I followed to install TeX Live on my system. Note that there are most likely better methods/choices that one could use, but these steps worked for me.</p>
+<h1 id=what-is-tex>What is Tex?</h1>
+<p>Simply said, Tex is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href=https://en.wikipedia.org/wiki/Donald_Knuth target=_blank rel="noopener noreffer">Donald Knuth</a> (who is a legend, by the way).</p>
+<h1 id=tex-live-installation>TeX Live Installation</h1>
+<p>TeX Live is a software distribution for Tex, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called <code>tlmgr</code>, that is used to install and update TeX packages.</p>
+<ol>
+<li>Download <code>install-tl</code> (the latest one, yay!) using <a href=https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz target=_blank rel="noopener noreffer">this link</a>. In case this gets changed, you can find the link <a href=https://www.tug.org/texlive/acquire-netinstall.html target=_blank rel="noopener noreffer">in the docs</a> (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here&rsquo;s how the contents look:</li>
+</ol>
+<figure><a class=lightgallery href=/img/content/tex-install-linux/1.png title="Contents of the install-tl directory" data-thumbnail=/img/content/tex-install-linux/1.png data-sub-html="<h2>Contents of the install-tl directory</h2><p>Contents of the install-tl directory</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=/img/content/tex-install-linux/1.png data-srcset="/img/content/tex-install-linux/1.png, /img/content/tex-install-linux/1.png 1.5x, /img/content/tex-install-linux/1.png 2x" data-sizes=auto alt="Contents of the install-tl directory">
+</a><figcaption class=image-caption>Contents of the install-tl directory</figcaption>
+</figure>
+<ol start=2>
+<li>
+<p>Run the <code>install-tl</code> Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it&rsquo;s going to install, which by default is <code>/usr/local</code>. You can change the directory by looking at the prompts of the script.</p>
+<p>Note that you can run the installer in GUI mode by the <code>-gui</code> flag (which I would recommend if you&rsquo;re doing this for the first time, but it requires Tcl to be installed).</p>
+<p>The <code>--repository</code> option specifies an explicit mirror to use. Try specifying some other <a href rel>mirrors</a> if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.</p>
+</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo perl install-tl <span class=o>[</span>-gui<span class=o>]</span> <span class=o>[</span>--repository &lt;URL&gt;<span class=o>]</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-info-circle fa-fw"></i>In case you get some error related to 'tlpdb'<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content><p>I came across the following error when I tried using an explicit mirror:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
+install-tl: Maybe the repository setting should be changed.
+install-tl: More info: https://tug.org/texlive/acquire.html
+</code></pre></td></tr></table>
+</div>
+</div><p>Try appending <code>systems/texlive/tlnet</code> to the mirror URL when running the <code>install-tl</code> script. For example,</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
+</code></pre></td></tr></table>
+</div>
+</div></div>
+</div>
+</div>
+<ol start=3>
+<li>After a few seconds, something similar to the following will be visible:
+<figure><a class=lightgallery href=/img/content/tex-install-linux/2.png title="install-tl script options" data-thumbnail=/img/content/tex-install-linux/2.png data-sub-html="<h2>install-tl script options</h2><p>install-tl script options</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=/img/content/tex-install-linux/2.png data-srcset="/img/content/tex-install-linux/2.png, /img/content/tex-install-linux/2.png 1.5x, /img/content/tex-install-linux/2.png 2x" data-sizes=auto alt="install-tl script options">
+</a><figcaption class=image-caption>install-tl script options</figcaption>
+</figure></li>
+</ol>
+<p>If you scroll up, you can see the scheme selected by default for installation:
+<code>&lt;S> set installation scheme: scheme-full</code>. Below that, you can see the number of collections and the space they&rsquo;ll take:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback> &lt;C&gt; set installation collections:
+     40 collections out of 41, disk space required: 7143 MB
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>7GB by default, not cool.</p>
+</blockquote>
+<ol start=4>
+<li>
+<p>Enter &ldquo;S&rdquo; as the command (upper or lower case), and then you can select the scheme you want. I selected the &ldquo;medium scheme&rdquo;, which takes around 1.7 GB, obviously at the cost of lesser functionality. But you can install packages as you like later on, using <code>tlmgr</code>.</p>
+<p>After you&rsquo;ve selected the scheme you want, enter &ldquo;R&rdquo; to return to the main menu, as the prompt will tell you. Then enter &ldquo;I&rdquo; to begin installation.
+<figure><a class=lightgallery href=/img/content/tex-install-linux/3.png title="Selecting the installation scheme" data-thumbnail=/img/content/tex-install-linux/3.png data-sub-html="<h2>Selecting the installation scheme</h2><p>Selecting the installation scheme</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=/img/content/tex-install-linux/3.png data-srcset="/img/content/tex-install-linux/3.png, /img/content/tex-install-linux/3.png 1.5x, /img/content/tex-install-linux/3.png 2x" data-sizes=auto alt=/img/content/tex-install-linux/3.png>
+</a><figcaption class=image-caption>Selecting the installation scheme</figcaption>
+</figure></p>
+</li>
+</ol>
+<ol start=5>
+<li>
+<p>Depending (a lot!) on the mirror you chose, your installation of TeX Live should finally be complete. For me, it took around 15 minutes.</p>
+<p>Next, you need to update your <code>PATH</code> environment variable so that it knows where to find TeX Live binaries. If you went along with the default settings, the path you need to add to your <code>PATH</code> would be something like <code>/usr/local/texlive/2021/bin/x86_64-linux</code>. Move around inside <code>/usr/local/texlive</code> to verify this.</p>
+<p>You can update your <code>.profile</code> (log out and log in again for changes to take place) or <code>.bashrc</code> or <code>.zshrc</code> or whatever (source the configuration file for changes to take place) by adding this line:</p>
+</li>
+</ol>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>PATH</span><span class=o>=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class=nv>$PATH</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id=installing-a-latex-editor>Installing a LaTeX editor</h1>
+<p>I installed TeXstudio by simply (painlessly) using APT.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install texstudio
+</code></pre></td></tr></table>
+</div>
+</div><p>I&rsquo;m happy to say that this worked fine! Most TeX editors should be able to configure the backend (TeX Live, in our case) automatically, provided you have set your <code>PATH</code> variable and your shell knows about it.
+<figure><a class=lightgallery href=/img/content/tex-install-linux/4.png title=TeXstudio data-thumbnail=/img/content/tex-install-linux/4.png data-sub-html="<h2>TeXstudio</h2><p>TeXstudio</p>">
+<img class=lazyload src=/svg/loading.min.svg data-src=img/content/tex-install-linux/4.png data-srcset="/img/content/tex-install-linux/4.png, img/content/tex-install-linux/4.png 1.5x, /img/content/tex-install-linux/4.png 2x" data-sizes=auto alt="TeXstudio screenshot">
+</a><figcaption class=image-caption>TeXstudio</figcaption>
+</figure></p>
+<h1 id=references>References</h1>
+<p><a href=https://tug.org/texlive/quickinstall.html target=_blank rel="noopener noreffer">Quick Install - TeX Live</a></p>
+<p><a href=https://www.tug.org/texlive/acquire-netinstall.html target=_blank rel="noopener noreffer">Installing TeX Live over the Internet</a></p>
+<p><a href=https://narkive.com/i3g0zxJ0.4 target=_blank rel="noopener noreffer">For the tlpdb error: An answer in a forum discussing &ldquo;Problems installing TeXlive in CentOS7&rdquo;</a></p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>Updated on Sep 28 2021</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=http://akshatshah21.github.io/tex-install-linux/ data-title="A Guide to Install Tex on Linux" data-hashtags=latex,linux><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=http://akshatshah21.github.io/tex-install-linux/ data-hashtag=latex><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=http://akshatshah21.github.io/tex-install-linux/ data-title="A Guide to Install Tex on Linux" data-web><i class="fab fa-whatsapp fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/latex/>latex</a>,&nbsp;<a href=/tags/linux/>linux</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/dcp-4/ class=prev rel=prev title="Coding Problem: First Missing Positive Integer"><i class="fas fa-angle-left fa-fw"></i>Coding Problem: First Missing Positive Integer</a>
+<a href=/reading-list-sept-2021/ class=next rel=next title="Reading List: September 2021">Reading List: September 2021<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>Akshat Shah</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments">
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/katex/copy-tex.min.css><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/auto-render.min.js></script><script type=text/javascript src=/lib/katex/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",maxResultLength:10,noResultsFound:"No results found",snippetLength:30,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>

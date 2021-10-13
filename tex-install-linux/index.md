@@ -1,7 +1,7 @@
-# A Guide to Install Tex on Linux
+# A Guide to Install TeX on Linux
 
 # The Story
-Recently, I wanted to install a Tex system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice...), but I found myself unable to update Tex packages because of a cryptic SSL peer certificate error. I reported this in an [issue](https://github.com/MiKTeX/miktex/issues/935) to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.
+Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice...), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an [issue](https://github.com/MiKTeX/miktex/issues/935) to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.
 
 Next, I tried to install TeX Live. It seemed simple enough, with a `sudo apt install texlive`. Can't get any easier than this, right?
 

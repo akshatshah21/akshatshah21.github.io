@@ -623,3 +623,4 @@ ERC20 is somewhat limited by its simplicity, even though we added on the minting
 * [ERC-20 Token Standard | ethereum.org](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/)
 * [ERC 20 - OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/3.x/api/token/erc20)
 * [ERC20 Token Tutorial by Gilad Halmov](https://www.toptal.com/ethereum/create-erc20-token-tutorial)
+

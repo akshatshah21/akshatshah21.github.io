@@ -1,0 +1,18 @@
+.home {
+    .home-profile {
+        .home-avatar {
+            img {
+                width: 12rem;
+            }
+        }
+        .home-title {
+            font-size: 2rem;
+        }
+    }
+}
+
+.home[posts] {
+    .home-avatar img {
+        width: 12rem;
+    }
+}

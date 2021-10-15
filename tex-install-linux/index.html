@@ -93,7 +93,7 @@ Cancel
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
 <li><a href=#the-story>The Story</a></li>
-<li><a href=#what-is-tex>What is Tex?</a></li>
+<li><a href=#what-is-tex>What is TeX?</a></li>
 <li><a href=#tex-live-installation>TeX Live Installation</a></li>
 <li><a href=#installing-a-latex-editor>Installing a LaTeX editor</a></li>
 <li><a href=#references>References</a></li>
@@ -102,13 +102,13 @@ Cancel
 </div><div class=content id=content><h1 id=the-story>The Story</h1>
 <p>Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&mldr;), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an <a href=https://github.com/MiKTeX/miktex/issues/935 target=_blank rel="noopener noreffer">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
 <p>Next, I tried to install TeX Live. It seemed simple enough, with a <code>sudo apt install texlive</code>. Can&rsquo;t get any easier than this, right?</p>
-<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href=https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5 target=_blank rel="noopener noreffer">this post on Tex Stack Exchange</a>, but this didn&rsquo;t work out.</p>
-<p>So I decided to ditch APT, and tried following the <a href=https://www.tug.org/texlive/quickinstall.html target=_blank rel="noopener noreffer">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around 5GB of Tex software - fonts, packages, et cetera. For someone beginning with Tex, this did not sit well with me.</p>
+<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href=https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5 target=_blank rel="noopener noreffer">this post on TeX Stack Exchange</a>, but this didn&rsquo;t work out.</p>
+<p>So I decided to ditch APT, and tried following the <a href=https://www.tug.org/texlive/quickinstall.html target=_blank rel="noopener noreffer">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around 5GB of TeX software - fonts, packages, et cetera. For someone beginning with TeX, this did not sit well with me.</p>
 <p>Enough with this rant, let me list down the steps that I followed to install TeX Live on my system. Note that there are most likely better methods/choices that one could use, but these steps worked for me.</p>
-<h1 id=what-is-tex>What is Tex?</h1>
-<p>Simply said, Tex is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href=https://en.wikipedia.org/wiki/Donald_Knuth target=_blank rel="noopener noreffer">Donald Knuth</a> (who is a legend, by the way).</p>
+<h1 id=what-is-tex>What is TeX?</h1>
+<p>Simply said, TeX is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href=https://en.wikipedia.org/wiki/Donald_Knuth target=_blank rel="noopener noreffer">Donald Knuth</a> (who is a legend, by the way).</p>
 <h1 id=tex-live-installation>TeX Live Installation</h1>
-<p>TeX Live is a software distribution for Tex, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called <code>tlmgr</code>, that is used to install and update TeX packages.</p>
+<p>TeX Live is a software distribution for TeX, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called <code>tlmgr</code>, that is used to install and update TeX packages.</p>
 <ol>
 <li>Download <code>install-tl</code> (the latest one, yay!) using <a href=https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz target=_blank rel="noopener noreffer">this link</a>. In case this gets changed, you can find the link <a href=https://www.tug.org/texlive/acquire-netinstall.html target=_blank rel="noopener noreffer">in the docs</a> (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here&rsquo;s how the contents look:</li>
 </ol>

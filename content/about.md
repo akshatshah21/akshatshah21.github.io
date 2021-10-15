@@ -11,6 +11,8 @@ With a keen interest in programming and software, I am looking forward to improv
 
 In my free time, I like to read and write. I'm always in for a good, meaningful movie or TV show, and I like to try my luck at carrom!
 
+You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
+
 # Experience
 ## [Wells Fargo](https://www.wellsfargojobs.com/WF-India-PHL)
 * *Intern, April - July 2021*

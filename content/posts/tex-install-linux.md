@@ -4,7 +4,7 @@ date: 2021-09-28T15:27:19+05:30
 tags: ["latex", "linux"]
 authorLink: https://akshatshah21.github.io/
 description: "A guide to install TeX on Linux"
-summary: "I've personally found it a headache to install TeX on Linux for people new to Tex (for example, me). So I decided to write a concise guide for it."
+summary: "I've personally found it a headache to install TeX on Linux for people new to TeX (for example, me). So I decided to write a concise guide for it."
 categories: ["tools"]
 draft: false
 ---
@@ -13,17 +13,17 @@ Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried instal
 
 Next, I tried to install TeX Live. It seemed simple enough, with a `sudo apt install texlive`. Can't get any easier than this, right?
 
-So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since `tlmgr`, TeX Live's package manager could not verify the signature for a repository. I tried following [this post on Tex Stack Exchange](https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5), but this didn't work out.
+So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since `tlmgr`, TeX Live's package manager could not verify the signature for a repository. I tried following [this post on TeX Stack Exchange](https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5), but this didn't work out.
 
-So I decided to ditch APT, and tried following the [TeX Live Quick Install docs](https://www.tug.org/texlive/quickinstall.html) (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, _recommended_ scheme to install TeX Live (called _full scheme_) installs around    5GB of Tex software - fonts, packages, et cetera. For someone beginning with Tex, this did not sit well with me.
+So I decided to ditch APT, and tried following the [TeX Live Quick Install docs](https://www.tug.org/texlive/quickinstall.html) (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, _recommended_ scheme to install TeX Live (called _full scheme_) installs around    5GB of TeX software - fonts, packages, et cetera. For someone beginning with TeX, this did not sit well with me.
 
 Enough with this rant, let me list down the steps that I followed to install TeX Live on my system. Note that there are most likely better methods/choices that one could use, but these steps worked for me.
 
-# What is Tex?
-Simply said, Tex is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) (who is a legend, by the way).
+# What is TeX?
+Simply said, TeX is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) (who is a legend, by the way).
 
 # TeX Live Installation
-TeX Live is a software distribution for Tex, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called `tlmgr`, that is used to install and update TeX packages.
+TeX Live is a software distribution for TeX, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called `tlmgr`, that is used to install and update TeX packages.
 
 1. Download `install-tl` (the latest one, yay!) using [this link](https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz). In case this gets changed, you can find the link [in the docs](https://www.tug.org/texlive/acquire-netinstall.html) (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here's how the contents look:
 

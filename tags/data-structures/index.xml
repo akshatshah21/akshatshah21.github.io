@@ -39,7 +39,7 @@ return max_element(a) + 1
 <p>So when we encounter some element of the array that is positive and less than or equal to <code>n</code>, we put it at its correct place, that&rsquo;s the position indexed by the element. So we place 1 at 1, 2 at 2, and so on.</p>
 <p>If an element <code>y</code> is already at position <code>y</code>, then we simply move forward, else we try to move it to position <code>y</code>. But this would mean replacing other elements. Note that if the elements getting replaced are negative, zero or more than <code>n</code>, then we don&rsquo;t need to worry about them. However, if the element that will be replaced is a <em>valid</em> number, then we can swap the two elements instead of replacing them, and <strong><em>not moving forward</em></strong> for this case, since we need to process the swapped element too.</p>
 <p>For handling duplicates, we change <code>y</code> to 0 (or any other <em>invalid</em> number) if there&rsquo;s already a <code>y</code> at position <code>y</code>, so that it can be potentially replaced by another number that should be at the current position.</p>
-<p>The conditions are a little tricky, so make note of them. For finding the first missing psoitive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
+<p>The conditions are a little tricky, so make note of them. For finding the first missing positive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -77,7 +77,7 @@ return n+1
 </code></pre></td></tr></table>
 </div>
 </div><p>You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a></p>
-]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
@@ -142,7 +142,7 @@ fun buildTree(nodes, i)
 </div>
 </div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
 This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
-]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h1 id="the-question">The Question</h1>
@@ -181,7 +181,7 @@ This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy
 return false
 </code></pre></td></tr></table>
 </div>
-</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space compexity.</p>
+</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space complexity.</p>
 <h2 id="sorting-and-two-pointer-approach">Sorting and two-pointer approach</h2>
 <p>We can sort the array and use two pointers, <code>front</code> (starting from 0) and <code>end</code> (starting from n-1):</p>
 <ol>
@@ -242,4 +242,4 @@ return false
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
 <p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>
 <p>If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as <code>(value, index)</code>.</p>
-]]></description></item></channel></rss>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item></channel></rss>

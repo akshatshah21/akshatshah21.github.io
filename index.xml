@@ -1024,7 +1024,7 @@ tokens.</p>
 <li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer">ERC 20 - OpenZeppelin Docs</a></li>
 <li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer">ERC20 Token Tutorial by Gilad Halmov</a></li>
 </ul>
-]]></description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
 <h3 id="articles-on-finance-on-tickertapeinhttpswwwtickertapein">Articles on Finance on <a href="https://www.tickertape.in/" target="_blank" rel="noopener noreffer">Tickertape.in</a></h3>
 <p>Call it a temporary whim, but I&rsquo;ve been looking into Finance and Economics <em>stuff</em> (pardon me, I&rsquo;ve never given it much attention before). Tickertape has a <a href="https://www.tickertape.in/learn/" target="_blank" rel="noopener noreffer">series of educational articles</a>, directed towards concepts in economics and finance, and aims to provide a foundation for getting started in equity market investing. This series has four modules, and I&rsquo;ve read the first one, <a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer">Elementary Economics</a>, which consists of the following articles:</p>
 <ol>
@@ -1056,7 +1056,7 @@ This series of articles seems very promising in teaching the principles of MLOps
 <p>Probably a classic now, I came across this <a href="http://paulgraham.com/own.html" target="_blank" rel="noopener noreffer">article</a> by Paul Graham. Go ahead and read it for yourself!</p>
 <h3 id="how-to-remember-what-you-read">How to Remember What You Read</h3>
 <p>This <a href="https://fs.blog/2021/08/remember-books/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">great article</a> by Farnam Street is something that I was thinking about for a long time before I actually googled this question and came across this article.</p>
-]]></description></item><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description><![CDATA[<h1 id="the-story">The Story</h1>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description><![CDATA[<h1 id="the-story">The Story</h1>
 <p>Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&hellip;), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an <a href="https://github.com/MiKTeX/miktex/issues/935" target="_blank" rel="noopener noreffer">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
 <p>Next, I tried to install TeX Live. It seemed simple enough, with a <code>sudo apt install texlive</code>. Can&rsquo;t get any easier than this, right?</p>
 <p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href="https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5" target="_blank" rel="noopener noreffer">this post on TeX Stack Exchange</a>, but this didn&rsquo;t work out.</p>
@@ -1187,7 +1187,7 @@ install-tl: More info: https://tug.org/texlive/acquire.html
 <p><a href="https://tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">Quick Install - TeX Live</a></p>
 <p><a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">Installing TeX Live over the Internet</a></p>
 <p><a href="https://narkive.com/i3g0zxJ0.4" target="_blank" rel="noopener noreffer">For the tlpdb error: An answer in a forum discussing &ldquo;Problems installing TeXlive in CentOS7&rdquo;</a></p>
-]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
@@ -1228,7 +1228,7 @@ return max_element(a) + 1
 <p>So when we encounter some element of the array that is positive and less than or equal to <code>n</code>, we put it at its correct place, that&rsquo;s the position indexed by the element. So we place 1 at 1, 2 at 2, and so on.</p>
 <p>If an element <code>y</code> is already at position <code>y</code>, then we simply move forward, else we try to move it to position <code>y</code>. But this would mean replacing other elements. Note that if the elements getting replaced are negative, zero or more than <code>n</code>, then we don&rsquo;t need to worry about them. However, if the element that will be replaced is a <em>valid</em> number, then we can swap the two elements instead of replacing them, and <strong><em>not moving forward</em></strong> for this case, since we need to process the swapped element too.</p>
 <p>For handling duplicates, we change <code>y</code> to 0 (or any other <em>invalid</em> number) if there&rsquo;s already a <code>y</code> at position <code>y</code>, so that it can be potentially replaced by another number that should be at the current position.</p>
-<p>The conditions are a little tricky, so make note of them. For finding the first missing psoitive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
+<p>The conditions are a little tricky, so make note of them. For finding the first missing positive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1266,7 +1266,7 @@ return n+1
 </code></pre></td></tr></table>
 </div>
 </div><p>You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a></p>
-]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
@@ -1331,7 +1331,7 @@ fun buildTree(nodes, i)
 </div>
 </div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
 This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
-]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h1 id="the-question">The Question</h1>
@@ -1370,7 +1370,7 @@ This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy
 return false
 </code></pre></td></tr></table>
 </div>
-</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space compexity.</p>
+</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space complexity.</p>
 <h2 id="sorting-and-two-pointer-approach">Sorting and two-pointer approach</h2>
 <p>We can sort the array and use two pointers, <code>front</code> (starting from 0) and <code>end</code> (starting from n-1):</p>
 <ol>
@@ -1431,4 +1431,4 @@ return false
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
 <p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>
 <p>If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as <code>(value, index)</code>.</p>
-]]></description></item></channel></rss>
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>]]></description></item></channel></rss>

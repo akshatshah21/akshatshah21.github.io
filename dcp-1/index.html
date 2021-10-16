@@ -142,7 +142,7 @@ Cancel
 return false
 </code></pre></td></tr></table>
 </div>
-</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space compexity.</p>
+</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space complexity.</p>
 <h2 id=sorting-and-two-pointer-approach>Sorting and two-pointer approach</h2>
 <p>We can sort the array and use two pointers, <code>front</code> (starting from 0) and <code>end</code> (starting from n-1):</p>
 <ol>
@@ -203,7 +203,7 @@ return false
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
 <p>You can find the implementation of this solution <a href=https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp target=_blank rel="noopener noreffer">here</a></p>
 <p>If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as <code>(value, index)</code>.</p>
-</div><div class=post-footer id=post-footer>
+<iframe src=https://akshatshah21.substack.com/embed width=100% height=320 style="border:1px solid #eee;background:#fff" frameborder=0 scrolling=no></iframe></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>

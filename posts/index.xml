@@ -1,1 +1,1434 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - Akshat Shah</title><link>http://akshatshah21.github.io/posts/</link><description>All Posts | Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Wed, 13 Oct 2021 22:07:20 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>Making a Simple ERC20 Token</title><link>http://akshatshah21.github.io/erc20/</link><pubDate>Wed, 13 Oct 2021 22:07:20 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/erc20/</guid><description>Implementing the ERC20 standard to make a simple fungible token on Ethereum</description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description>a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them</description></item><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description>I&amp;rsquo;ve personally found it a headache to install TeX on Linux for people new to TeX (for example, me). So I decided to write a concise guide for it.</description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description>Given an array of integers, find the first missing positive integer in linear time and constant space.</description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description>Design an algorithm to serialize and deserialize a binary tree.</description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description>Given a list of numbers and a number &lt;code>k&lt;/code>, return whether any two numbers from the list add up to &lt;code>k&lt;/code>.</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - Akshat Shah</title><link>http://akshatshah21.github.io/posts/</link><description>All Posts | Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Wed, 13 Oct 2021 22:07:20 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>Making a Simple ERC20 Token</title><link>http://akshatshah21.github.io/erc20/</link><pubDate>Wed, 13 Oct 2021 22:07:20 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/erc20/</guid><description><![CDATA[<p>In this blog post, I&rsquo;ll walk through creating a simple ERC20 token on Ethereum. This was one of my lab assignments this semester, and I thought I better make a blog post about this, because <del>I want to write consistently over here</del> why not?</p>
+<p>A token in general is basically simply a digital representation of
+potentially anything. For example, a token can represent:</p>
+<ul>
+<li>
+<p>reputation points in an online platform</p>
+</li>
+<li>
+<p>skills of a character in a game</p>
+</li>
+<li>
+<p>lottery tickets</p>
+</li>
+<li>
+<p>financial assets like a share in a company</p>
+</li>
+<li>
+<p>a fiat currency like USD</p>
+</li>
+<li>
+<p>an ounce of gold</p>
+</li>
+</ul>
+<p>A token can also represent access rights to a blockchain or blockchain
+app, and tokens can also be used to automate &quot;friction points&quot; in
+various industries.</p>
+<p>Utility tokens, are tokens that have a specific &quot;use&quot; on the
+blockchain or an app based on that. Utility tokens are also called &quot;app
+coins&quot; because they are explicitly designed for a certain app or
+blockchain.</p>
+<h1 id="erc20-standard">ERC20 Standard</h1>
+<p>The ERC-20 (<a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener noreffer">Ethereum Request for Comments 20</a>), proposed by Fabian
+Vogelsteller in November 2015, is a Token Standard that implements an
+API for tokens within Smart Contracts. The motivation for this EIP was
+to make &quot;a standard interface allows any tokens on Ethereum to be
+re-used by other applications: from wallets to decentralized
+exchanges.&quot;</p>
+<p>It provides functionalities like transfering tokens from one account to
+another, to get the current token balance of an account and also the
+total supply of the token available on the network. Besides these it can allow an owner of some tokens to approve spending those tokens by a third party account.</p>
+<h2 id="methods-and-events-defined-in-erc20">Methods and Events Defined in ERC20</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">function</span> <span class="nf">name</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">symbol</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">decimals</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint8</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">totalSupply</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="nb">balance</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="n">_from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">_spender</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nf">allowance</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_spender</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">remaining</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>The <code>name</code>, <code>symbol</code>, <code>decimals</code> are state
+constants that identify the ERC20 token and the number of decimal
+places used for user representation.</p>
+</li>
+<li>
+<p>The <code>totalSupply</code> function returns the total supply of the
+ERC20 token.</p>
+</li>
+<li>
+<p>The <code>balanceOf</code> function returns the balance of the address
+passed as a argument.</p>
+</li>
+<li>
+<p>The <code>transfer</code> function transfers specified number of tokens
+from the sender to the specified receiver, provided the sender has
+sufficient balance.</p>
+</li>
+<li>
+<p>The <code>approve</code> function is used by the owner of some tokens
+(specified by the <code>_from</code> argument) to approve a delegate
+account to withdraw and spend some allowed number of tokens.</p>
+</li>
+<li>
+<p>The <code>allowance</code> function returns the current approved number
+of tokens by an owner to a specific delegate, as set in the approve
+function.</p>
+</li>
+<li>
+<p>The <code>transferFrom</code> function allows a delegate approved for
+withdrawal to transfer owner funds, provided the funds specified are
+less than or equal to the allowance of the delegate, and less than
+or equal to the owner&rsquo;s balance.</p>
+</li>
+</ul>
+<p>For our implementation of the ERC20 token, we add some features apart
+from the standard:</p>
+<ul>
+<li>
+<p>The <code>burn</code> function allows the sender to burn some specified
+number of tokens, provided they have sufficient balance. Successful
+burning of tokens emits a <code>Transfer</code> event to address
+0x000...000.</p>
+</li>
+<li>
+<p>The <code>burnFrom</code> function allows a delegate to burn some
+specified number of tokens from an account they have sufficient
+allowance from. Successful burning of tokens emits a
+<code>Transfer</code> event to address 0x000...000.</p>
+</li>
+<li>
+<p>The <code>isMinter</code> function allows anyone to check if the
+specified address has minting privileges (or has the minter role).</p>
+</li>
+<li>
+<p>The <code>addMinter</code> function allows the creator of the token to
+add an address as a minter. Successful addition emits a
+<code>MinterAdded</code> event.</p>
+</li>
+<li>
+<p>The <code>removeMinter</code> function allows the creator of the token
+to remove an address from the minter role. Successful removal emits
+a <code>MinterRemoved</code> event.</p>
+</li>
+<li>
+<p>The <code>renounce</code> function allows a minter to renounce their
+minting privileges. Successful renunciation emits a
+<code>MinterRemoved</code> event.</p>
+</li>
+<li>
+<p>The <code>mint</code> function allows a minter to mint an arbitrary
+amount of tokens and take ownership of those tokens. Successful
+minting emits a <code>Transfer</code> event with 0x000...000 as the
+from address.</p>
+</li>
+<li>
+<p>The <code>_isMinter</code> mapping maintains a mapping to identify
+whether an address has minting privileges or not.</p>
+</li>
+</ul>
+<h1 id="implementation">Implementation</h1>
+<p>We make this contract in <a href="https://soliditylang.org/" target="_blank" rel="noopener noreffer">Solidity</a>, and a simple way to start writing Ethereum contracts in Solidity is to use the <a href="https://remix.ethereum.org" target="_blank" rel="noopener noreffer">Remix IDE</a> It&rsquo;s browser-based, no setup required.</p>
+<h2 id="token-contract">Token Contract</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="k">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span><span class="n">SafeMath</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;../lib/SafeMath.sol&#34;</span><span class="p">;</span>
+
+<span class="kd">contract</span> <span class="nc">AkshatToken</span> <span class="p">{</span>
+    
+    <span class="kt">string</span> <span class="k">public</span> <span class="k">constant</span> <span class="nb">name</span> <span class="o">=</span> <span class="s">&#34;Akshat&#39;s Token&#34;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="k">public</span> <span class="k">constant</span> <span class="n">symbol</span> <span class="o">=</span> <span class="s">&#34;AKT&#34;</span><span class="p">;</span>
+    <span class="kt">uint8</span> <span class="k">public</span> <span class="k">constant</span> <span class="n">decimals</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="kt">address</span> <span class="k">public</span> <span class="n">creator</span><span class="p">;</span>
+    
+    <span class="kt">uint256</span> <span class="n">_totalSupply</span><span class="p">;</span>
+    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="n">_balances</span><span class="p">;</span>
+    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">))</span> <span class="n">_allowed</span><span class="p">;</span>
+    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">bool</span><span class="p">)</span> <span class="n">_isMinter</span><span class="p">;</span>
+    
+    <span class="kd">event</span> <span class="nc">Transfer</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="k">from</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">tokens</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="nc">Approval</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">delegate</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">tokens</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="nc">MinterAdded</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">minter</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">addedBy</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="nc">MinterRemoved</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">minter</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">removedBy</span><span class="p">);</span>
+    
+    <span class="kn">using</span> <span class="n">SafeMath</span> <span class="k">for</span> <span class="kt">uint256</span><span class="p">;</span>
+    
+    <span class="kd">modifier</span> <span class="nf">onlyCreator</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span>
+            <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">creator</span><span class="p">,</span>
+            <span class="s">&#34;Only creator can call this function&#34;</span>
+        <span class="p">);</span>
+        <span class="k">_</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">modifier</span> <span class="nf">onlyMiner</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span>
+            <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">creator</span> <span class="o">||</span> <span class="n">_isMinter</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span>
+            <span class="s">&#34;Only a minter or the creator can call this function&#34;</span>
+        <span class="p">);</span>
+        <span class="k">_</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">constructor</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">total</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">total</span><span class="p">;</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span><span class="p">;</span>
+        <span class="n">creator</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">totalSupply</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_totalSupply</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">owner</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_balances</span><span class="p">[</span><span class="n">owner</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">allowance</span><span class="p">(</span><span class="kt">address</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">address</span> <span class="n">delegate</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_allowed</span><span class="p">[</span><span class="n">owner</span><span class="p">][</span><span class="n">delegate</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">delegate</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_allowed</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">][</span><span class="n">delegate</span><span class="p">]</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">Approval</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">delegate</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="k">from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens approved for delegation&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">burn</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">burnFrom</span><span class="p">(</span><span class="kt">address</span> <span class="k">from</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens approved for delegation&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">isMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">addMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyCreator</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">==</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;Already a minter&#34;</span><span class="p">);</span>
+        <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">MinterAdded</span><span class="p">(</span><span class="n">_address</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">removeMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyCreator</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">==</span> <span class="kc">true</span><span class="p">,</span> <span class="s">&#34;Already not a minter&#34;</span><span class="p">);</span>
+        <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="n">_address</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">renounceMinter</span><span class="p">()</span> <span class="k">public</span> <span class="n">onlyMiner</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_isMinter</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">mint</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyMiner</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="token-vendor-contract">Token Vendor Contract</h2>
+<p>To allow buying and selling tokens (for ether), we create a Vendor
+contract, that allows buyers and sellers of the tokens to call functions
+for the same.</p>
+<ul>
+<li>
+<p>The payable <code>buyTokens</code> function allows the sender to send
+some ether in exchange for tokens.</p>
+</li>
+<li>
+<p>The <code>sellTokens</code> function allows the sender to sell the
+tokens for ether. Successful sale of tokens will require that the
+sender has delegated a minimum of that amount of tokens to the
+contract account using the <code>approve</code> function defined in the
+token contract, so that the Vendor contract can transfer the
+specified number of tokens on the sender&rsquo;s behalf.</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="k">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span><span class="n">AkshatToken</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;./AkshatToken.sol&#34;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span><span class="n">SafeMath</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;../lib/SafeMath.sol&#34;</span><span class="p">;</span>
+
+<span class="kd">contract</span> <span class="nc">AkshatTokenVendor</span> <span class="p">{</span>
+    <span class="n">AkshatToken</span> <span class="n">token</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">tokensPerEth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    
+    <span class="kd">event</span> <span class="nc">BuyTokens</span><span class="p">(</span><span class="kt">address</span> <span class="n">buyer</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">eth</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="nc">SellTokens</span><span class="p">(</span><span class="kt">address</span> <span class="n">seller</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">eth</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">);</span>
+    
+    <span class="kn">using</span> <span class="n">SafeMath</span> <span class="k">for</span> <span class="kt">uint256</span><span class="p">;</span>
+    
+    <span class="kd">constructor</span> <span class="p">(</span><span class="kt">address</span> <span class="n">tokenAddress</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">AkshatToken</span><span class="p">(</span><span class="n">tokenAddress</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{}</span>
+    
+    <span class="kd">function</span> <span class="nf">buyTokens</span><span class="p">()</span> <span class="k">public</span> <span class="k">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Insufficient ether sent&#34;</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">eth</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">eth</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">tokensPerEth</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">tokens</span><span class="p">,</span> <span class="s">&#34;Vendor contract has insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="kt">bool</span> <span class="n">sent</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring tokens&#34;</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">BuyTokens</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tokens</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// requires delegation approval
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="nf">sellTokens</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Need to sell non-zero tokens&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">tokens</span><span class="p">,</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">eth</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">tokensPerEth</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&gt;=</span> <span class="n">eth</span><span class="p">,</span> <span class="s">&#34;Vendor contract has insufficient ether&#34;</span><span class="p">);</span>
+        <span class="kt">bool</span> <span class="n">sent</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="n">transferFrom</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring tokens, check approval&#34;</span><span class="p">);</span>
+        <span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="p">)</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="n">eth</span><span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring ether&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>We define arithmetic operations explicitly to secure our ERC20 Token
+from integer overflow attacks. We check for integer overflows while
+performing these operations. This logic is implemented in a separate
+library called <code>SafeMath</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="k">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">library</span> <span class="n">SafeMath</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+        <span class="nb">assert</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">mul</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">,</span> <span class="s">&#34;SafeMath: multiplication overflow&#34;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nf">div</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+        <span class="c1">// assert(a == b * c + a % b); // There is no case in which this doesn&#39;t hold
+</span><span class="c1"></span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="execution">Execution</h1>
+<p>The following steps show how the contracts can be deployed, following a
+demonstration of the different functionalities coded in the contracts.
+We run a local <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreffer">Geth</a> client running a private blockchain, and use the Remix IDE to call the contracts.</p>
+<ol>
+<li>
+<p>First, we initialize a local test ethereum network using the genesis
+block given below, and start the node, allowing RPC CORS from Remix.
+Attach a console to the running geth client via IPC. Create three
+accounts, and start mining with one so that we can deploy a contract
+using that account.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span> 
+    <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="nt">&#34;chainId&#34;</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> 
+        <span class="nt">&#34;homesteadBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="nt">&#34;eip150Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="nt">&#34;eip150Hash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;eip155Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="nt">&#34;eip158Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;byzantiumBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;constantinopleBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;petersburgBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;istanbulBlock&#34;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span> 
+    <span class="nt">&#34;nonce&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000042&#34;</span><span class="p">,</span> 
+    <span class="nt">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span> 
+    <span class="nt">&#34;parentHash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;extraData&#34;</span><span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;gasLimit&#34;</span><span class="p">:</span> <span class="s2">&#34;0x4c4b40&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;difficulty&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0004&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;mixhash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;coinbase&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;alloc&#34;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ geth --datadir .ethereum/net init genesis.json
+$ geth --rpc --rpccorsdomain <span class="s2">&#34;https://remix.ethereum.org&#34;</span> --datadir .ethereum/net --allow-insecure-unlock
+$ geth attach ipc:&lt;DATADIR&gt;/geth.ipc
+</code></pre></td></tr></table>
+</div>
+</div><figure><a class="lightgallery" href="/erc20/img/geth-init.png" title="Initializing the local test ethereum network" data-thumbnail="/erc20/img/geth-init.png" data-sub-html="<h2>Initializing the local test ethereum network</h2><p>Initializing the local test ethereum network</p>">
+        
+    </a><figcaption class="image-caption">Initializing the local test ethereum network</figcaption>
+    </figure>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript">    <span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">newAccount</span><span class="p">()</span>  <span class="c1">// to create an account
+</span><span class="c1"></span>    <span class="o">&gt;</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>  <span class="c1">// to start mining
+</span></code></pre></td></tr></table>
+</div>
+</div><figure><a class="lightgallery" href="/erc20/img/accounts-mining.png" title="Create accounts and start mining" data-thumbnail="/erc20/img/accounts-mining.png" data-sub-html="<h2>Create accounts and start mining</h2><p>Create accounts and start mining</p>">
+        
+    </a><figcaption class="image-caption">Create accounts and start mining</figcaption>
+    </figure>
+</li>
+<li>
+<p>In Remix IDE, switch to the <em>Deploy &amp; run transactions</em> window.
+Select <em>Web3 Provider</em> as the <em>Environment</em>. When the Remix IDE
+connects to the Geth client, the three addresses should be visible
+in the <em>Account</em> input.</p>
+<figure><a class="lightgallery" href="/erc20/img/remix-ready.png" title="Remix IDE connected to local test network" data-thumbnail="/erc20/img/remix-ready.png" data-sub-html="<h2>Remix IDE connected to local test network</h2><p>Remix IDE connected to local test network</p>">
+        
+    </a><figcaption class="image-caption">Remix IDE connected to local test network</figcaption>
+    </figure>
+</li>
+<li>
+<p>We can now deploy the contract by selecting the contract, providing
+the <code>total</code> argument. We select 1000 tokens as the initial
+supply. Unlock an account which has some ether using the geth
+console by running
+<code>personal. unlockAccount(eth.accounts[0])</code>. Click on
+<em>Deploy</em>. After we deploy the contract, the contract will appear
+under <em>Deployed Contracts</em>, with functions available to use.</p>
+<figure><a class="lightgallery" href="/erc20/img/deployed-1.png" title="The Token Contract, deployed" data-thumbnail="/erc20/img/deployed-1.png" data-sub-html="<h2>The Token Contract, deployed</h2><p>The Token Contract, deployed</p>">
+        
+    </a><figcaption class="image-caption">The Token Contract, deployed</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/deployed-2.png" title="The Token Contract, deployed. These are the view functions." data-thumbnail="/erc20/img/deployed-2.png" data-sub-html="<h2>The Token Contract, deployed. These are the view functions.</h2><p>The Token Contract, deployed. These are the view functions.</p>">
+        
+    </a><figcaption class="image-caption">The Token Contract, deployed. These are the <em>view</em> functions.</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/deployed-3.png" title="Transaction receipt of deploying the contract" data-thumbnail="/erc20/img/deployed-3.png" data-sub-html="<h2>Transaction receipt of deploying the contract</h2><p>Transaction receipt of deploying the contract</p>">
+        
+    </a><figcaption class="image-caption">Transaction receipt of deploying the contract</figcaption>
+    </figure>
+</li>
+<li>
+<p>Try running the different <em>view</em> functions first, and check whether
+the output is as expected. For example, the <code>balanceOf</code>
+function with the contract creator&rsquo;s address should return 1000
+tokens initially. The <code>name</code>, <code>symbol</code>,
+<code>decimals</code>, <code>creator</code> and <code>isMinter</code> functions
+should similarly return expected values.</p>
+<figure><a class="lightgallery" href="/erc20/img/view-1.png" title="The view functions return values as expected" data-thumbnail="/erc20/img/view-1.png" data-sub-html="<h2>The view functions return values as expected</h2><p>The view functions return values as expected</p>">
+        
+    </a><figcaption class="image-caption">The <em>view</em> functions return values as expected</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/view-2.png" title="The view functions return values as expected" data-thumbnail="/erc20/img/view-2.png" data-sub-html="<h2>The view functions return values as expected</h2><p>The view functions return values as expected</p>">
+        
+    </a><figcaption class="image-caption">The <em>view</em> functions return values as expected</figcaption>
+    </figure>
+</li>
+<li>
+<p>If we try minting from the second account, an error will be
+returned, since the second account does not have minting privileges.</p>
+<figure><a class="lightgallery" href="/erc20/img/mint-fail.png" title="Trying to mint from an address that does not have minting privileges. Remix shows the *require* error while gas estimation." data-thumbnail="/erc20/img/mint-fail.png" data-sub-html="<h2>Trying to mint from an address that does not have minting privileges. Remix shows the require error while gas estimation.</h2><p>Trying to mint from an address that does not have minting privileges. Remix shows the *require* error while gas estimation.</p>">
+        
+    </a><figcaption class="image-caption">Trying to mint from an address that does not have minting privileges. Remix shows the <em>require</em> error while gas estimation.</figcaption>
+    </figure>
+</li>
+<li>
+<p>Now we can try adding the second account as a minter using the
+<code>addMinter</code> method from the creator&rsquo;s account.</p>
+<figure><a class="lightgallery" href="/erc20/img/addMinter.png" title="Call to addMinter function specifying address" data-thumbnail="/erc20/img/addMinter.png" data-sub-html="<h2>Call to addMinter function specifying address</h2><p>Call to addMinter function specifying address</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>addMinter</code> function specifying address</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/isMinter.png" title="Checking if the address now has minter privileges returns true" data-thumbnail="/erc20/img/isMinter.png" data-sub-html="<h2>Checking if the address now has minter privileges returns true</h2><p>Checking if the address now has minter privileges returns true</p>">
+        
+    </a><figcaption class="image-caption">Checking if the address now has minter privileges returns true</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/MinterAddedEvent.png" title="MinterAdded event emitted, specifying who added whom as a minter" data-thumbnail="/erc20/img/MinterAddedEvent.png" data-sub-html="<h2>MinterAdded event emitted, specifying who added whom as a minter</h2><p>MinterAdded event emitted, specifying who added whom as a minter</p>">
+        
+    </a><figcaption class="image-caption"><code>MinterAdded</code> event emitted, specifying who added whom as a minter</figcaption>
+    </figure>
+</li>
+<li>
+<p>If we now call the <code>isMinter</code> method from the second account,
+we&rsquo;ll get true as the return value.</p>
+</li>
+<li>
+<p>We can try minting some tokens from the second account by (first
+changing the account in Remix) calling <code>mint</code> method.</p>
+<figure><a class="lightgallery" href="/erc20/img/mint.png" title="Call to mint function" data-thumbnail="/erc20/img/mint.png" data-sub-html="<h2>Call to mint function</h2><p>Call to mint function</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>mint</code> function</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/mint-transfer.png" title="Transfer event of 500 tokens from 0x000...000" data-thumbnail="/erc20/img/mint-transfer.png" data-sub-html="<h2>Transfer event of 500 tokens from 0x000...000</h2><p>Transfer event of 500 tokens from 0x000...000</p>">
+        
+    </a><figcaption class="image-caption">Transfer event of 500 tokens from <code>0x000...000</code></figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/mint-balance.png" title="New balance of minter" data-thumbnail="/erc20/img/mint-balance.png" data-sub-html="<h2>New balance of minter</h2><p>New balance of minter</p>">
+        
+    </a><figcaption class="image-caption">New balance of minter</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/mint-totalsupply.png" title="New total supply of tokens" data-thumbnail="/erc20/img/mint-totalsupply.png" data-sub-html="<h2>New total supply of tokens</h2><p>New total supply of tokens</p>">
+        
+    </a><figcaption class="image-caption">New total supply of tokens</figcaption>
+    </figure>
+</li>
+<li>
+<p>We can transfer tokens from second account to third account by
+calling the <code>transfer</code> method from the second account.</p>
+<figure><a class="lightgallery" href="/erc20/img/transfer-call.png" title="Call to transfer function" data-thumbnail="/erc20/img/transfer-call.png" data-sub-html="<h2>Call to transfer function</h2><p>Call to transfer function</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>transfer</code> function</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/TransferEvent.png" title="Transfer event of 200 tokens with from and to addresses" data-thumbnail="/erc20/img/TransferEvent.png" data-sub-html="<h2>Transfer event of 200 tokens with from and to addresses</h2><p>Transfer event of 200 tokens with from and to addresses</p>">
+        
+    </a><figcaption class="image-caption">Transfer event of 200 tokens with from and to addresses</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/Transfer-sender-balance.png" title="New balance of sender (500 → 300)" data-thumbnail="/erc20/img/Transfer-sender-balance.png" data-sub-html="<h2>New balance of sender (500 → 300)</h2><p>New balance of sender (500 → 300)</p>">
+        
+    </a><figcaption class="image-caption">New balance of sender (500 → 300)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/Transfer-receiver-balance.png" title="New balance of receiver (0 → 200)" data-thumbnail="/erc20/img/Transfer-receiver-balance.png" data-sub-html="<h2>New balance of receiver (0 → 200)</h2><p>New balance of receiver (0 → 200)</p>">
+        
+    </a><figcaption class="image-caption">New balance of receiver (0 → 200)</figcaption>
+    </figure>
+</li>
+<li>
+<p>Let&rsquo;s approve the third account for delegation of 50 tokens by
+calling the <code>approve</code> method from the second account. We can
+then check the allowance by calling the <code>allowance</code> method.</p>
+</li>
+</ol>
+<figure><a class="lightgallery" href="/erc20/img/approve.png" title="Call to approve function" data-thumbnail="/erc20/img/approve.png" data-sub-html="<h2>Call to approve function</h2><p>Call to approve function</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>approve</code> function</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/allowance.png" title="Subsequent call to `allowance` function" data-thumbnail="/erc20/img/allowance.png" data-sub-html="<h2>Subsequent call to allowance function</h2><p>Subsequent call to `allowance` function</p>">
+        
+    </a><figcaption class="image-caption">Subsequent call to <code>allowance</code> function</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/ApprovalEvent.png" title="Approval event emitted, specifying the owner, delegate and the allowance" data-thumbnail="/erc20/img/ApprovalEvent.png" data-sub-html="<h2>Approval event emitted, specifying the owner, delegate and the allowance</h2><p>Approval event emitted, specifying the owner, delegate and the allowance</p>">
+        
+    </a><figcaption class="image-caption">Approval event emitted, specifying the owner, delegate and the allowance</figcaption>
+    </figure>
+<ol>
+<li>
+<p>Let&rsquo;s transfer 20 tokens belonging to the second address to the
+first address from by calling <code>transferFrom</code> method from the
+third account.</p>
+<figure><a class="lightgallery" href="/erc20/img/transferFrom.png" title="Call to transferFrom function" data-thumbnail="/erc20/img/transferFrom.png" data-sub-html="<h2>Call to transferFrom function</h2><p>Call to transferFrom function</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>transferFrom</code> function</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/transferFrom-updated-allowance.png" title="Updated allowance from 0x1a8b3b to 0x08b16E (50 → 30)" data-thumbnail="/erc20/img/transferFrom-updated-allowance.png" data-sub-html="<h2>Updated allowance from 0x1a8b3b to 0x08b16E (50 → 30)</h2><p>Updated allowance from 0x1a8b3b to 0x08b16E (50 → 30)</p>">
+        
+    </a><figcaption class="image-caption">Updated allowance from <code>0x1a8b3b</code> to <code>0x08b16E</code> (50 → 30)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/transferFrom-updated-sender-balance.png" title="Updated balance of sender 0x1a8b3b" data-thumbnail="/erc20/img/transferFrom-updated-sender-balance.png" data-sub-html="<h2>Updated balance of sender 0x1a8b3b</h2><p>Updated balance of sender 0x1a8b3b</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of sender <code>0x1a8b3b</code></figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/transferFrom-updated-receiver-balance.png" title="Updated balance of receiver 0x02138 (1000 → 1020)" data-thumbnail="/erc20/img/transferFrom-updated-receiver-balance.png" data-sub-html="<h2>Updated balance of receiver 0x02138 (1000 → 1020)</h2><p>Updated balance of receiver 0x02138 (1000 → 1020)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of receiver <code>0x02138</code> (1000 → 1020)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/transferFrom-TransferEvent.png" title="Transfer Event with from, to and tokens transferred" data-thumbnail="/erc20/img/transferFrom-TransferEvent.png" data-sub-html="<h2>Transfer Event with from, to and tokens transferred</h2><p>Transfer Event with from, to and tokens transferred</p>">
+        
+    </a><figcaption class="image-caption">Transfer Event with from, to and tokens transferred</figcaption>
+    </figure>
+</li>
+<li>
+<p>Let&rsquo;s burn 200 tokens from creator&rsquo;s account.</p>
+<figure><a class="lightgallery" href="/erc20/img/burn.png" title="Call to burn function with 200 tokens" data-thumbnail="/erc20/img/burn.png" data-sub-html="<h2>Call to burn function with 200 tokens</h2><p>Call to burn function with 200 tokens</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>burn</code> function with 200 tokens</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/burn-sender-balance.png" title="Updated balance of account (1020 → 820)" data-thumbnail="/erc20/img/burn-sender-balance.png" data-sub-html="<h2>Updated balance of account (1020 → 820)</h2><p>Updated balance of account (1020 → 820)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of account (1020 → 820)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/burn-totalsupply.png" title="Updated total supply (1500 → 1300)" data-thumbnail="/erc20/img/burn-totalsupply.png" data-sub-html="<h2>Updated total supply (1500 → 1300)</h2><p>Updated total supply (1500 → 1300)</p>">
+        
+    </a><figcaption class="image-caption">Updated total supply (1500 → 1300)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/burn-TransferEvent.png" title="Transfer Event of 200 tokens to address 0x000...000" data-thumbnail="/erc20/img/burn-TransferEvent.png" data-sub-html="<h2>Transfer Event of 200 tokens to address 0x000&hellip;000</h2><p>Transfer Event of 200 tokens to address 0x000...000</p>">
+        
+    </a><figcaption class="image-caption">Transfer Event of 200 tokens to address 0x000&hellip;000</figcaption>
+    </figure>
+</li>
+<li>
+<p>Let&rsquo;s burn the remaining 30 tokens from the allowance delegated from
+second address to the third address.</p>
+<figure><a class="lightgallery" href="/erc20/img/burnFrom.png" title="Call to burnFrom function with 30 tokens, delegated from 0x1a8b3b to 0x08b16E" data-thumbnail="/erc20/img/burnFrom.png" data-sub-html="<h2>Call to burnFrom function with 30 tokens, delegated from 0x1a8b3b to 0x08b16E</h2><p>Call to burnFrom function with 30 tokens, delegated from 0x1a8b3b to 0x08b16E</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>burnFrom</code> function with 30 tokens, delegated from 0x1a8b3b to 0x08b16E</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/burnFrom-sender-balance.png" title="Updated balance of account `0x1a8b3b` (280 →250)" data-thumbnail="/erc20/img/burnFrom-sender-balance.png" data-sub-html="<h2>Updated balance of account 0x1a8b3b (280 →250)</h2><p>Updated balance of account `0x1a8b3b` (280 →250)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of account <code>0x1a8b3b</code> (280 →250)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/burnFrom-totalsupply.png" title="Updated total supply (1300 → 1270)" data-thumbnail="/erc20/img/burnFrom-totalsupply.png" data-sub-html="<h2>Updated total supply (1300 → 1270)</h2><p>Updated total supply (1300 → 1270)</p>">
+        
+    </a><figcaption class="image-caption">Updated total supply (1300 → 1270)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/burnFrom-TransferEvent.png" title="Transfer Event of 30 tokens to address 0x000...000" data-thumbnail="/erc20/img/burnFrom-TransferEvent.png" data-sub-html="<h2>Transfer Event of 30 tokens to address 0x000...000</h2><p>Transfer Event of 30 tokens to address 0x000...000</p>">
+        
+    </a><figcaption class="image-caption">Transfer Event of 30 tokens to address <code>0x000...000</code></figcaption>
+    </figure>
+</li>
+<li>
+<p>Now let&rsquo;s deploy the Token Vendor contract in the same manner as we
+deployed the Token contract. We will create the vendor contract from
+the creator address again, and then send some ether to the contract
+(using Metamask, any other wallet or even the geth console) for its
+funds, so that it can buy tokens from some address who sells tokens
+to it for ether. Select the token vendor contract and deploy it,
+with the address of the token contract as a parameter to the
+constructor.</p>
+<figure><a class="lightgallery" href="/erc20/img/vendor-contract-creation.png" title="Deploying the Token Vendor contract. The functions available to call are shown on the left" data-thumbnail="/erc20/img/vendor-contract-creation.png" data-sub-html="<h2>Deploying the Token Vendor contract. The functions available to call are shown on the left</h2><p>Deploying the Token Vendor contract. The functions available to call are shown on the left</p>">
+        
+    </a><figcaption class="image-caption">Deploying the Token Vendor contract. The functions available to call are shown on the left</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/ether-to-vendo.png" title="Sending 1000 ETH to the Vendor contract using Metamask" data-thumbnail="/erc20/img/ether-to-vendo.png" data-sub-html="<h2>Sending 1000 ETH to the Vendor contract using Metamask</h2><p>Sending 1000 ETH to the Vendor contract using Metamask</p>">
+        
+    </a><figcaption class="image-caption">Sending 1000 ETH to the Vendor contract using Metamask</figcaption>
+    </figure>
+</li>
+<li>
+<p>If we now try selling some tokens to the contract, we will get an
+error, since we first have to delegate that amount of tokens to the
+Vendor contract to allow it to transfer those tokens to itself.
+Hence, first approve some amount of tokens to the vendor contract,
+and then call the <code>sellTokens</code> function with some tokens less
+than or equal to the allowance.</p>
+<figure><a class="lightgallery" href="/erc20/img/sell-tokens-delegation-fail.png" title="Trying to sell tokens without approval of those tokens to the vendor contract" data-thumbnail="/erc20/img/sell-tokens-delegation-fail.png" data-sub-html="<h2>Trying to sell tokens without approval of those tokens to the vendor contract</h2><p>Trying to sell tokens without approval of those tokens to the vendor contract</p>">
+        
+    </a><figcaption class="image-caption">Trying to sell tokens without approval of those tokens to the vendor contract</figcaption>
+    </figure>
+</li>
+<li>
+<p>After approving the vendor contract, we can successfully sell
+tokens. The image below shows the second account selling 100 tokens,
+for which it gets back 1ETH, since the exchange rate (defined as a
+constant) is 100 tokens per ether.</p>
+<figure><a class="lightgallery" href="/erc20/img/sell-tokens.png" title="Call to `sellTokens` function with 100 tokens" data-thumbnail="/erc20/img/sell-tokens.png" data-sub-html="<h2>Call to sellTokens function with 100 tokens</h2><p>Call to `sellTokens` function with 100 tokens</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>sellTokens</code> function with 100 tokens</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/sell-tokens-sender-balance-tokens.png" title="Updated balance of account 0x1a8b3b (250 → 150)" data-thumbnail="/erc20/img/sell-tokens-sender-balance-tokens.png" data-sub-html="<h2>Updated balance of account 0x1a8b3b (250 → 150)</h2><p>Updated balance of account 0x1a8b3b (250 → 150)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of account <code>0x1a8b3b</code> (250 → 150)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/sell-tokens-contract-balance.png" title="Updated balance of vendor contract (0 → 100)" data-thumbnail="/erc20/img/sell-tokens-contract-balance.png" data-sub-html="<h2>Updated balance of vendor contract (0 → 100)</h2><p>Updated balance of vendor contract (0 → 100)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of vendor contract (0 → 100)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/sell-tokens-TransferEvent.png" title="Transfer Event of 100 tokens" data-thumbnail="/erc20/img/sell-tokens-TransferEvent.png" data-sub-html="<h2>Transfer Event of 100 tokens</h2><p>Transfer Event of 100 tokens</p>">
+        
+    </a><figcaption class="image-caption">Transfer Event of 100 tokens</figcaption>
+    </figure>
+</li>
+<li>
+<p>For buying tokens, we simply need to call the <code>buyTokens</code>
+function and send some ether along with it. According to the token
+exchange rate, some number of tokens will be bought.</p>
+<figure><a class="lightgallery" href="/erc20/img/buyTokens-eth-value.png" title="Call to buyTokens function with 1 ether value" data-thumbnail="/erc20/img/buyTokens-eth-value.png" data-sub-html="<h2>Call to buyTokens function with 1 ether value</h2><p>Call to buyTokens function with 1 ether value</p>">
+        
+    </a><figcaption class="image-caption">Call to <code>buyTokens</code> function with 1 ether value</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/buyTokens-contract-balance.png" title="Updated balance of vendor contract (100 → 0)" data-thumbnail="/erc20/img/buyTokens-contract-balance.png" data-sub-html="<h2>Updated balance of vendor contract (100 → 0)</h2><p>Updated balance of vendor contract (100 → 0)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of vendor contract (100 → 0)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/buyTokens-buyer-balance.png" title="Updated balance of buyer 0x1a8b3b (150 → 250)" data-thumbnail="/erc20/img/buyTokens-buyer-balance.png" data-sub-html="<h2>Updated balance of buyer 0x1a8b3b (150 → 250)</h2><p>Updated balance of buyer 0x1a8b3b (150 → 250)</p>">
+        
+    </a><figcaption class="image-caption">Updated balance of buyer <code>0x1a8b3b</code> (150 → 250)</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/buyTokens-TransferEvent.png" title="Transfer Event of 100 tokens" data-thumbnail="/erc20/img/buyTokens-TransferEvent.png" data-sub-html="<h2>Transfer Event of 100 tokens</h2><p>Transfer Event of 100 tokens</p>">
+        
+    </a><figcaption class="image-caption">Transfer Event of 100 tokens</figcaption>
+    </figure>
+</li>
+<li>
+<p>We can also use a wallet like Metamask to deal with ERC20 tokens.
+Click on <em>Add Token</em> in Metamask. Fill in the token address, and
+Metamask will retrieve the symbol and decimals of the token. Click
+on <em>Next</em> and then <em>Add Token</em>.</p>
+<figure><a class="lightgallery" href="/erc20/img/metamask-add-token.png" title="Adding the AKT token in Metamask" data-thumbnail="/erc20/img/metamask-add-token.png" data-sub-html="<h2>Adding the AKT token in Metamask</h2><p>Adding the AKT token in Metamask</p>">
+        
+    </a><figcaption class="image-caption">Adding the AKT token in Metamask</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/metamask-akt-18.png" title="Balance of AKT in an account. The representation is 18 decimal places" data-thumbnail="/erc20/img/metamask-akt-18.png" data-sub-html="<h2>Balance of AKT in an account. The representation is 18 decimal places</h2><p>Balance of AKT in an account. The representation is 18 decimal places</p>">
+        
+    </a><figcaption class="image-caption">Balance of AKT in an account. The representation is 18 decimal places</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/metamask-transfer.png" title="Transferring AKT tokens using Metamask" data-thumbnail="/erc20/img/metamask-transfer.png" data-sub-html="<h2>Transferring AKT tokens using Metamask</h2><p>Transferring AKT tokens using Metamask</p>">
+        
+    </a><figcaption class="image-caption">Transferring AKT tokens using Metamask</figcaption>
+    </figure>
+<figure><a class="lightgallery" href="/erc20/img/metamask-kat-transfer-receipt.png" title="Transfer Event of 100 tokens" data-thumbnail="/erc20/img/metamask-kat-transfer-receipt.png" data-sub-html="<h2>Transfer Event of 100 tokens</h2><p>Transfer Event of 100 tokens</p>">
+        
+    </a><figcaption class="image-caption">Transfer Event of 100 tokens</figcaption>
+    </figure>
+</li>
+</ol>
+<h1 id="conclusion">Conclusion</h1>
+<p>We saw how an Ethereum smart contract can be used to
+implement a fungible token using the ERC20 standard, along with some
+extensions to allow burning and minting tokens. Then, we developed a
+Vendor contract to allow users to buy and sell tokens. Remix IDE was
+used to develop and test the contracts, Geth client was used to simulate
+a test blockchain locally, and Remix and Metamask was used to deal with
+tokens.</p>
+<p>ERC20 is somewhat limited by its simplicity, even though we added on the minting and burning functions. A newer standard for fungible tokens, <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-777/" target="_blank" rel="noopener noreffer">ERC777</a> (<a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank" rel="noopener noreffer">EIP</a>) has a lot more functionality, and is backward compatible with ERC20. For non-fungible tokens, there&rsquo;s the <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/" target="_blank" rel="noopener noreffer">ERC721</a> standard, often used for collectibles and games.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" target="_blank" rel="noopener noreffer">ERC-20 Token Standard | ethereum.org</a></li>
+<li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer">ERC 20 - OpenZeppelin Docs</a></li>
+<li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer">ERC20 Token Tutorial by Gilad Halmov</a></li>
+</ul>
+]]></description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
+<h3 id="articles-on-finance-on-tickertapeinhttpswwwtickertapein">Articles on Finance on <a href="https://www.tickertape.in/" target="_blank" rel="noopener noreffer">Tickertape.in</a></h3>
+<p>Call it a temporary whim, but I&rsquo;ve been looking into Finance and Economics <em>stuff</em> (pardon me, I&rsquo;ve never given it much attention before). Tickertape has a <a href="https://www.tickertape.in/learn/" target="_blank" rel="noopener noreffer">series of educational articles</a>, directed towards concepts in economics and finance, and aims to provide a foundation for getting started in equity market investing. This series has four modules, and I&rsquo;ve read the first one, <a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer">Elementary Economics</a>, which consists of the following articles:</p>
+<ol>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer">Intro to Macroeconomics</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/interest-rates-forex/" target="_blank" rel="noopener noreffer">Interest Rates &amp; Forex</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/circular-flow/" target="_blank" rel="noopener noreffer">Circular Flow</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/monetary-policy/" target="_blank" rel="noopener noreffer">Monetary Policy</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/deficits-balance-of-payments/" target="_blank" rel="noopener noreffer">Deficits &amp; Balance of Payments</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/fiscal-policy/" target="_blank" rel="noopener noreffer">Fiscal Policy</a>
+Now this is most likely very fundamental for most people, but frankly, it&rsquo;s quite new for me, and I&rsquo;m finding it really interesting so far!</li>
+</ol>
+<h3 id="mlops-articles-by-tezan-sahuhttpstezansahumediumcom">MLOps Articles by <a href="https://tezansahu.medium.com" target="_blank" rel="noopener noreffer">Tezan Sahu</a></h3>
+<p>I&rsquo;ve been exploring Machine Learning and DevOps separately for the past few months, and I&rsquo;ve heard about the buzz around MLOps, a field which brings the practice of Machine Learning into real-world production systems and processes.
+This series of articles seems very promising in teaching the principles of MLOps, by first explaining what the DevOps culture and principles are, relating them to MLOps, and also outlining what&rsquo;s different. It then explains the ML workflow, and the principles that MLOps in particular advocates.</p>
+<p><a href="https://tezansahu.medium.com/fundamentals-of-mlops-part-1-a-gentle-introduction-to-mlops-1b184d2c32a8" target="_blank" rel="noopener noreffer">A Gentle Introduction to MLOps</a></p>
+<h3 id="authentication-system-using-ethereum">Authentication system using Ethereum</h3>
+<p>This article is a part of a trilogy of articles that introduce Ethereum and Smart Contracts, written by Sebastian Peyrott. Besides being a great introduction to Ethereum and Blockchain in general, it also has small projects that demonstrate the prospects of Blockchain, which includes an authentication system uses Ethereum to verify an individual&rsquo;s identity. I came across this series thanks to a college assignment. However, the series is from 2017, so some of the code is deprecated.</p>
+<p><a href="https://auth0.com/blog/an-introduction-to-ethereum-and-smart-contracts-part-3/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">An Introduction to Ethereum and Smart Contracts: an Authentication Solution</a></p>
+<p>It&rsquo;s also available as a <a href="https://assets.ctfassets.net/2ntc334xpx65/42fINJjatOKiG6qsQQAyc0/8b63e552f4cfef313f579b8e9c9154b5/intro-to-ethereum.pdf" target="_blank" rel="noopener noreffer">PDF</a>.</p>
+<h3 id="natural-language-processing">Natural Language Processing</h3>
+<p>As part of my Final Year project, I am currently studying NLP, and I went through these articles/courses, and found them worth sharing:</p>
+<ul>
+<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener noreffer">The Illustrated Transformer by Jay Alammar</a>: This article explains the Transformer model for sequence-to-sequence tasks</li>
+<li><a href="https://lena-voita.github.io/nlp_course.html?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">NLP For You, a course by Lena Voita</a>: A text-based course on the fundamental concepts on NLP, including Word Embeddings, Text Classification, Language Modeling, Seq2seq, Attention, Transformer and Transfer Learning - this is a treasure!</li>
+<li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z" target="_blank" rel="noopener noreffer">CS224N: Natural Language Processing with Deep Learning</a> is a MOOC with lectures available on YouTube</li>
+</ul>
+<p>Thanks to my friends <a href="https://arnavsshah.github.io/" target="_blank" rel="noopener noreffer">Arnav Shah</a> and <a href="https://saharshleo.github.io/" target="_blank" rel="noopener noreffer">Saharsh Jain</a> for suggesting these resources!</p>
+<h3 id="a-project-of-ones-own">A Project of One&rsquo;s Own</h3>
+<p>Probably a classic now, I came across this <a href="http://paulgraham.com/own.html" target="_blank" rel="noopener noreffer">article</a> by Paul Graham. Go ahead and read it for yourself!</p>
+<h3 id="how-to-remember-what-you-read">How to Remember What You Read</h3>
+<p>This <a href="https://fs.blog/2021/08/remember-books/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">great article</a> by Farnam Street is something that I was thinking about for a long time before I actually googled this question and came across this article.</p>
+]]></description></item><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description><![CDATA[<h1 id="the-story">The Story</h1>
+<p>Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&hellip;), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an <a href="https://github.com/MiKTeX/miktex/issues/935" target="_blank" rel="noopener noreffer">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
+<p>Next, I tried to install TeX Live. It seemed simple enough, with a <code>sudo apt install texlive</code>. Can&rsquo;t get any easier than this, right?</p>
+<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href="https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5" target="_blank" rel="noopener noreffer">this post on TeX Stack Exchange</a>, but this didn&rsquo;t work out.</p>
+<p>So I decided to ditch APT, and tried following the <a href="https://www.tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around    5GB of TeX software - fonts, packages, et cetera. For someone beginning with TeX, this did not sit well with me.</p>
+<p>Enough with this rant, let me list down the steps that I followed to install TeX Live on my system. Note that there are most likely better methods/choices that one could use, but these steps worked for me.</p>
+<h1 id="what-is-tex">What is TeX?</h1>
+<p>Simply said, TeX is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href="https://en.wikipedia.org/wiki/Donald_Knuth" target="_blank" rel="noopener noreffer">Donald Knuth</a> (who is a legend, by the way).</p>
+<h1 id="tex-live-installation">TeX Live Installation</h1>
+<p>TeX Live is a software distribution for TeX, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called <code>tlmgr</code>, that is used to install and update TeX packages.</p>
+<ol>
+<li>Download <code>install-tl</code> (the latest one, yay!) using <a href="https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz" target="_blank" rel="noopener noreffer">this link</a>. In case this gets changed, you can find the link <a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">in the docs</a> (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here&rsquo;s how the contents look:</li>
+</ol>
+<figure><a class="lightgallery" href="/tex-install-linux/img/1.png" title="Contents of the install-tl directory" data-thumbnail="/tex-install-linux/img/1.png" data-sub-html="<h2>Contents of the install-tl directory</h2><p>Contents of the install-tl directory</p>">
+        
+    </a><figcaption class="image-caption">Contents of the install-tl directory</figcaption>
+    </figure>
+<!-- ![install-tl directory](img/1.png) -->
+<ol start="2">
+<li>
+<p>Run the <code>install-tl</code> Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it&rsquo;s going to install, which by default is <code>/usr/local</code>. You can change the directory by looking at the prompts of the script.</p>
+<p>Note that you can run the installer in GUI mode by the <code>-gui</code> flag (which I would recommend if you&rsquo;re doing this for the first time, but it requires Tcl to be installed).</p>
+<p>The <code>--repository</code> option specifies an explicit mirror to use. Try specifying some other <a href="" rel="">mirrors</a> if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo perl install-tl <span class="o">[</span>-gui<span class="o">]</span> <span class="o">[</span>--repository &lt;URL&gt;<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>In case you get some error related to &#39;tlpdb&#39;<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>I came across the following error when I tried using an explicit mirror:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
+install-tl: Maybe the repository setting should be changed.
+install-tl: More info: https://tug.org/texlive/acquire.html
+</code></pre></td></tr></table>
+</div>
+</div><p>Try appending <code>systems/texlive/tlnet</code> to the mirror URL when running the <code>install-tl</code> script. For example,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<ol start="3">
+<li>After a few seconds, something similar to the following will be visible:
+<figure><a class="lightgallery" href="/tex-install-linux/img/2.png" title="install-tl script options" data-thumbnail="/tex-install-linux/img/2.png" data-sub-html="<h2>install-tl script options</h2><p>install-tl script options</p>">
+        
+    </a><figcaption class="image-caption">install-tl script options</figcaption>
+    </figure></li>
+</ol>
+<!-- ![install-tl script options](img/2.png) -->
+<p>If you scroll up, you can see the scheme selected by default for installation:
+<code>&lt;S&gt; set installation scheme: scheme-full</code>. Below that, you can see the number of collections and the space they&rsquo;ll take:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> &lt;C&gt; set installation collections:
+     40 collections out of 41, disk space required: 7143 MB
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>7GB by default, not cool.</p>
+</blockquote>
+<ol start="4">
+<li>
+<p>Enter &ldquo;S&rdquo; as the command (upper or lower case), and then you can select the scheme you want. I selected the &ldquo;medium scheme&rdquo;, which takes around 1.7 GB, obviously at the cost of lesser functionality. But you can install packages as you like later on, using <code>tlmgr</code>.</p>
+<p>After you&rsquo;ve selected the scheme you want, enter &ldquo;R&rdquo; to return to the main menu, as the prompt will tell you. Then enter &ldquo;I&rdquo; to begin installation.
+<figure><a class="lightgallery" href="/tex-install-linux/img/3.png" title="Selecting the installation scheme" data-thumbnail="/tex-install-linux/img/3.png" data-sub-html="<h2>Selecting the installation scheme</h2><p>Selecting the installation scheme</p>">
+        
+    </a><figcaption class="image-caption">Selecting the installation scheme</figcaption>
+    </figure></p>
+</li>
+</ol>
+<!-- ![Selecting the installation scheme](img/3.png) -->
+<ol start="5">
+<li>
+<p>Depending (a lot!) on the mirror you chose, your installation of TeX Live should finally be complete. For me, it took around 15 minutes.</p>
+<p>Next, you need to update your <code>PATH</code> environment variable so that it knows where to find TeX Live binaries. If you went along with the default settings, the path you need to add to your <code>PATH</code> would be something like <code>/usr/local/texlive/2021/bin/x86_64-linux</code>. Move around inside <code>/usr/local/texlive</code> to verify this.</p>
+<p>You can update your <code>.profile</code> (log out and log in again for changes to take place) or <code>.bashrc</code> or <code>.zshrc</code> or whatever (source the configuration file for changes to take place) by adding this line:</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="installing-a-latex-editor">Installing a LaTeX editor</h1>
+<p>I installed TeXstudio by simply (painlessly) using APT.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install texstudio
+</code></pre></td></tr></table>
+</div>
+</div><p>I&rsquo;m happy to say that this worked fine! Most TeX editors should be able to configure the backend (TeX Live, in our case) automatically, provided you have set your <code>PATH</code> variable and your shell knows about it.
+<figure><a class="lightgallery" href="/tex-install-linux/img/4.png" title="TeXstudio" data-thumbnail="/tex-install-linux/img/4.png" data-sub-html="<h2>TeXstudio</h2><p>TeXstudio</p>">
+        
+    </a><figcaption class="image-caption">TeXstudio</figcaption>
+    </figure></p>
+<h1 id="references">References</h1>
+<p><a href="https://tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">Quick Install - TeX Live</a></p>
+<p><a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">Installing TeX Live over the Internet</a></p>
+<p><a href="https://narkive.com/i3g0zxJ0.4" target="_blank" rel="noopener noreffer">For the tlpdb error: An answer in a forum discussing &ldquo;Problems installing TeXlive in CentOS7&rdquo;</a></p>
+]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+</blockquote>
+<h2 id="the-question">The Question</h2>
+<blockquote>
+<p>Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well.</p>
+</blockquote>
+<p>You can solve this question on <a href="https://leetcode.com/problems/first-missing-positive" target="_blank" rel="noopener noreffer">LeetCode</a>.</p>
+<h2 id="solutions">Solutions</h2>
+<h3 id="use-a-map-to-mark-presence">Use a &ldquo;map&rdquo; to mark presence</h3>
+<p>A simple way (albeit requiring linear auxilliary space) is to traverse through the given array, and mark all the positive number present in the array as <em>present</em> using a simple boolean array of size equal to the maximum number present in the array. Then we iterate through the present array and report the first missing number. If there is no missing number, then the first missing positive integer is the maximum element + 1. The following pseudocode assumes 1-based indexing.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">present = boolean array of size max_element(a)
+for i in a:
+  if i &gt; 0 then
+    present[i] = true
+
+for i from 1 to max_element(a)
+  if !present[i] then
+    return i
+return max_element(a) + 1
+</code></pre></td></tr></table>
+</div>
+</div><p>This is a linear time solution, and has space complexity linear in terms of the maximum element present. And that presents a problem: what if the numbers are too large?</p>
+<h3 id="put-elements-where-they-belong">Put elements where they belong</h3>
+<p>The question mentions that we can modify the array in place! And since we have to find the first missing positive integer, we can simply follow the same principle of &ldquo;marking presence&rdquo; but use the given array itself, instead of the auxilliary array. To see why this would work, say the first missing positive integer is <code>x</code>. To find <code>x</code>, we need all elements from 1 to <code>x-1</code> to be placed in their correct positions. For any &ldquo;large&rdquo; numbers (that is, numbers greater than the size of the array), we can simply ignore them, because <code>x</code>_ has to be in the range <code>[1, n+1]</code>. Think about it.</p>
+<p>So when we encounter some element of the array that is positive and less than or equal to <code>n</code>, we put it at its correct place, that&rsquo;s the position indexed by the element. So we place 1 at 1, 2 at 2, and so on.</p>
+<p>If an element <code>y</code> is already at position <code>y</code>, then we simply move forward, else we try to move it to position <code>y</code>. But this would mean replacing other elements. Note that if the elements getting replaced are negative, zero or more than <code>n</code>, then we don&rsquo;t need to worry about them. However, if the element that will be replaced is a <em>valid</em> number, then we can swap the two elements instead of replacing them, and <strong><em>not moving forward</em></strong> for this case, since we need to process the swapped element too.</p>
+<p>For handling duplicates, we change <code>y</code> to 0 (or any other <em>invalid</em> number) if there&rsquo;s already a <code>y</code> at position <code>y</code>, so that it can be potentially replaced by another number that should be at the current position.</p>
+<p>The conditions are a little tricky, so make note of them. For finding the first missing psoitive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">for i from 1 to n
+  if a[i] &lt;= 0 or a[i] &gt; n or a[i] == i then
+    continue
+  else
+    if a[a[i]] &lt;= 0 or a[a[i]] &gt; n then
+      a[a[i]] = a[i]
+    else if a[a[i]] == a[i] then
+      a[i] = 0
+    else
+      swap(a[i], a[a[i]])
+      i = i - 1
+for i from 1 to n
+  if a[i] != i then
+    return i
+return n+1
+</code></pre></td></tr></table>
+</div>
+</div><p>You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+</blockquote>
+<h2 id="the-question">The Question</h2>
+<blockquote>
+<p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
+</blockquote>
+<p>You can solve this question on <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noopener noreffer">LeetCode</a></p>
+<h2 id="solutions">Solutions</h2>
+<h3 id="recursion">Recursion!</h3>
+<p>We can use preorder traversal of a tree to encode it as a string. We start with the root, encode it, and then move on to the left subtree and serialize it, then move on to the right tree and serialize it. The base case will be when we call the recursive function for a child of a leaf node, we can encode it as &ldquo;null&rdquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">fun serialize(root)
+  if root is null then return &#34;null&#34;
+  return str(root-&gt;val) + &#34;,&#34; + serialize(root-&gt;left) + &#34;,&#34; + serialize(root-&gt;right)
+</code></pre></td></tr></table>
+</div>
+</div><p>For deserializing a string of the type formed by <code>serialize</code>, we can again make use of the preorder traversal, since we know that is the order in which the serialized string was built.</p>
+<p>First, we can split the string by its delimiter (a comma, in this case) to get a list of nodes (including null nodes) and then traverse the list, while we build the tree in preorder traversal. We do this by keeping the pointer of the list common across all recursive calls, and each recursive call builds a subtree, in preorder. Whenever we hit a null element in the list, we simply return null.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">fun deserialize(tree)
+  nodes = tree.split(&#34;,&#34;)
+  i = 0
+  root = buildTree(nodes, i)
+  return root
+
+fun buildTree(nodes, i)
+  if nodes[i] == &#34;null&#34; then
+    return null
+  else
+    root = Node(int(root))
+    i = i + 1
+    root.left = buildTree(nodes, i)
+    i = i + 1
+    root.right = buildTree(nodes, i)
+    return root
+</code></pre></td></tr></table>
+</div>
+</div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
+This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
+]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+</blockquote>
+<h1 id="the-question">The Question</h1>
+<blockquote>
+<p>Given a list of numbers and a number <code>k</code>, return whether any two numbers from the list add up to <code>k</code>.</p>
+</blockquote>
+<h1 id="examples">Examples</h1>
+<ol>
+<li><code>[1, 2, 3], k = 4</code></li>
+</ol>
+<p>Yes, since 1+3 = 4</p>
+<ol start="2">
+<li><code>[10, 15, 3, 7], k=17</code></li>
+</ol>
+<p>Yes, since 10+7 = 17</p>
+<ol start="3">
+<li><code>[5, 4, 7, 12, 1], k = 2</code></li>
+</ol>
+<p>No</p>
+<h1 id="solutions">Solutions</h1>
+<h2 id="brute-force">Brute force</h2>
+<p>A simple solution would be to iterate over all possible pairs in the array and checking if a pair adds up to k.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">for i from 0 to n-1:
+  for j from i+1 to n-1:
+    if a[i] + a[j] == k:
+      return true
+return false
+</code></pre></td></tr></table>
+</div>
+</div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space compexity.</p>
+<h2 id="sorting-and-two-pointer-approach">Sorting and two-pointer approach</h2>
+<p>We can sort the array and use two pointers, <code>front</code> (starting from 0) and <code>end</code> (starting from n-1):</p>
+<ol>
+<li>If the elements pointed to currently sum up to <code>k</code>, then return true</li>
+<li>If the sum is less than <code>k</code>, increment the <code>front</code> pointer, since we need to increase the sum and the array is sorted.</li>
+<li>Symmetrically, if the sum is more than <code>k</code>, decrement the <code>end</code> pointer.
+We repeat this until <code>front</code> and <code>end</code> cross each other.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sort(a)
+front = 0, end = n-1
+while front &lt; end:
+  if a[front] + a[end] == k:
+    return true
+  else if a[front] + a[end] &lt; k:
+    front = front + 1
+  else
+    end = end - 1
+return false
+</code></pre></td></tr></table>
+</div>
+</div><p>Since we are sorting an array (<code>O(nlogn)</code>) and looping with the <code>front</code> and <code>end</code> pointers (<code>O(n)</code>), the overall time complexity of this solution is (<code>O(nlogn)</code>). The space complexity is (<code>O(1)</code>).</p>
+<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+<p>If we are required to return the indices, the sorting approach cannot be used directly. We will have to make an array of pairs of <code>(val, index)</code> and then sort this array.</p>
+<h2 id="using-a-set-or-map">Using a set or map</h2>
+<p>We can iterate through the array and keep adding the elements to a set (or hashset, map or hashmap), and for every element, check if the set contains <code>(k-a[i])</code>. If we find this condition to be true, then there exists a pair that adds up to <code>k</code>: the current <code>a[i]</code> and the entry in the set, <code>k-a[i]</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">set m
+for i from 0 to n-1:
+  if m.has(k-a[i]):
+    return true
+  m.add(a[i])
+return false
+</code></pre></td></tr></table>
+</div>
+</div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
+<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+<p>If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as <code>(value, index)</code>.</p>
+]]></description></item></channel></rss>

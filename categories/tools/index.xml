@@ -1,1 +1,132 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>tools - Category - Akshat Shah</title><link>http://akshatshah21.github.io/categories/tools/</link><description>tools - Category - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Tue, 28 Sep 2021 15:27:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/categories/tools/" rel="self" type="application/rss+xml"/><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description>I&amp;rsquo;ve personally found it a headache to install TeX on Linux for people new to TeX (for example, me). So I decided to write a concise guide for it.</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>tools - Category - Akshat Shah</title><link>http://akshatshah21.github.io/categories/tools/</link><description>tools - Category - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Tue, 28 Sep 2021 15:27:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/categories/tools/" rel="self" type="application/rss+xml"/><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description><![CDATA[<h1 id="the-story">The Story</h1>
+<p>Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&hellip;), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an <a href="https://github.com/MiKTeX/miktex/issues/935" target="_blank" rel="noopener noreffer">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
+<p>Next, I tried to install TeX Live. It seemed simple enough, with a <code>sudo apt install texlive</code>. Can&rsquo;t get any easier than this, right?</p>
+<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href="https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5" target="_blank" rel="noopener noreffer">this post on TeX Stack Exchange</a>, but this didn&rsquo;t work out.</p>
+<p>So I decided to ditch APT, and tried following the <a href="https://www.tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around    5GB of TeX software - fonts, packages, et cetera. For someone beginning with TeX, this did not sit well with me.</p>
+<p>Enough with this rant, let me list down the steps that I followed to install TeX Live on my system. Note that there are most likely better methods/choices that one could use, but these steps worked for me.</p>
+<h1 id="what-is-tex">What is TeX?</h1>
+<p>Simply said, TeX is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href="https://en.wikipedia.org/wiki/Donald_Knuth" target="_blank" rel="noopener noreffer">Donald Knuth</a> (who is a legend, by the way).</p>
+<h1 id="tex-live-installation">TeX Live Installation</h1>
+<p>TeX Live is a software distribution for TeX, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called <code>tlmgr</code>, that is used to install and update TeX packages.</p>
+<ol>
+<li>Download <code>install-tl</code> (the latest one, yay!) using <a href="https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz" target="_blank" rel="noopener noreffer">this link</a>. In case this gets changed, you can find the link <a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">in the docs</a> (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here&rsquo;s how the contents look:</li>
+</ol>
+<figure><a class="lightgallery" href="/tex-install-linux/img/1.png" title="Contents of the install-tl directory" data-thumbnail="/tex-install-linux/img/1.png" data-sub-html="<h2>Contents of the install-tl directory</h2><p>Contents of the install-tl directory</p>">
+        
+    </a><figcaption class="image-caption">Contents of the install-tl directory</figcaption>
+    </figure>
+<!-- ![install-tl directory](img/1.png) -->
+<ol start="2">
+<li>
+<p>Run the <code>install-tl</code> Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it&rsquo;s going to install, which by default is <code>/usr/local</code>. You can change the directory by looking at the prompts of the script.</p>
+<p>Note that you can run the installer in GUI mode by the <code>-gui</code> flag (which I would recommend if you&rsquo;re doing this for the first time, but it requires Tcl to be installed).</p>
+<p>The <code>--repository</code> option specifies an explicit mirror to use. Try specifying some other <a href="" rel="">mirrors</a> if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo perl install-tl <span class="o">[</span>-gui<span class="o">]</span> <span class="o">[</span>--repository &lt;URL&gt;<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition info">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>In case you get some error related to &#39;tlpdb&#39;<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>I came across the following error when I tried using an explicit mirror:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
+install-tl: Maybe the repository setting should be changed.
+install-tl: More info: https://tug.org/texlive/acquire.html
+</code></pre></td></tr></table>
+</div>
+</div><p>Try appending <code>systems/texlive/tlnet</code> to the mirror URL when running the <code>install-tl</code> script. For example,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<ol start="3">
+<li>After a few seconds, something similar to the following will be visible:
+<figure><a class="lightgallery" href="/tex-install-linux/img/2.png" title="install-tl script options" data-thumbnail="/tex-install-linux/img/2.png" data-sub-html="<h2>install-tl script options</h2><p>install-tl script options</p>">
+        
+    </a><figcaption class="image-caption">install-tl script options</figcaption>
+    </figure></li>
+</ol>
+<!-- ![install-tl script options](img/2.png) -->
+<p>If you scroll up, you can see the scheme selected by default for installation:
+<code>&lt;S&gt; set installation scheme: scheme-full</code>. Below that, you can see the number of collections and the space they&rsquo;ll take:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> &lt;C&gt; set installation collections:
+     40 collections out of 41, disk space required: 7143 MB
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>7GB by default, not cool.</p>
+</blockquote>
+<ol start="4">
+<li>
+<p>Enter &ldquo;S&rdquo; as the command (upper or lower case), and then you can select the scheme you want. I selected the &ldquo;medium scheme&rdquo;, which takes around 1.7 GB, obviously at the cost of lesser functionality. But you can install packages as you like later on, using <code>tlmgr</code>.</p>
+<p>After you&rsquo;ve selected the scheme you want, enter &ldquo;R&rdquo; to return to the main menu, as the prompt will tell you. Then enter &ldquo;I&rdquo; to begin installation.
+<figure><a class="lightgallery" href="/tex-install-linux/img/3.png" title="Selecting the installation scheme" data-thumbnail="/tex-install-linux/img/3.png" data-sub-html="<h2>Selecting the installation scheme</h2><p>Selecting the installation scheme</p>">
+        
+    </a><figcaption class="image-caption">Selecting the installation scheme</figcaption>
+    </figure></p>
+</li>
+</ol>
+<!-- ![Selecting the installation scheme](img/3.png) -->
+<ol start="5">
+<li>
+<p>Depending (a lot!) on the mirror you chose, your installation of TeX Live should finally be complete. For me, it took around 15 minutes.</p>
+<p>Next, you need to update your <code>PATH</code> environment variable so that it knows where to find TeX Live binaries. If you went along with the default settings, the path you need to add to your <code>PATH</code> would be something like <code>/usr/local/texlive/2021/bin/x86_64-linux</code>. Move around inside <code>/usr/local/texlive</code> to verify this.</p>
+<p>You can update your <code>.profile</code> (log out and log in again for changes to take place) or <code>.bashrc</code> or <code>.zshrc</code> or whatever (source the configuration file for changes to take place) by adding this line:</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="installing-a-latex-editor">Installing a LaTeX editor</h1>
+<p>I installed TeXstudio by simply (painlessly) using APT.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install texstudio
+</code></pre></td></tr></table>
+</div>
+</div><p>I&rsquo;m happy to say that this worked fine! Most TeX editors should be able to configure the backend (TeX Live, in our case) automatically, provided you have set your <code>PATH</code> variable and your shell knows about it.
+<figure><a class="lightgallery" href="/tex-install-linux/img/4.png" title="TeXstudio" data-thumbnail="/tex-install-linux/img/4.png" data-sub-html="<h2>TeXstudio</h2><p>TeXstudio</p>">
+        
+    </a><figcaption class="image-caption">TeXstudio</figcaption>
+    </figure></p>
+<h1 id="references">References</h1>
+<p><a href="https://tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">Quick Install - TeX Live</a></p>
+<p><a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">Installing TeX Live over the Internet</a></p>
+<p><a href="https://narkive.com/i3g0zxJ0.4" target="_blank" rel="noopener noreffer">For the tlpdb error: An answer in a forum discussing &ldquo;Problems installing TeXlive in CentOS7&rdquo;</a></p>
+]]></description></item></channel></rss>

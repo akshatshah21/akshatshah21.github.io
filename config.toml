@@ -104,7 +104,7 @@ theme = "LoveIt"
   # LoveIt NEW | 0.2.0 Section (all posts) page config
   [params.section]
     # special amount of posts in each section page
-    paginate = 20
+    paginate = 10
     # date format (month and day)
     dateFormat = "Jan 2"
     # amount of RSS pages
@@ -113,7 +113,7 @@ theme = "LoveIt"
   # LoveIt NEW | 0.2.0 List (category or tag) page config
   [params.list]
     # special amount of posts in each list page
-    paginate = 20
+    paginate = 10
     # date format (month and day)
     dateFormat = "Jan 2"
     # amount of RSS pages
@@ -235,7 +235,7 @@ theme = "LoveIt"
     # whether to show link to Raw Markdown content of the content
     linkToMarkdown = false
     # LoveIt NEW | 0.2.4 whether to show the full text content in RSS
-    rssFullText = false
+    rssFullText = true
     # LoveIt NEW | 0.2.0 Table of the contents config
     [params.page.toc]
       # whether to enable the table of the contents

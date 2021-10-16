@@ -30,7 +30,7 @@ TeX Live is a software distribution for TeX, and includes some programs, macros,
 {{<image src="img/1.png" title="Contents of the install-tl directory" alt="Contents of the install-tl directory" caption="Contents of the install-tl directory">}}
 <!-- ![install-tl directory](img/1.png) -->
 
-1. Run the `install-tl` Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it's going to install, which by default is `/usr/local`. You can change the directory by looking at the prompts of the script. 
+2. Run the `install-tl` Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it's going to install, which by default is `/usr/local`. You can change the directory by looking at the prompts of the script. 
 
     Note that you can run the installer in GUI mode by the `-gui` flag (which I would recommend if you're doing this for the first time, but it requires Tcl to be installed). 
     
@@ -65,13 +65,13 @@ If you scroll up, you can see the scheme selected by default for installation:
 ```
 > 7GB by default, not cool.
 
-1. Enter "S" as the command (upper or lower case), and then you can select the scheme you want. I selected the "medium scheme", which takes around 1.7 GB, obviously at the cost of lesser functionality. But you can install packages as you like later on, using `tlmgr`. 
+4. Enter "S" as the command (upper or lower case), and then you can select the scheme you want. I selected the "medium scheme", which takes around 1.7 GB, obviously at the cost of lesser functionality. But you can install packages as you like later on, using `tlmgr`. 
 
     After you've selected the scheme you want, enter "R" to return to the main menu, as the prompt will tell you. Then enter "I" to begin installation.
 {{<image src="img/3.png" title="Selecting the installation scheme" caption="Selecting the installation scheme">}}
 <!-- ![Selecting the installation scheme](img/3.png) -->
 
-1. Depending (a lot!) on the mirror you chose, your installation of TeX Live should finally be complete. For me, it took around 15 minutes. 
+5. Depending (a lot!) on the mirror you chose, your installation of TeX Live should finally be complete. For me, it took around 15 minutes. 
     
     Next, you need to update your `PATH` environment variable so that it knows where to find TeX Live binaries. If you went along with the default settings, the path you need to add to your `PATH` would be something like `/usr/local/texlive/2021/bin/x86_64-linux`. Move around inside `/usr/local/texlive` to verify this. 
 

@@ -116,7 +116,7 @@ Cancel
 <img class=lazyload src=/svg/loading.min.svg data-src=img/1.png data-srcset="/tex-install-linux/img/1.png, img/1.png 1.5x, /tex-install-linux/img/1.png 2x" data-sizes=auto alt="Contents of the install-tl directory">
 </a><figcaption class=image-caption>Contents of the install-tl directory</figcaption>
 </figure>
-<ol>
+<ol start=2>
 <li>
 <p>Run the <code>install-tl</code> Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it&rsquo;s going to install, which by default is <code>/usr/local</code>. You can change the directory by looking at the prompts of the script.</p>
 <p>Note that you can run the installer in GUI mode by the <code>-gui</code> flag (which I would recommend if you&rsquo;re doing this for the first time, but it requires Tcl to be installed).</p>
@@ -183,7 +183,7 @@ install-tl: More info: https://tug.org/texlive/acquire.html
 </div><blockquote>
 <p>7GB by default, not cool.</p>
 </blockquote>
-<ol>
+<ol start=4>
 <li>
 <p>Enter &ldquo;S&rdquo; as the command (upper or lower case), and then you can select the scheme you want. I selected the &ldquo;medium scheme&rdquo;, which takes around 1.7 GB, obviously at the cost of lesser functionality. But you can install packages as you like later on, using <code>tlmgr</code>.</p>
 <p>After you&rsquo;ve selected the scheme you want, enter &ldquo;R&rdquo; to return to the main menu, as the prompt will tell you. Then enter &ldquo;I&rdquo; to begin installation.
@@ -193,7 +193,7 @@ install-tl: More info: https://tug.org/texlive/acquire.html
 </figure></p>
 </li>
 </ol>
-<ol>
+<ol start=5>
 <li>
 <p>Depending (a lot!) on the mirror you chose, your installation of TeX Live should finally be complete. For me, it took around 15 minutes.</p>
 <p>Next, you need to update your <code>PATH</code> environment variable so that it knows where to find TeX Live binaries. If you went along with the default settings, the path you need to add to your <code>PATH</code> would be something like <code>/usr/local/texlive/2021/bin/x86_64-linux</code>. Move around inside <code>/usr/local/texlive</code> to verify this.</p>

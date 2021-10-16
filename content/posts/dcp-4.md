@@ -47,7 +47,7 @@ If an element `y` is already at position `y`, then we simply move forward, else 
 
 For handling duplicates, we change `y` to 0 (or any other _invalid_ number) if there's already a `y` at position `y`, so that it can be potentially replaced by another number that should be at the current position.
 
-The conditions are a little tricky, so make note of them. For finding the first missing psoitive integer, we simply iterate through the array again and check for the first position that doesn't match the value at that position.
+The conditions are a little tricky, so make note of them. For finding the first missing positive integer, we simply iterate through the array again and check for the first position that doesn't match the value at that position.
 
 ```
 for i from 1 to n
@@ -68,3 +68,5 @@ return n+1
 ```
 
 You can find the C++ implementation [here](https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp)
+
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>

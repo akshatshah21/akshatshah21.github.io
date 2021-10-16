@@ -42,7 +42,7 @@ for i from 0 to n-1:
 return false
 ```
 
-This will involve `n(n+1)/2` steps, so the time complexity will be `O(n^2)`, and `O(1)` space compexity.
+This will involve `n(n+1)/2` steps, so the time complexity will be `O(n^2)`, and `O(1)` space complexity.
 
 ## Sorting and two-pointer approach
 
@@ -90,3 +90,5 @@ We are making a single pass through the array, finding whether a number exists i
 You can find the implementation of this solution [here](https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp)
 
 If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as `(value, index)`.
+
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>

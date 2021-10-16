@@ -54,3 +54,5 @@ fun buildTree(nodes, i)
 
 You can find the Python implementation [here](https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py).
 This can be implemented in C++ easily too, but right now I'm a little lazy to write out the split function :-).
+
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>

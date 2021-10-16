@@ -97,3 +97,4 @@ I'm happy to say that this worked fine! Most TeX editors should be able to confi
 [For the tlpdb error: An answer in a forum discussing "Problems installing TeXlive in CentOS7"](https://narkive.com/i3g0zxJ0.4)
 
 
+<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>

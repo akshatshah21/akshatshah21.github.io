@@ -4,7 +4,7 @@ date: 2021-09-28T19:21:19+05:30
 tags: ["reading", "articles", "blogs", "videos", "books"]
 authorLink: https://akshatshah21.github.io/
 description: "A list of articles, courses, books, videos  and any other things that I found personally interesting"
-summary: "a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them"
+summary: "A list of articles, courses, books, videos, and any other things that I found personally interesting and went through them"
 categories: ["reading"]
 draft: false
 ---

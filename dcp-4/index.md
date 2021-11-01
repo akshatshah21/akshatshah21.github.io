@@ -61,4 +61,3 @@ return n+1
 
 You can find the C++ implementation [here](https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp)
 
-<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>

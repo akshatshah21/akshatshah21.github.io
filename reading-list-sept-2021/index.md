@@ -39,4 +39,4 @@ Probably a classic now, I came across this [article](http://paulgraham.com/own.h
 ### How to Remember What You Read
 This [great article](https://fs.blog/2021/08/remember-books/?utm_source=pocket_mylist) by Farnam Street is something that I was thinking about for a long time before I actually googled this question and came across this article.
 
-<iframe src="https://akshatshah21.substack.com/embed" width="100%" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+

@@ -428,7 +428,7 @@ theme = "LoveIt"
     enable = true
     # Google Analytics
     [params.analytics.google]
-      id = "G-177XEHY4ST"
+      id = " UA-211794474-1"
       # whether to anonymize IP
       anonymizeIP = true
     # Fathom Analytics

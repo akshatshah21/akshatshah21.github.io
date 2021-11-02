@@ -391,7 +391,7 @@ theme = "LoveIt"
     # LoveIt CHANGED | 0.2.10 Page SEO config
     [params.page.seo]
       # image URL
-      images = []
+      images = ["/static/favicon.svg"]
       # Publisher info
       [params.page.seo.publisher]
         name = ""
@@ -419,9 +419,9 @@ theme = "LoveIt"
   # LoveIt NEW | 0.2.10 Site SEO config
   [params.seo]
     # image URL
-    image = ""
+    image = "/static/favicon.svg"
     # thumbnail URL
-    thumbnailUrl = ""
+    thumbnailUrl = "/static/favicon.svg"
 
   # LoveIt NEW | 0.2.0 Analytics config
   [params.analytics]

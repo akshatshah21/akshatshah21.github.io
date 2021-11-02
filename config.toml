@@ -202,7 +202,7 @@ theme = "LoveIt"
     # Deviantart = ""
     # Behance = ""
     # Dribbble = ""
-    # Wordpress = ""
+    Wordpress = "imaginationboundless"
     # Vine = ""
     # Googlescholar = ""
     # Researchgate = ""
@@ -425,10 +425,10 @@ theme = "LoveIt"
 
   # LoveIt NEW | 0.2.0 Analytics config
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "G-177XEHY4ST"
       # whether to anonymize IP
       anonymizeIP = true
     # Fathom Analytics

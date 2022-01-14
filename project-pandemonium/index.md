@@ -8,7 +8,7 @@ A few days ago, during a lazy afternoon, while rummaging through my muddle of a 
 I immediately took a trip down memory lane. I perused those logs, consisting of long paragraphs of technical details, diagrams and outlines of activities carried out each day. But what stood out were the number of questions and exclamations. Occasionally, a few lines lamented on the roadblocks and failures that were faced, the uncertainty of whether things will work out and whether we were getting anywhere with the project.
 
 > ## About the project
-> _Along with three friends, I was part of a project that aimed to develop a [WiFi Positioning System](), or more specifically, an [Indoor Positioning System](). Fundamentally, this system would determine the location of a device using wireless access points that are in its vicinity. This project was under Eklavya, a mentorship program of the [Society of Robotics and Automation, VJTI]()._
+> _Along with three friends, I was part of a project that aimed to develop a [WiFi Positioning System](https://en.wikipedia.org/wiki/Wi-Fi_positioning_system), or more specifically, an [Indoor Positioning System](https://en.wikipedia.org/wiki/Indoor_positioning_system). Fundamentally, this system would determine the location of a device using wireless access points that are in its vicinity. This project was under Eklavya, a mentorship program of the [Society of Robotics and Automation, VJTI](https://sravjti.in/)._
 
 I would have loved to tell you that despite the misgivings in my memoirs, we managed to accomplish our goals. We didn't. And that's what this blog is about.
 

@@ -34,7 +34,7 @@ TeX Live is a software distribution for TeX, and includes some programs, macros,
 
     Note that you can run the installer in GUI mode by the `-gui` flag (which I would recommend if you're doing this for the first time, but it requires Tcl to be installed). 
     
-    The `--repository` option specifies an explicit mirror to use. Try specifying some other [mirrors]() if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.
+    The `--repository` option specifies an explicit mirror to use. Try specifying some other [mirrors](https://ctan.org/mirrors?lang=en) if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.
 
 ```bash
 sudo perl install-tl [-gui] [--repository <URL>]

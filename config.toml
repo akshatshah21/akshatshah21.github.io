@@ -87,7 +87,7 @@ theme = "LoveIt"
   [params.footer]
     enable = true
     # LoveIt NEW | 0.2.0 Custom content (HTML format is supported)
-    custom = ''
+    custom = '<h5><em>"Through chances various, through all vicissitudes, we make our way..." - Aeneid</em></h5>'
     # LoveIt NEW | 0.2.0 whether to show Hugo and theme info
     hugo = true
     # LoveIt NEW | 0.2.0 whether to show copyright info
@@ -233,7 +233,7 @@ theme = "LoveIt"
     # LoveIt NEW | 0.2.0 whether to enable the fontawesome extended syntax
     fontawesome = true
     # whether to show link to Raw Markdown content of the content
-    linkToMarkdown = false
+    linkToMarkdown = true
     # LoveIt NEW | 0.2.4 whether to show the full text content in RSS
     rssFullText = true
     # LoveIt NEW | 0.2.0 Table of the contents config
@@ -285,7 +285,7 @@ theme = "LoveIt"
       Twitter = true
       Facebook = true
       Linkedin = false
-      Whatsapp = true
+      Whatsapp = false
       Pinterest = false
       Tumblr = false
       HackerNews = false
@@ -495,7 +495,7 @@ theme = "LoveIt"
 [author]
   name = "Akshat Shah"
   email = "akshatshah_21@yahoo.in"
-  link = ""
+  link = "https://akshatshah21.github.io"
 
 # Sitemap config
 [sitemap]

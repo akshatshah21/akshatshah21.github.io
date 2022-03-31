@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Akshat Shah</title><link>http://akshatshah21.github.io/</link><description>Akshat Shah's website</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Project Pandemonium</title><link>http://akshatshah21.github.io/project-pandemonium/</link><pubDate>Fri, 14 Jan 2022 12:36:54 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/project-pandemonium/</guid><description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Akshat Shah</title><link>http://akshatshah21.github.io/</link><description>Akshat Shah's website</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 28 Aug 2021 10:02:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Project Pandemonium</title><link>http://akshatshah21.github.io/project-pandemonium/</link><pubDate>Fri, 14 Jan 2022 12:36:54 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/project-pandemonium/</guid><description><![CDATA[<blockquote>
 <p>This blog was originally published by me as part of a <a href="https://medium.com/dscvjti" target="_blank" rel="noopener noreffer">blog series</a> by <a href="https://www.dscvjti.tech/" target="_blank" rel="noopener noreffer">Google Student Developer Clubs, VJTI</a>.</p>
 </blockquote>
 <p>A few days ago, during a lazy afternoon, while rummaging through my muddle of a cupboard, I found a notebook that had, unsurprisingly, my name scrawled on it. I opened the book somewhere in the middle, but those pages were blank. Then, opening the first page, I smiled, sheepish and nostalgic. Written on the first twenty or so pages of this notebook, was the account of one of my first projects as an engineering student.</p>
@@ -14,7 +14,7 @@
 <iframe src="https://giphy.com/embed/l1Et0eHN0m9daH7ZS" style="max-width:100%; width:100%;" height="360px" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-l1Et0eHN0m9daH7ZS"></a></p>
 Define the problem. We hear this all the time but seldom do we really put it into effect, or at least with the required level of sincerity, specificity and clarity. *"I want to make a chatting application"* might seem self-explanatory as the definition of the required solution, but it's not. The necessity for a clear understanding of the requirements, the scope and priorities, and the assumptions of a solution cannot be emphasized enough. Indeed, this is one of the major reasons why my WiFi Positioning System project was, in subtle terms, a letdown. I vividly remember *not* being sure about what we were making. To quote the very first line in my logs:
 <blockquote>
-<p><em>&ldquo;After days of ambiguity, our group was able to decide firmly about the project idea - Localization using Triangulation.&rdquo;</em></p>
+<p><em>&ldquo;After days of ambiguity, our group was able to decide firmly about the project idea - Localization using Triangulation.&quot;</em></p>
 </blockquote>
 <p>Except of course, the ambiguity wasn&rsquo;t gone, and to the keen reader, it must be apparent that the topic mentioned in this excerpt is not what we ended up doing.</p>
 <h1 id="is-that-what-we-haddecided">Is that what we had decided?</h1>
@@ -27,6 +27,7 @@ Can we though?
 <p>Another important aspect of planning is feasibility. Gauging the feasibility of a solution is, admittedly, difficult. It requires experience, which I definitely didn&rsquo;t have then, and no one can have enough. However, research can help here. If it&rsquo;s a research project or maybe a data science project, a literature review is helpful, and in most cases, expected. Published work like papers, blogs, source code repositories can help one understand the work that others pursuing similar goals have done, as well as an understanding of the technical difficulty, skills and resources required, and therefore, the feasibility of the project. Did we do a literature review for WiFi Positioning? Yes! But it was very, very haphazard and half-hearted. To make a literature review worthwhile, document it while doing it (and not when you&rsquo;re typing out the final report). Not only does this make researching an active task, but it helps down the line. What&rsquo;s better, going through a 20-page research paper <em>again</em> when you need to, or going through a summary that you have written yourself?</p>
 <h1 id="divide-andconquer">Divide and Conquer</h1>
 <figure>
+     
 </figure>
 
 <p>Okay, very trite. But it&rsquo;s only logical that you break down the project into large functional pieces, then break those pieces down further, and refine these pieces until they&rsquo;re granular enough for someone to work on. But if you&rsquo;re working in a team, it&rsquo;s equally important to break down development into pieces that can be worked on <em>independently</em>, in parallel. How often have you worked on something where you had to wait for your friend to push that commit so that you can continue your work? This is not only a waste of time but a sign of an ineffective breakdown of tasks. With experience, this becomes easier and natural to prevent.</p>
@@ -39,7 +40,7 @@ Can we though?
 <p>If your project involves running many experiments with different conditions or parameters, consider using a dedicated tool to track them (instead of random TXT files, or notes on your phone, or the worst: messages in your group chat). This can be as simple as using a spreadsheet, but if the experiments are more complex, use specialized tools, such as <a href="https://mlflow.org/" target="_blank" rel="noopener noreffer">MLflow</a> for machine learning models. The point here is to document and facilitate easy review, search and filtering of all the experiments you do.</p>
 <p>A pro tip is to document issues that you have faced, and how you solved them (this is literally how <a href="https://stackoverflow.com/" target="_blank" rel="noopener noreffer">Stack Overflow</a> works; does it sound useful now?). This habit is like an investment. Spend some time now, dig into the problem, and document it. Next time, you&rsquo;re just a Ctrl+F away from solving that problem. This habit also pushes you to actually understand what the problem is and how to solve it, instead of copying something from the documentation or changing parameters randomly (duct tape solutions). To quote my logs:</p>
 <blockquote>
-<p><em>&ldquo;In the morning, I was able to solve the GPIO errors. But I still don&rsquo;t know how.&rdquo;</em></p>
+<p><em>&ldquo;In the morning, I was able to solve the GPIO errors. But I still don&rsquo;t know how.&quot;</em></p>
 </blockquote>
 <h1 id="success-0-out-of-0-testspassed">Success: 0 out of 0 tests passed</h1>
 <div style="width:100%;height:0;padding-bottom:42%;position:relative;"><iframe src="https://giphy.com/embed/njYrp176NQsHS" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/lotr-gandalf-lord-of-the-rings-njYrp176NQsHS"></a></p>
@@ -125,7 +126,7 @@ total supply of the token available on the network. Besides these it can allow a
 <h2 id="methods-and-events-defined-in-erc20">Methods and Events Defined in ERC20</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -144,24 +145,24 @@ total supply of the token available on the network. Besides these it can allow a
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">name</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">symbol</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">decimals</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint8</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">totalSupply</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="nb">balance</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="n">_from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">_spender</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nf">allowance</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_spender</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">remaining</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">function</span> <span class="n">name</span><span class="p">()</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">symbol</span><span class="p">()</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">decimals</span><span class="p">()</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint8</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">totalSupply</span><span class="p">()</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="nb">balance</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="n">_from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">_spender</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_value</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">)</span>
+
+<span class="kd">function</span> <span class="n">allowance</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_spender</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">remaining</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -249,7 +250,7 @@ whether an address has minting privileges or not.</p>
 <h2 id="token-contract">Token Contract</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+<pre class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -378,138 +379,140 @@ whether an address has minting privileges or not.</p>
 </span><span class="lnt">127
 </span><span class="lnt">128
 </span><span class="lnt">129
+</span><span class="lnt">130
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">{</span><span class="n">SafeMath</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;../lib/SafeMath.sol&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">AkshatToken</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kt">string</span> <span class="k">public</span> <span class="k">constant</span> <span class="nb">name</span> <span class="o">=</span> <span class="s">&#34;Akshat&#39;s Token&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">string</span> <span class="k">public</span> <span class="k">constant</span> <span class="n">symbol</span> <span class="o">=</span> <span class="s">&#34;AKT&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">uint8</span> <span class="k">public</span> <span class="k">constant</span> <span class="n">decimals</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">creator</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kt">uint256</span> <span class="n">_totalSupply</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="n">_balances</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">))</span> <span class="n">_allowed</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">bool</span><span class="p">)</span> <span class="n">_isMinter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">Transfer</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="k">from</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">Approval</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">delegate</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">MinterAdded</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">minter</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">addedBy</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">MinterRemoved</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">minter</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">removedBy</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kn">using</span> <span class="n">SafeMath</span> <span class="k">for</span> <span class="kt">uint256</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">modifier</span> <span class="nf">onlyCreator</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">creator</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s">&#34;Only creator can call this function&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">_</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">modifier</span> <span class="nf">onlyMiner</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">            <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">creator</span> <span class="o">||</span> <span class="n">_isMinter</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="s">&#34;Only a minter or the creator can call this function&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">_</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">total</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">total</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">creator</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">totalSupply</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_totalSupply</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">owner</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_balances</span><span class="p">[</span><span class="n">owner</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">allowance</span><span class="p">(</span><span class="kt">address</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">address</span> <span class="n">delegate</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_allowed</span><span class="p">[</span><span class="n">owner</span><span class="p">][</span><span class="n">delegate</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">delegate</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_allowed</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">][</span><span class="n">delegate</span><span class="p">]</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">Approval</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">delegate</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="k">from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens approved for delegation&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">burn</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">burnFrom</span><span class="p">(</span><span class="kt">address</span> <span class="k">from</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens approved for delegation&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_allowed</span><span class="p">[</span><span class="k">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="k">from</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="k">from</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">isMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">addMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyCreator</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">==</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;Already a minter&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">MinterAdded</span><span class="p">(</span><span class="n">_address</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">removeMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyCreator</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">==</span> <span class="kc">true</span><span class="p">,</span> <span class="s">&#34;Already not a minter&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="n">_address</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">renounceMinter</span><span class="p">()</span> <span class="k">public</span> <span class="n">onlyMiner</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_isMinter</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">mint</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyMiner</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span><span class="n">SafeMath</span><span class="p">}</span> <span class="kr">from</span> <span class="s">&#34;../lib/SafeMath.sol&#34;</span><span class="p">;</span>
+
+<span class="kd">contract</span> <span class="n">AkshatToken</span> <span class="p">{</span>
+    
+    <span class="kt">string</span> <span class="kr">public</span> <span class="kr">constant</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Akshat&#39;s Token&#34;</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="kr">public</span> <span class="kr">constant</span> <span class="n">symbol</span> <span class="o">=</span> <span class="s">&#34;AKT&#34;</span><span class="p">;</span>
+    <span class="kt">uint8</span> <span class="kr">public</span> <span class="kr">constant</span> <span class="n">decimals</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+    <span class="kt">address</span> <span class="kr">public</span> <span class="n">creator</span><span class="p">;</span>
+    
+    <span class="kt">uint256</span> <span class="n">_totalSupply</span><span class="p">;</span>
+    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">)</span> <span class="n">_balances</span><span class="p">;</span>
+    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint256</span><span class="p">))</span> <span class="n">_allowed</span><span class="p">;</span>
+    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">bool</span><span class="p">)</span> <span class="n">_isMinter</span><span class="p">;</span>
+    
+    <span class="kd">event</span> <span class="n">Transfer</span><span class="p">(</span><span class="kt">address</span> <span class="kr">indexed</span> <span class="kr">from</span><span class="p">,</span> <span class="kt">address</span> <span class="kr">indexed</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="kr">indexed</span> <span class="n">tokens</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="n">Approval</span><span class="p">(</span><span class="kt">address</span> <span class="kr">indexed</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">address</span> <span class="kr">indexed</span> <span class="n">delegate</span><span class="p">,</span> <span class="kt">uint256</span> <span class="kr">indexed</span> <span class="n">tokens</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="n">MinterAdded</span><span class="p">(</span><span class="kt">address</span> <span class="kr">indexed</span> <span class="n">minter</span><span class="p">,</span> <span class="kt">address</span> <span class="kr">indexed</span> <span class="n">addedBy</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="kt">address</span> <span class="kr">indexed</span> <span class="n">minter</span><span class="p">,</span> <span class="kt">address</span> <span class="kr">indexed</span> <span class="n">removedBy</span><span class="p">);</span>
+    
+    <span class="kn">using</span> <span class="n">SafeMath</span> <span class="k">for</span> <span class="kt">uint256</span><span class="p">;</span>
+    
+    <span class="kd">modifier</span> <span class="n">onlyCreator</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span>
+            <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">creator</span><span class="p">,</span>
+            <span class="s">&#34;Only creator can call this function&#34;</span>
+        <span class="p">);</span>
+        <span class="kr">_</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">modifier</span> <span class="n">onlyMiner</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span>
+            <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">creator</span> <span class="o">||</span> <span class="n">_isMinter</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span>
+            <span class="s">&#34;Only a minter or the creator can call this function&#34;</span>
+        <span class="p">);</span>
+        <span class="kr">_</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">constructor</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">total</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">total</span><span class="p">;</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span><span class="p">;</span>
+        <span class="n">creator</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">totalSupply</span><span class="p">()</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_totalSupply</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">owner</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_balances</span><span class="p">[</span><span class="n">owner</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">allowance</span><span class="p">(</span><span class="kt">address</span> <span class="n">owner</span><span class="p">,</span> <span class="kt">address</span> <span class="n">delegate</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_allowed</span><span class="p">[</span><span class="n">owner</span><span class="p">][</span><span class="n">delegate</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">delegate</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_allowed</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">][</span><span class="n">delegate</span><span class="p">]</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">Approval</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">delegate</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="kr">from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_allowed</span><span class="p">[</span><span class="kr">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens approved for delegation&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="kr">from</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="kr">from</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="kr">from</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_allowed</span><span class="p">[</span><span class="kr">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_allowed</span><span class="p">[</span><span class="kr">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="n">to</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">burn</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">burnFrom</span><span class="p">(</span><span class="kt">address</span> <span class="kr">from</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_allowed</span><span class="p">[</span><span class="kr">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens approved for delegation&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&lt;=</span> <span class="n">_balances</span><span class="p">[</span><span class="kr">from</span><span class="p">],</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="n">_allowed</span><span class="p">[</span><span class="kr">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_allowed</span><span class="p">[</span><span class="kr">from</span><span class="p">][</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="kr">from</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="kr">from</span><span class="p">].</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="kr">from</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">isMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="kr">public</span> <span class="kr">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">];</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">addMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="kr">public</span> <span class="n">onlyCreator</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">==</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;Already a minter&#34;</span><span class="p">);</span>
+        <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">MinterAdded</span><span class="p">(</span><span class="n">_address</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">removeMinter</span><span class="p">(</span><span class="kt">address</span> <span class="n">_address</span><span class="p">)</span> <span class="kr">public</span> <span class="n">onlyCreator</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">==</span> <span class="kc">true</span><span class="p">,</span> <span class="s">&#34;Already not a minter&#34;</span><span class="p">);</span>
+        <span class="n">_isMinter</span><span class="p">[</span><span class="n">_address</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="n">_address</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">renounceMinter</span><span class="p">()</span> <span class="kr">public</span> <span class="n">onlyMiner</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_isMinter</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="n">emit</span> <span class="n">MinterRemoved</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">mint</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="n">onlyMiner</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span> <span class="o">=</span> <span class="n">_balances</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">].</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">_totalSupply</span> <span class="o">=</span> <span class="n">_totalSupply</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">tokens</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">Transfer</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="token-vendor-contract">Token Vendor Contract</h2>
 <p>To allow buying and selling tokens (for ether), we create a Vendor
@@ -531,7 +534,7 @@ specified number of tokens on the sender&rsquo;s behalf.</p>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -575,53 +578,55 @@ specified number of tokens on the sender&rsquo;s behalf.</p>
 </span><span class="lnt">42
 </span><span class="lnt">43
 </span><span class="lnt">44
+</span><span class="lnt">45
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">{</span><span class="n">AkshatToken</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;./AkshatToken.sol&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">{</span><span class="n">SafeMath</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;../lib/SafeMath.sol&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">AkshatTokenVendor</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">AkshatToken</span> <span class="n">token</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">tokensPerEth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">BuyTokens</span><span class="p">(</span><span class="kt">address</span> <span class="n">buyer</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">eth</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">SellTokens</span><span class="p">(</span><span class="kt">address</span> <span class="n">seller</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">eth</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kn">using</span> <span class="n">SafeMath</span> <span class="k">for</span> <span class="kt">uint256</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span> <span class="p">(</span><span class="kt">address</span> <span class="n">tokenAddress</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">token</span> <span class="o">=</span> <span class="n">AkshatToken</span><span class="p">(</span><span class="n">tokenAddress</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">buyTokens</span><span class="p">()</span> <span class="k">public</span> <span class="k">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Insufficient ether sent&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">eth</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">eth</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">tokensPerEth</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">tokens</span><span class="p">,</span> <span class="s">&#34;Vendor contract has insufficient tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">sent</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BuyTokens</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">tokens</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// requires delegation approval
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">sellTokens</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Need to sell non-zero tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">tokens</span><span class="p">,</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">eth</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">tokensPerEth</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&gt;=</span> <span class="n">eth</span><span class="p">,</span> <span class="s">&#34;Vendor contract has insufficient ether&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">sent</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="n">transferFrom</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring tokens, check approval&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="p">)</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="n">eth</span><span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring ether&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="p">{</span><span class="n">AkshatToken</span><span class="p">}</span> <span class="kr">from</span> <span class="s">&#34;./AkshatToken.sol&#34;</span><span class="p">;</span>
+<span class="kn">import</span> <span class="p">{</span><span class="n">SafeMath</span><span class="p">}</span> <span class="kr">from</span> <span class="s">&#34;../lib/SafeMath.sol&#34;</span><span class="p">;</span>
+
+<span class="kd">contract</span> <span class="n">AkshatTokenVendor</span> <span class="p">{</span>
+    <span class="n">AkshatToken</span> <span class="n">token</span><span class="p">;</span>
+    <span class="kt">uint256</span> <span class="kr">public</span> <span class="n">tokensPerEth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    
+    <span class="kd">event</span> <span class="n">BuyTokens</span><span class="p">(</span><span class="kt">address</span> <span class="n">buyer</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">eth</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">);</span>
+    <span class="kd">event</span> <span class="n">SellTokens</span><span class="p">(</span><span class="kt">address</span> <span class="n">seller</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">eth</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">tokens</span><span class="p">);</span>
+    
+    <span class="kn">using</span> <span class="n">SafeMath</span> <span class="k">for</span> <span class="kt">uint256</span><span class="p">;</span>
+    
+    <span class="n">constructor</span> <span class="p">(</span><span class="kt">address</span> <span class="n">tokenAddress</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">AkshatToken</span><span class="p">(</span><span class="n">tokenAddress</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="n">receive</span><span class="p">()</span> <span class="kr">external</span> <span class="kr">payable</span> <span class="p">{}</span>
+    
+    <span class="kd">function</span> <span class="n">buyTokens</span><span class="p">()</span> <span class="kr">public</span> <span class="kr">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Insufficient ether sent&#34;</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">eth</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">eth</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">tokensPerEth</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">tokens</span><span class="p">,</span> <span class="s">&#34;Vendor contract has insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="kt">bool</span> <span class="n">sent</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring tokens&#34;</span><span class="p">);</span>
+        <span class="n">emit</span> <span class="n">BuyTokens</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">,</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tokens</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// requires delegation approval
+</span><span class="c1"></span>    <span class="kd">function</span> <span class="n">sellTokens</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">tokens</span><span class="p">)</span> <span class="kr">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">tokens</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;Need to sell non-zero tokens&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="n">balanceOf</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">tokens</span><span class="p">,</span> <span class="s">&#34;Insufficient tokens&#34;</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">eth</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">.</span><span class="n">div</span><span class="p">(</span><span class="n">tokensPerEth</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&gt;=</span> <span class="n">eth</span><span class="p">,</span> <span class="s">&#34;Vendor contract has insufficient ether&#34;</span><span class="p">);</span>
+        <span class="kt">bool</span> <span class="n">sent</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="n">transferFrom</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">),</span> <span class="n">tokens</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring tokens, check approval&#34;</span><span class="p">);</span>
+        <span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="p">)</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">.</span><span class="nb">call</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="n">eth</span><span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;Failure in transferring ether&#34;</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><p>We define arithmetic operations explicitly to secure our ERC20 Token
 from integer overflow attacks. We check for integer overflows while
@@ -629,7 +634,7 @@ performing these operations. This logic is implemented in a separate
 library called <code>SafeMath</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -662,42 +667,44 @@ library called <code>SafeMath</code>.</p>
 </span><span class="lnt">31
 </span><span class="lnt">32
 </span><span class="lnt">33
+</span><span class="lnt">34
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">library</span> <span class="n">SafeMath</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">sub</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">add</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">assert</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">mul</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">,</span> <span class="s">&#34;SafeMath: multiplication overflow&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">div</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="k">internal</span> <span class="k">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// assert(a == b * c + a % b); // There is no case in which this doesn&#39;t hold
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kr">pragma solidity</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">0</span> <span class="o">&lt;</span><span class="mi">0</span><span class="p">.</span><span class="mi">9</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">library</span> <span class="n">SafeMath</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="n">sub</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="kr">internal</span> <span class="kr">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">assert</span><span class="p">(</span><span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">add</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="kr">internal</span> <span class="kr">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+        <span class="nb">assert</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;=</span> <span class="n">a</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">mul</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="kr">internal</span> <span class="kr">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">,</span> <span class="s">&#34;SafeMath: multiplication overflow&#34;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">function</span> <span class="n">div</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">b</span><span class="p">)</span> <span class="kr">internal</span> <span class="kr">pure</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">require</span><span class="p">(</span><span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="kt">uint256</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">;</span>
+        <span class="c1">// assert(a == b * c + a % b); // There is no case in which this doesn&#39;t hold
+</span><span class="c1"></span>
+        <span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
 </div>
 </div><h1 id="execution">Execution</h1>
 <p>The following steps show how the contracts can be deployed, following a
@@ -712,7 +719,7 @@ accounts, and start mining with one so that we can deploy a contract
 using that account.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -737,42 +744,42 @@ using that account.</p>
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span> 
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span> 
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;chainId&#34;</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;homesteadBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;eip150Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;eip150Hash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;eip155Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;eip158Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;byzantiumBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;constantinopleBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;petersburgBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;istanbulBlock&#34;</span><span class="p">:</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span> 
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;nonce&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000042&#34;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;parentHash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;extraData&#34;</span><span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;gasLimit&#34;</span><span class="p">:</span> <span class="s2">&#34;0x4c4b40&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;difficulty&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0004&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;mixhash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;coinbase&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;alloc&#34;</span><span class="p">:</span> <span class="p">{}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span> 
+    <span class="nt">&#34;config&#34;</span><span class="p">:</span> <span class="p">{</span> 
+        <span class="nt">&#34;chainId&#34;</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span> 
+        <span class="nt">&#34;homesteadBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="nt">&#34;eip150Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="nt">&#34;eip150Hash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;eip155Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="nt">&#34;eip158Block&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;byzantiumBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;constantinopleBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;petersburgBlock&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&#34;istanbulBlock&#34;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span> 
+    <span class="nt">&#34;nonce&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000042&#34;</span><span class="p">,</span> 
+    <span class="nt">&#34;timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span> 
+    <span class="nt">&#34;parentHash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;extraData&#34;</span><span class="p">:</span> <span class="s2">&#34;0x00&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;gasLimit&#34;</span><span class="p">:</span> <span class="s2">&#34;0x4c4b40&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;difficulty&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0004&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;mixhash&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;coinbase&#34;</span><span class="p">:</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;alloc&#34;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ geth --datadir .ethereum/net init genesis.json
-</span></span><span class="line"><span class="cl">$ geth --rpc --rpccorsdomain <span class="s2">&#34;https://remix.ethereum.org&#34;</span> --datadir .ethereum/net --allow-insecure-unlock
-</span></span><span class="line"><span class="cl">$ geth attach ipc:&lt;DATADIR&gt;/geth.ipc
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ geth --datadir .ethereum/net init genesis.json
+$ geth --rpc --rpccorsdomain <span class="s2">&#34;https://remix.ethereum.org&#34;</span> --datadir .ethereum/net --allow-insecure-unlock
+$ geth attach ipc:&lt;DATADIR&gt;/geth.ipc
+</code></pre></td></tr></table>
 </div>
 </div><figure><a class="lightgallery" href="/erc20/img/geth-init.png" title="Initializing the local test ethereum network" data-thumbnail="/erc20/img/geth-init.png" data-sub-html="<h2>Initializing the local test ethereum network</h2><p>Initializing the local test ethereum network</p>">
         
@@ -780,13 +787,13 @@ using that account.</p>
     </figure>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">    <span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">newAccount</span><span class="p">()</span>  <span class="c1">// to create an account
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">&gt;</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>  <span class="c1">// to start mining
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-javascript" data-lang="javascript">    <span class="o">&gt;</span> <span class="nx">personal</span><span class="p">.</span><span class="nx">newAccount</span><span class="p">()</span>  <span class="c1">// to create an account
+</span><span class="c1"></span>    <span class="o">&gt;</span> <span class="nx">miner</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>  <span class="c1">// to start mining
+</span></code></pre></td></tr></table>
 </div>
 </div><figure><a class="lightgallery" href="/erc20/img/accounts-mining.png" title="Create accounts and start mining" data-thumbnail="/erc20/img/accounts-mining.png" data-sub-html="<h2>Create accounts and start mining</h2><p>Create accounts and start mining</p>">
         
@@ -1161,11 +1168,11 @@ This series of articles seems very promising in teaching the principles of MLOps
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo perl install-tl <span class="o">[</span>-gui<span class="o">]</span> <span class="o">[</span>--repository &lt;URL&gt;<span class="o">]</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo perl install-tl <span class="o">[</span>-gui<span class="o">]</span> <span class="o">[</span>--repository &lt;URL&gt;<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="details admonition info">
         <div class="details-summary admonition-title">
@@ -1175,24 +1182,24 @@ This series of articles seems very promising in teaching the principles of MLOps
             <div class="admonition-content"><p>I came across the following error when I tried using an explicit mirror:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
-</span></span><span class="line"><span class="cl">install-tl: Maybe the repository setting should be changed.
-</span></span><span class="line"><span class="cl">install-tl: More info: https://tug.org/texlive/acquire.html
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
+install-tl: Maybe the repository setting should be changed.
+install-tl: More info: https://tug.org/texlive/acquire.html
+</code></pre></td></tr></table>
 </div>
 </div><p>Try appending <code>systems/texlive/tlnet</code> to the mirror URL when running the <code>install-tl</code> script. For example,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
+</code></pre></td></tr></table>
 </div>
 </div></div>
         </div>
@@ -1209,13 +1216,13 @@ This series of articles seems very promising in teaching the principles of MLOps
 <code>&lt;S&gt; set installation scheme: scheme-full</code>. Below that, you can see the number of collections and the space they&rsquo;ll take:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> &lt;C&gt; set installation collections:
-</span></span><span class="line"><span class="cl">     40 collections out of 41, disk space required: 7143 MB
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> &lt;C&gt; set installation collections:
+     40 collections out of 41, disk space required: 7143 MB
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>7GB by default, not cool.</p>
@@ -1240,21 +1247,21 @@ This series of articles seems very promising in teaching the principles of MLOps
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span> 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span> 
+</code></pre></td></tr></table>
 </div>
 </div><h1 id="installing-a-latex-editor">Installing a LaTeX editor</h1>
 <p>I installed TeXstudio by simply (painlessly) using APT.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install texstudio
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install texstudio
+</code></pre></td></tr></table>
 </div>
 </div><p>I&rsquo;m happy to say that this worked fine! Most TeX editors should be able to configure the backend (TeX Live, in our case) automatically, provided you have set your <code>PATH</code> variable and your shell knows about it.
 <figure><a class="lightgallery" href="/tex-install-linux/img/4.png" title="TeXstudio" data-thumbnail="/tex-install-linux/img/4.png" data-sub-html="<h2>TeXstudio</h2><p>TeXstudio</p>">
@@ -1278,7 +1285,7 @@ This series of articles seems very promising in teaching the principles of MLOps
 <p>A simple way (albeit requiring linear auxilliary space) is to traverse through the given array, and mark all the positive number present in the array as <em>present</em> using a simple boolean array of size equal to the maximum number present in the array. Then we iterate through the present array and report the first missing number. If there is no missing number, then the first missing positive integer is the maximum element + 1. The following pseudocode assumes 1-based indexing.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1289,16 +1296,16 @@ This series of articles seems very promising in teaching the principles of MLOps
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">present = boolean array of size max_element(a)
-</span></span><span class="line"><span class="cl">for i in a:
-</span></span><span class="line"><span class="cl">  if i &gt; 0 then
-</span></span><span class="line"><span class="cl">    present[i] = true
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">for i from 1 to max_element(a)
-</span></span><span class="line"><span class="cl">  if !present[i] then
-</span></span><span class="line"><span class="cl">    return i
-</span></span><span class="line"><span class="cl">return max_element(a) + 1
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">present = boolean array of size max_element(a)
+for i in a:
+  if i &gt; 0 then
+    present[i] = true
+
+for i from 1 to max_element(a)
+  if !present[i] then
+    return i
+return max_element(a) + 1
+</code></pre></td></tr></table>
 </div>
 </div><p>This is a linear time solution, and has space complexity linear in terms of the maximum element present. And that presents a problem: what if the numbers are too large?</p>
 <h3 id="put-elements-where-they-belong">Put elements where they belong</h3>
@@ -1309,7 +1316,7 @@ This series of articles seems very promising in teaching the principles of MLOps
 <p>The conditions are a little tricky, so make note of them. For finding the first missing positive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1326,22 +1333,22 @@ This series of articles seems very promising in teaching the principles of MLOps
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">for i from 1 to n
-</span></span><span class="line"><span class="cl">  if a[i] &lt;= 0 or a[i] &gt; n or a[i] == i then
-</span></span><span class="line"><span class="cl">    continue
-</span></span><span class="line"><span class="cl">  else
-</span></span><span class="line"><span class="cl">    if a[a[i]] &lt;= 0 or a[a[i]] &gt; n then
-</span></span><span class="line"><span class="cl">      a[a[i]] = a[i]
-</span></span><span class="line"><span class="cl">    else if a[a[i]] == a[i] then
-</span></span><span class="line"><span class="cl">      a[i] = 0
-</span></span><span class="line"><span class="cl">    else
-</span></span><span class="line"><span class="cl">      swap(a[i], a[a[i]])
-</span></span><span class="line"><span class="cl">      i = i - 1
-</span></span><span class="line"><span class="cl">for i from 1 to n
-</span></span><span class="line"><span class="cl">  if a[i] != i then
-</span></span><span class="line"><span class="cl">    return i
-</span></span><span class="line"><span class="cl">return n+1
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for i from 1 to n
+  if a[i] &lt;= 0 or a[i] &gt; n or a[i] == i then
+    continue
+  else
+    if a[a[i]] &lt;= 0 or a[a[i]] &gt; n then
+      a[a[i]] = a[i]
+    else if a[a[i]] == a[i] then
+      a[i] = 0
+    else
+      swap(a[i], a[a[i]])
+      i = i - 1
+for i from 1 to n
+  if a[i] != i then
+    return i
+return n+1
+</code></pre></td></tr></table>
 </div>
 </div><p>You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a></p>
 ]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
@@ -1357,21 +1364,21 @@ This series of articles seems very promising in teaching the principles of MLOps
 <p>We can use preorder traversal of a tree to encode it as a string. We start with the root, encode it, and then move on to the left subtree and serialize it, then move on to the right tree and serialize it. The base case will be when we call the recursive function for a child of a leaf node, we can encode it as &ldquo;null&rdquo;.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fun serialize(root)
-</span></span><span class="line"><span class="cl">  if root is null then return &#34;null&#34;
-</span></span><span class="line"><span class="cl">  return str(root-&gt;val) + &#34;,&#34; + serialize(root-&gt;left) + &#34;,&#34; + serialize(root-&gt;right)
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">fun serialize(root)
+  if root is null then return &#34;null&#34;
+  return str(root-&gt;val) + &#34;,&#34; + serialize(root-&gt;left) + &#34;,&#34; + serialize(root-&gt;right)
+</code></pre></td></tr></table>
 </div>
 </div><p>For deserializing a string of the type formed by <code>serialize</code>, we can again make use of the preorder traversal, since we know that is the order in which the serialized string was built.</p>
 <p>First, we can split the string by its delimiter (a comma, in this case) to get a list of nodes (including null nodes) and then traverse the list, while we build the tree in preorder traversal. We do this by keeping the pointer of the list common across all recursive calls, and each recursive call builds a subtree, in preorder. Whenever we hit a null element in the list, we simply return null.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1389,23 +1396,23 @@ This series of articles seems very promising in teaching the principles of MLOps
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fun deserialize(tree)
-</span></span><span class="line"><span class="cl">  nodes = tree.split(&#34;,&#34;)
-</span></span><span class="line"><span class="cl">  i = 0
-</span></span><span class="line"><span class="cl">  root = buildTree(nodes, i)
-</span></span><span class="line"><span class="cl">  return root
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">fun buildTree(nodes, i)
-</span></span><span class="line"><span class="cl">  if nodes[i] == &#34;null&#34; then
-</span></span><span class="line"><span class="cl">    return null
-</span></span><span class="line"><span class="cl">  else
-</span></span><span class="line"><span class="cl">    root = Node(int(root))
-</span></span><span class="line"><span class="cl">    i = i + 1
-</span></span><span class="line"><span class="cl">    root.left = buildTree(nodes, i)
-</span></span><span class="line"><span class="cl">    i = i + 1
-</span></span><span class="line"><span class="cl">    root.right = buildTree(nodes, i)
-</span></span><span class="line"><span class="cl">    return root
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">fun deserialize(tree)
+  nodes = tree.split(&#34;,&#34;)
+  i = 0
+  root = buildTree(nodes, i)
+  return root
+
+fun buildTree(nodes, i)
+  if nodes[i] == &#34;null&#34; then
+    return null
+  else
+    root = Node(int(root))
+    i = i + 1
+    root.left = buildTree(nodes, i)
+    i = i + 1
+    root.right = buildTree(nodes, i)
+    return root
+</code></pre></td></tr></table>
 </div>
 </div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
 This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
@@ -1434,19 +1441,19 @@ This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy
 <p>A simple solution would be to iterate over all possible pairs in the array and checking if a pair adds up to k.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">for i from 0 to n-1:
-</span></span><span class="line"><span class="cl">  for j from i+1 to n-1:
-</span></span><span class="line"><span class="cl">    if a[i] + a[j] == k:
-</span></span><span class="line"><span class="cl">      return true
-</span></span><span class="line"><span class="cl">return false
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for i from 0 to n-1:
+  for j from i+1 to n-1:
+    if a[i] + a[j] == k:
+      return true
+return false
+</code></pre></td></tr></table>
 </div>
 </div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space complexity.</p>
 <h2 id="sorting-and-two-pointer-approach">Sorting and two-pointer approach</h2>
@@ -1459,7 +1466,7 @@ We repeat this until <code>front</code> and <code>end</code> cross each other.</
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -1471,17 +1478,17 @@ We repeat this until <code>front</code> and <code>end</code> cross each other.</
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sort(a)
-</span></span><span class="line"><span class="cl">front = 0, end = n-1
-</span></span><span class="line"><span class="cl">while front &lt; end:
-</span></span><span class="line"><span class="cl">  if a[front] + a[end] == k:
-</span></span><span class="line"><span class="cl">    return true
-</span></span><span class="line"><span class="cl">  else if a[front] + a[end] &lt; k:
-</span></span><span class="line"><span class="cl">    front = front + 1
-</span></span><span class="line"><span class="cl">  else
-</span></span><span class="line"><span class="cl">    end = end - 1
-</span></span><span class="line"><span class="cl">return false
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sort(a)
+front = 0, end = n-1
+while front &lt; end:
+  if a[front] + a[end] == k:
+    return true
+  else if a[front] + a[end] &lt; k:
+    front = front + 1
+  else
+    end = end - 1
+return false
+</code></pre></td></tr></table>
 </div>
 </div><p>Since we are sorting an array (<code>O(nlogn)</code>) and looping with the <code>front</code> and <code>end</code> pointers (<code>O(n)</code>), the overall time complexity of this solution is (<code>O(nlogn)</code>). The space complexity is (<code>O(1)</code>).</p>
 <p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer">here</a></p>
@@ -1490,7 +1497,7 @@ We repeat this until <code>front</code> and <code>end</code> cross each other.</
 <p>We can iterate through the array and keep adding the elements to a set (or hashset, map or hashmap), and for every element, check if the set contains <code>(k-a[i])</code>. If we find this condition to be true, then there exists a pair that adds up to <code>k</code>: the current <code>a[i]</code> and the entry in the set, <code>k-a[i]</code>.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -1498,13 +1505,13 @@ We repeat this until <code>front</code> and <code>end</code> cross each other.</
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">set m
-</span></span><span class="line"><span class="cl">for i from 0 to n-1:
-</span></span><span class="line"><span class="cl">  if m.has(k-a[i]):
-</span></span><span class="line"><span class="cl">    return true
-</span></span><span class="line"><span class="cl">  m.add(a[i])
-</span></span><span class="line"><span class="cl">return false
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">set m
+for i from 0 to n-1:
+  if m.has(k-a[i]):
+    return true
+  m.add(a[i])
+return false
+</code></pre></td></tr></table>
 </div>
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
 <p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>

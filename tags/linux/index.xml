@@ -25,11 +25,11 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo perl install-tl <span class="o">[</span>-gui<span class="o">]</span> <span class="o">[</span>--repository &lt;URL&gt;<span class="o">]</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo perl install-tl <span class="o">[</span>-gui<span class="o">]</span> <span class="o">[</span>--repository &lt;URL&gt;<span class="o">]</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="details admonition info">
         <div class="details-summary admonition-title">
@@ -39,24 +39,24 @@
             <div class="admonition-content"><p>I came across the following error when I tried using an explicit mirror:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
-</span></span><span class="line"><span class="cl">install-tl: Maybe the repository setting should be changed.
-</span></span><span class="line"><span class="cl">install-tl: More info: https://tug.org/texlive/acquire.html
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">install-tl: TLPDB::from_file could not initialize from: https://mirrors.dotsrc.org/ctan/tlpkg/texlive.tlpdb
+install-tl: Maybe the repository setting should be changed.
+install-tl: More info: https://tug.org/texlive/acquire.html
+</code></pre></td></tr></table>
 </div>
 </div><p>Try appending <code>systems/texlive/tlnet</code> to the mirror URL when running the <code>install-tl</code> script. For example,</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"> sudo perl install-tl --repository https://download.nus.edu.sg/mirror/ctan/systems/texlive/tlnet
+</code></pre></td></tr></table>
 </div>
 </div></div>
         </div>
@@ -73,13 +73,13 @@
 <code>&lt;S&gt; set installation scheme: scheme-full</code>. Below that, you can see the number of collections and the space they&rsquo;ll take:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> &lt;C&gt; set installation collections:
-</span></span><span class="line"><span class="cl">     40 collections out of 41, disk space required: 7143 MB
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> &lt;C&gt; set installation collections:
+     40 collections out of 41, disk space required: 7143 MB
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>7GB by default, not cool.</p>
@@ -104,21 +104,21 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span> 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span> 
+</code></pre></td></tr></table>
 </div>
 </div><h1 id="installing-a-latex-editor">Installing a LaTeX editor</h1>
 <p>I installed TeXstudio by simply (painlessly) using APT.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install texstudio
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt install texstudio
+</code></pre></td></tr></table>
 </div>
 </div><p>I&rsquo;m happy to say that this worked fine! Most TeX editors should be able to configure the backend (TeX Live, in our case) automatically, provided you have set your <code>PATH</code> variable and your shell knows about it.
 <figure><a class="lightgallery" href="/tex-install-linux/img/4.png" title="TeXstudio" data-thumbnail="/tex-install-linux/img/4.png" data-sub-html="<h2>TeXstudio</h2><p>TeXstudio</p>">

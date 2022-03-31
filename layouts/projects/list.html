@@ -1,0 +1,16 @@
+{{- define "title" -}}
+{{- .Title }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+<div class="page">
+  {{- /* Title */ -}}
+  <h2 class="single-title animated pulse faster" style="text-align: right">
+    {{- .Title -}}
+  </h2>
+  <p>Here are some of my projects!</p>
+  {{ range .Data.Pages.ByDate.Reverse }}
+    {{ partial "partials/projects/project.html" . }}
+  {{ end }}
+</div>
+{{- end -}}

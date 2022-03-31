@@ -2,6 +2,7 @@
 title: "About"
 date: 2021-08-28T10:02:19+05:30
 draft: false
+type: "page"
 ---
 
 # Akshat Shah

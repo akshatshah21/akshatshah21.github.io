@@ -22,16 +22,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">present = boolean array of size max_element(a)
-for i in a:
-  if i &gt; 0 then
-    present[i] = true
-
-for i from 1 to max_element(a)
-  if !present[i] then
-    return i
-return max_element(a) + 1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">present = boolean array of size max_element(a)
+</span></span><span class="line"><span class="cl">for i in a:
+</span></span><span class="line"><span class="cl">  if i &gt; 0 then
+</span></span><span class="line"><span class="cl">    present[i] = true
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">for i from 1 to max_element(a)
+</span></span><span class="line"><span class="cl">  if !present[i] then
+</span></span><span class="line"><span class="cl">    return i
+</span></span><span class="line"><span class="cl">return max_element(a) + 1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>This is a linear time solution, and has space complexity linear in terms of the maximum element present. And that presents a problem: what if the numbers are too large?</p>
 <h3 id="put-elements-where-they-belong">Put elements where they belong</h3>
@@ -59,22 +59,22 @@ return max_element(a) + 1
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">for i from 1 to n
-  if a[i] &lt;= 0 or a[i] &gt; n or a[i] == i then
-    continue
-  else
-    if a[a[i]] &lt;= 0 or a[a[i]] &gt; n then
-      a[a[i]] = a[i]
-    else if a[a[i]] == a[i] then
-      a[i] = 0
-    else
-      swap(a[i], a[a[i]])
-      i = i - 1
-for i from 1 to n
-  if a[i] != i then
-    return i
-return n+1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">for i from 1 to n
+</span></span><span class="line"><span class="cl">  if a[i] &lt;= 0 or a[i] &gt; n or a[i] == i then
+</span></span><span class="line"><span class="cl">    continue
+</span></span><span class="line"><span class="cl">  else
+</span></span><span class="line"><span class="cl">    if a[a[i]] &lt;= 0 or a[a[i]] &gt; n then
+</span></span><span class="line"><span class="cl">      a[a[i]] = a[i]
+</span></span><span class="line"><span class="cl">    else if a[a[i]] == a[i] then
+</span></span><span class="line"><span class="cl">      a[i] = 0
+</span></span><span class="line"><span class="cl">    else
+</span></span><span class="line"><span class="cl">      swap(a[i], a[a[i]])
+</span></span><span class="line"><span class="cl">      i = i - 1
+</span></span><span class="line"><span class="cl">for i from 1 to n
+</span></span><span class="line"><span class="cl">  if a[i] != i then
+</span></span><span class="line"><span class="cl">    return i
+</span></span><span class="line"><span class="cl">return n+1
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a></p>
 ]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
@@ -95,10 +95,10 @@ return n+1
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">fun serialize(root)
-  if root is null then return &#34;null&#34;
-  return str(root-&gt;val) + &#34;,&#34; + serialize(root-&gt;left) + &#34;,&#34; + serialize(root-&gt;right)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fun serialize(root)
+</span></span><span class="line"><span class="cl">  if root is null then return &#34;null&#34;
+</span></span><span class="line"><span class="cl">  return str(root-&gt;val) + &#34;,&#34; + serialize(root-&gt;left) + &#34;,&#34; + serialize(root-&gt;right)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>For deserializing a string of the type formed by <code>serialize</code>, we can again make use of the preorder traversal, since we know that is the order in which the serialized string was built.</p>
 <p>First, we can split the string by its delimiter (a comma, in this case) to get a list of nodes (including null nodes) and then traverse the list, while we build the tree in preorder traversal. We do this by keeping the pointer of the list common across all recursive calls, and each recursive call builds a subtree, in preorder. Whenever we hit a null element in the list, we simply return null.</p>
@@ -122,23 +122,23 @@ return n+1
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">fun deserialize(tree)
-  nodes = tree.split(&#34;,&#34;)
-  i = 0
-  root = buildTree(nodes, i)
-  return root
-
-fun buildTree(nodes, i)
-  if nodes[i] == &#34;null&#34; then
-    return null
-  else
-    root = Node(int(root))
-    i = i + 1
-    root.left = buildTree(nodes, i)
-    i = i + 1
-    root.right = buildTree(nodes, i)
-    return root
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fun deserialize(tree)
+</span></span><span class="line"><span class="cl">  nodes = tree.split(&#34;,&#34;)
+</span></span><span class="line"><span class="cl">  i = 0
+</span></span><span class="line"><span class="cl">  root = buildTree(nodes, i)
+</span></span><span class="line"><span class="cl">  return root
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">fun buildTree(nodes, i)
+</span></span><span class="line"><span class="cl">  if nodes[i] == &#34;null&#34; then
+</span></span><span class="line"><span class="cl">    return null
+</span></span><span class="line"><span class="cl">  else
+</span></span><span class="line"><span class="cl">    root = Node(int(root))
+</span></span><span class="line"><span class="cl">    i = i + 1
+</span></span><span class="line"><span class="cl">    root.left = buildTree(nodes, i)
+</span></span><span class="line"><span class="cl">    i = i + 1
+</span></span><span class="line"><span class="cl">    root.right = buildTree(nodes, i)
+</span></span><span class="line"><span class="cl">    return root
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
 This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
@@ -174,12 +174,12 @@ This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">for i from 0 to n-1:
-  for j from i+1 to n-1:
-    if a[i] + a[j] == k:
-      return true
-return false
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">for i from 0 to n-1:
+</span></span><span class="line"><span class="cl">  for j from i+1 to n-1:
+</span></span><span class="line"><span class="cl">    if a[i] + a[j] == k:
+</span></span><span class="line"><span class="cl">      return true
+</span></span><span class="line"><span class="cl">return false
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>This will involve <code>n(n+1)/2</code> steps, so the time complexity will be <code>O(n^2)</code>, and <code>O(1)</code> space complexity.</p>
 <h2 id="sorting-and-two-pointer-approach">Sorting and two-pointer approach</h2>
@@ -204,17 +204,17 @@ We repeat this until <code>front</code> and <code>end</code> cross each other.</
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sort(a)
-front = 0, end = n-1
-while front &lt; end:
-  if a[front] + a[end] == k:
-    return true
-  else if a[front] + a[end] &lt; k:
-    front = front + 1
-  else
-    end = end - 1
-return false
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sort(a)
+</span></span><span class="line"><span class="cl">front = 0, end = n-1
+</span></span><span class="line"><span class="cl">while front &lt; end:
+</span></span><span class="line"><span class="cl">  if a[front] + a[end] == k:
+</span></span><span class="line"><span class="cl">    return true
+</span></span><span class="line"><span class="cl">  else if a[front] + a[end] &lt; k:
+</span></span><span class="line"><span class="cl">    front = front + 1
+</span></span><span class="line"><span class="cl">  else
+</span></span><span class="line"><span class="cl">    end = end - 1
+</span></span><span class="line"><span class="cl">return false
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Since we are sorting an array (<code>O(nlogn)</code>) and looping with the <code>front</code> and <code>end</code> pointers (<code>O(n)</code>), the overall time complexity of this solution is (<code>O(nlogn)</code>). The space complexity is (<code>O(1)</code>).</p>
 <p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer">here</a></p>
@@ -231,13 +231,13 @@ return false
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">set m
-for i from 0 to n-1:
-  if m.has(k-a[i]):
-    return true
-  m.add(a[i])
-return false
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">set m
+</span></span><span class="line"><span class="cl">for i from 0 to n-1:
+</span></span><span class="line"><span class="cl">  if m.has(k-a[i]):
+</span></span><span class="line"><span class="cl">    return true
+</span></span><span class="line"><span class="cl">  m.add(a[i])
+</span></span><span class="line"><span class="cl">return false
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
 <p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>

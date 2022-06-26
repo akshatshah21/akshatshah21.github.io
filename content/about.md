@@ -21,7 +21,7 @@ You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
 * Built a client interface using ReactJS
 * Worked on functionality requiring NLP
 
-## [CoE - CNDS](https://old.vjti.ac.in/images/coe-cnds/project/index.html)
+## [CoE - CNDS](https://vjti.ac.in/coe-cnds/)
 * *Intern, April - May 2021*
 * Worked on the front end of a Capture The Flag website using ReactJS
 

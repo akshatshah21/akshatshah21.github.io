@@ -1,4 +1,153 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>algorithms - Tag - Akshat Shah</title><link>http://akshatshah21.github.io/tags/algorithms/</link><description>algorithms - Tag - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Mon, 01 Mar 2021 18:07:55 +0000</lastBuildDate><atom:link href="http://akshatshah21.github.io/tags/algorithms/" rel="self" type="application/rss+xml"/><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>algorithms - Tag - Akshat Shah</title><link>http://akshatshah21.github.io/tags/algorithms/</link><description>algorithms - Tag - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sun, 03 Jul 2022 10:45:56 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/tags/algorithms/" rel="self" type="application/rss+xml"/><item><title>Coding Problem: Array of Product Except Self</title><link>http://akshatshah21.github.io/dcp-2/</link><pubDate>Sun, 03 Jul 2022 10:45:56 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-2/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+</blockquote>
+<h2 id="the-question">The Question</h2>
+<blockquote>
+<p>Given an array of integers, return a new array such that each element at index <code>i</code> of the new array is the product of all the numbers in the original array except the one at <code>i</code>.</p>
+<p>Follow-up: What if the division operation is not allowed?</p>
+</blockquote>
+<h2 id="examples">Examples</h2>
+<ol>
+<li><code>[1, 2, 3, 4, 5]</code><br>
+Result: <code>[120, 60, 40, 30, 24]</code></li>
+<li><code>[3, 2, 1]</code><br>
+Result: <code>[2, 3, 6]</code></li>
+<li>What&rsquo;s interesting about this question is if there are 0s in the array: <code>[1, 2, 3, 0]</code><br>
+Result: <code>[0, 0, 0, 6]</code></li>
+<li><code>[1, 2, 0, 3, 4, 0, 5]</code><br>
+Result: <code>[0, 0, 0, 0, 0, 0, 0]</code></li>
+</ol>
+<h2 id="solutions">Solutions</h2>
+<h3 id="division-of-overall-product">Division of Overall Product</h3>
+<ul>
+<li>The most intuitive solution is to first calculate the overall product of the array, <code>P</code> and then for each element in the given array, divide <code>P</code> by it to get the corresponding number in the result array.</li>
+<li>Dividing <code>P</code> by every element can be a problem if one of the elements is 0, since we&rsquo;ll get a runtime error for dividing by 0. However, if there is indeed a 0 in the array, then <code>P</code> will also be 0. So we realize that we need to handle zeroes carefully in this solution.</li>
+<li>Trying out some test cases (see <em>Examples</em> above), we realize that there are three cases when it comes to 0s in the array:
+<ol>
+<li>No zeroes: We can follow our simple solution above</li>
+<li>One zero, at index <code>z</code>: All positions in the result array except <code>z</code> will be 0, while <code>z</code> will hold the product of all numbers in the given array without the 0</li>
+<li>More than one zeroes: All positions in the result array will hold 0.
+Hence, we need to keep track of the number of zeroes and construct the result accordingly. We can simply keep a running count of zeroes and <code>firstZeroIndex</code> for this, and calculate <code>P</code> accordingly.</li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">P = 1
+zcount = 0
+firstZeroIndex = -1
+for i=0 to n-1:
+	if a[i] == 0:
+		if zcount == 0:
+			firstZeroIndex = i
+		zcount++
+	else:
+		P = P * a[i]
+
+	if zcount &gt; 1:
+		break
+
+if zcount &gt; 1:
+	result = [0, 0, ..., 0] of size n
+else if zcount == 1:
+	result = [0, 0, ..., 0] of size n
+	result[firstZeroIndex] = P
+else:
+	result = []
+	for i=0 to n-1:
+		result[i] = P / a[i]
+
+return result
+
+return result
+</code></pre></td></tr></table>
+</div>
+</div><p>The time complexity of this solution is <code>O(n)</code> with two passes required, and auxilliary space complexity is <code>O(1)</code>.</p>
+<div class="details admonition warning">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Take care of overflow!<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Care must be taken that the variable <code>P</code> does not overflow. Use a larger integer type, or use modular arithmetic if allowable.</div>
+        </div>
+    </div>
+<h3 id="product-prefix-and-suffix">Product Prefix and Suffix</h3>
+<p>To address the follow-up of disallowing use of the division operation, we can calculate prefix and suffix product arrays and use the two to construct the final result array. These arrays hold the product of the prefix / suffix of the array without including the current element.</p>
+<ul>
+<li>Prefix array: <code>pref[i] = a[0] * ... a[i-1]</code>,<br>
+<code>pref[0] = 1</code></li>
+<li>Suffix array: <code>suff[i] = a[i+1] * ... a[n-1]</code>,<br>
+<code>suff[n-1] = 1</code>
+To then construct the final result array, we simply multiply these two arrays elementwise. That is, <code>result[i] = pref[i] * suff[i]</code>. This works because <code>pref[i]</code> and <code>suff[i]</code> together hold the product of every element in the prefix and the suffix respectively, accounting for the whole array except <code>a[i]</code>, which is the required result.</li>
+</ul>
+<p>A nice thing about this solution is that we do not need to handle 0s separately. However it does take three passes. We can skip two passes in case of zeroes, but even without that, the solution is correct.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pref = []
+pref[0] = 1
+for i=1 to n-1:
+	pref[i] = pref[i-1] * a[i-1]
+
+suff = []
+suff[n-1] = 1
+for i=n-2 to 0:
+	suff[i] = suff[i+1] * a[i+1]
+
+result = []
+for i=0 to n-1:
+	result[i] = pref[i] * suff[i]
+
+return result
+</code></pre></td></tr></table>
+</div>
+</div><p>The time complexity of this solution is <code>O(n)</code> and it takes three passes, while the auxilliary space complexity is <code>O(n)</code> for the prefix and suffix product arrays.</p>
+]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>

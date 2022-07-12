@@ -156,38 +156,103 @@ return result
 </blockquote>
 <p>You can solve this question on <a href="https://leetcode.com/problems/first-missing-positive" target="_blank" rel="noopener noreffer">LeetCode</a>.</p>
 <h2 id="solutions">Solutions</h2>
-<h3 id="use-a-map-to-mark-presence">Use a &ldquo;map&rdquo; to mark presence</h3>
-<p>A simple way (albeit requiring linear auxilliary space) is to traverse through the given array, and mark all the positive number present in the array as <em>present</em> using a simple boolean array of size equal to the maximum number present in the array. Then we iterate through the present array and report the first missing number. If there is no missing number, then the first missing positive integer is the maximum element + 1. The following pseudocode assumes 1-based indexing.</p>
+<h3 id="use-a-set-to-mark-presence">Use a set to mark presence</h3>
+<p>A simple way (albeit requiring linear auxiliary space) is to traverse through the given array, and mark all the positive number present in the array as <em>present</em> using an ordered set. Then we iterate through the ordered set or from 1 to <code>n</code>, the size of the array and report the first missing number. If there is no missing number found by the time we finish, then the first missing positive integer is the <code>n + 1</code>. The following pseudocode assumes 1-based indexing.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">present = boolean array of size max_element(a)
-for i in a:
-  if i &gt; 0 then
-    present[i] = true
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">set = an ordered set
+for i in a {
+	if i &gt; 0
+		set.insert(i)
+}
 
-for i from 1 to max_element(a)
-  if !present[i] then
-    return i
-return max_element(a) + 1
+j = 1
+for i in set {
+	if i != j
+		return j
+	j = j + 1
+}
+
+return j
 </code></pre></td></tr></table>
 </div>
-</div><p>This is a linear time solution, and has space complexity linear in terms of the maximum element present. And that presents a problem: what if the numbers are too large?</p>
+</div><p>This is a <code>O(nlogn)</code> time solution, and has <code>O(n)</code> space complexity.</p>
+<h3 id="sort-the-array">Sort the array</h3>
+<p>The need for finding the <em>first</em> missing positive integer hints that sorting can be useful here. We can simply sort the array and then find the first positive element. We start traversing from 1 until we find a break in the natural numbers sequence, or we reach the end of the array, ultimately finding the required integer.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sort(a)
+
+i = 0
+while (i &lt; n &amp;&amp; nums[i] &lt;= 0) {
+	i = i + 1
+}
+
+if i == n {
+	return 1
+}
+
+j = 1
+while (i &lt; n &amp;&amp; j &lt;= n) {
+	if (nums[i] &gt; j) {
+		return j
+	}
+	while (i &lt; n &amp;&amp; nums[i] == j) {
+		i = i + 1
+	}
+	j = j + 1
+}
+
+return j
+</code></pre></td></tr></table>
+</div>
+</div><p>The time complexity of this solution is <code>O(nlogn)</code>, while the space complexity is <code>O(1)</code>.</p>
 <h3 id="put-elements-where-they-belong">Put elements where they belong</h3>
-<p>The question mentions that we can modify the array in place! And since we have to find the first missing positive integer, we can simply follow the same principle of &ldquo;marking presence&rdquo; but use the given array itself, instead of the auxilliary array. To see why this would work, say the first missing positive integer is <code>x</code>. To find <code>x</code>, we need all elements from 1 to <code>x-1</code> to be placed in their correct positions. For any &ldquo;large&rdquo; numbers (that is, numbers greater than the size of the array), we can simply ignore them, because <code>x</code>_ has to be in the range <code>[1, n+1]</code>. Think about it.</p>
+<p>The question mentions that we can modify the array in place! And since we have to find the first missing positive integer, we can simply follow the same principle of &ldquo;marking presence&rdquo; but use the given array itself, instead of the set. To see why this would work, say the first missing positive integer is <code>x</code>. To find <code>x</code>, we need all elements from 1 to <code>x-1</code> to be placed in their correct positions. For any &ldquo;large&rdquo; numbers (that is, numbers greater than the size of the array), we can simply ignore them, because <code>x</code> <em>has</em> to be in the range <code>[1, n+1]</code>. Think about it.</p>
 <p>So when we encounter some element of the array that is positive and less than or equal to <code>n</code>, we put it at its correct place, that&rsquo;s the position indexed by the element. So we place 1 at 1, 2 at 2, and so on.</p>
-<p>If an element <code>y</code> is already at position <code>y</code>, then we simply move forward, else we try to move it to position <code>y</code>. But this would mean replacing other elements. Note that if the elements getting replaced are negative, zero or more than <code>n</code>, then we don&rsquo;t need to worry about them. However, if the element that will be replaced is a <em>valid</em> number, then we can swap the two elements instead of replacing them, and <strong><em>not moving forward</em></strong> for this case, since we need to process the swapped element too.</p>
-<p>For handling duplicates, we change <code>y</code> to 0 (or any other <em>invalid</em> number) if there&rsquo;s already a <code>y</code> at position <code>y</code>, so that it can be potentially replaced by another number that should be at the current position.</p>
+<p>If an element <code>y</code> is already at position <code>y</code>, then we simply move forward, else we try to move it to position <code>y</code>. But this would mean replacing other elements. Note that if the elements getting replaced are negative, zero or more than <code>n</code>, then we don&rsquo;t need to worry about them. However, if the element that will be replaced is a <em>valid</em> number, then we can swap the two elements instead of replacing them, and <em><strong>not moving forward</strong></em> for this case, since we need to process the swapped element too.</p>
+<p>For handling duplicates, we change <code>y</code> to -1 (or any other <em>invalid</em> number) if there&rsquo;s already a <code>y</code> at position <code>y</code>, so that it can be potentially replaced by another number that should be at the current position.</p>
 <p>The conditions are a little tricky, so make note of them. For finding the first missing positive integer, we simply iterate through the array again and check for the first position that doesn&rsquo;t match the value at that position.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -206,26 +271,33 @@ return max_element(a) + 1
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">for i from 1 to n
-  if a[i] &lt;= 0 or a[i] &gt; n or a[i] == i then
-    continue
-  else
-    if a[a[i]] &lt;= 0 or a[a[i]] &gt; n then
-      a[a[i]] = a[i]
-    else if a[a[i]] == a[i] then
-      a[i] = 0
-    else
-      swap(a[i], a[a[i]])
-      i = i - 1
-for i from 1 to n
-  if a[i] != i then
-    return i
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">for i from 1 to n {
+	if a[i] &lt;= 0 or a[i] &gt; n
+		a[i] = -1
+	else if a[i] == i
+		continue
+	else if a[a[i]] == a[i]
+			a[i] = -1
+	else {
+		swap(a[i], a[a[i]])
+		i = i - 1
+	}
+}
+
+for i from 1 to n {
+	if a[i] != i
+		return i
+}
 return n+1
 </code></pre></td></tr></table>
 </div>
-</div><p>You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+</div><p>This solution has <code>O(n)</code> time complexity and <code>O(1)</code> extra space (it modifies the input array).<br>
+You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a>.</p>
 ]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
 <p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>

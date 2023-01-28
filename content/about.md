@@ -7,7 +7,7 @@ type: "page"
 
 # Akshat Shah
 
-{{< image src="../assets/img/me4.jpeg" caption="That's me!" width="60%" >}}
+{{< image src="../assets/img/me_at_khambhat.jpg" caption="That's me!" width="60%" >}}
 
 
 With a keen interest in programming and software, I am looking forward to improve my skills and work on projects and problems in the fields of Full Stack Web Development, DevOps and Machine Learning. Besides these, you'll find me active on competitive programming websites and venturing into the sport of [CTFs](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)). You can see some of my projects [here](https://github.com/akshatshah21).
@@ -18,21 +18,24 @@ You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
 
 # Experience
 ## [Wells Fargo](https://www.wellsfargojobs.com/WF-India-PHL)
-* *Program Associate, July 2022 - Present*
+* *Program Associate (Technology), July 2022 - Present*
+* Part of the Auto Lending Technology Division under Consumer Technology
+* Working in key modernization and resiliency initiatives involving microservices architecture
+* Working with .NET Core, SQL Server and MongoDB
 
 ## [Wells Fargo](https://www.wellsfargojobs.com/WF-India-PHL)
 * *Intern, April - July 2021*
 * Constructed a microservice architecture involving Node (Express), Python (Flask), Elasticsearch with a team
-* Built a client interface using ReactJS
+* Built a client interface using React
 * Worked on functionality requiring NLP
 
 ## [CoE - CNDS](https://vjti.ac.in/coe-cnds/)
 * *Intern, April - May 2021*
-* Worked on the front end of a Capture The Flag website using ReactJS
+* Worked on the front end of a Capture The Flag website using React
 
 ## [Community of Coders, VJTI](https://communityofcoders.in/)
 * *Member, 2019 - Present*
-* Website Contributor
+* React Website Contributor
 * Magazine Contributor and Curator
 * Workshop Instructor for Web Workshop 2020 and CLI Workshop 2020
 * Project Mentor as part of *Inheritance*, CoC's Summer Project program for First Year students

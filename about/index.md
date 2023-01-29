@@ -3,7 +3,7 @@
 
 # Akshat Shah
 
-{{< image src="../assets/img/me_at_khambhat.jpg" caption="That's me!" width="60%" >}}
+{{< image src="../assets/img/me_at_skandagiri.jpg" caption="That's me!" width="60%" >}}
 
 
 With a keen interest in programming and software, I am looking forward to improve my skills and work on projects and problems in the fields of Full Stack Web Development, DevOps and Machine Learning. Besides these, you'll find me active on competitive programming websites and venturing into the sport of [CTFs](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)). You can see some of my projects [here](https://github.com/akshatshah21).

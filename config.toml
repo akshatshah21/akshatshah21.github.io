@@ -582,4 +582,12 @@ theme = "LoveIt"
     url = "/categories/"
     title = ""
     weight = 5
+  [[menu.main]]
+    identifier = "creative"
+    pre = ""
+    post = ""
+    name = "Creative Works"
+    url = "https://akshatshah21.github.io/imagination-boundless"
+    title = ""
+    weight = 5
 

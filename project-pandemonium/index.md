@@ -1,7 +1,7 @@
 # Project Pandemonium
 
 
-> This blog was originally published by me as part of a [blog series](https://medium.com/dscvjti) by [Google Student Developer Clubs, VJTI](https://www.dscvjti.tech/).
+> This blog was originally published by me as part of a [blog series](https://medium.com/dscvjti) by [Google Student Developer Clubs, VJTI](https://gdsc.community.dev/veermata-jijabai-technological-institute-vjti-mumbai/).
 
 A few days ago, during a lazy afternoon, while rummaging through my muddle of a cupboard, I found a notebook that had, unsurprisingly, my name scrawled on it. I opened the book somewhere in the middle, but those pages were blank. Then, opening the first page, I smiled, sheepish and nostalgic. Written on the first twenty or so pages of this notebook, was the account of one of my first projects as an engineering student.
 

@@ -2,10 +2,10 @@
 title: "Circuit Breaker - Hope is not a Design Method"
 date: 2023-06-18T12:21:47+05:30
 draft: false
-tags: ["software-engineering", "design-patterns", "resilience", "fault-tolerance", "software", "programming", "distributed-systems"]
+tags: ["design-patterns", "resilience", "fault-tolerance", "software", "engineering"]
 description: "The Circuit Breaker pattern - fail fast when it’s likely that an operation will fail based on its previous invocations."
 summary: "The Circuit Breaker pattern - fail fast when it’s likely that an operation will fail based on its previous invocations. This article explains its need, implementation and benefits."
-categories: ["software-engineering", "design-patterns", "resilience"]
+categories: ["engineering"]
 authorLink: https://akshatshah21.github.io/
 ---
 {{< admonition type=tip title="TLDR" open=true >}}

@@ -2,10 +2,10 @@
 title: "Project Pandemonium"
 date: 2022-01-14T12:36:54+05:30
 draft: false
-tags: ["projects", "productivity", "experience", "thoughts"]
+tags: ["projects", "productivity", "experience", "thoughts", "collaboration"]
 description: "Software Development with collaboration is hard, here are some of my learnings"
 summary: "Software Development with collaboration is hard, here are some of my learnings"
-categories: ["projects", "productivity", "experience"]
+categories: ["productivity"]
 authorLink: https://akshatshah21.github.io/
 ---
 

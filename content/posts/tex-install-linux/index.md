@@ -1,7 +1,7 @@
 ---
 title: "A Guide to Install TeX on Linux"
 date: 2021-09-28T15:27:19+05:30
-tags: ["latex", "linux"]
+tags: ["latex", "linux", "tools"]
 authorLink: https://akshatshah21.github.io/
 description: "A guide to install TeX on Linux"
 summary: "I've personally found it a headache to install TeX on Linux for people new to TeX (for example, me). So I decided to write a concise guide for it."

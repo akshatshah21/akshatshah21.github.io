@@ -6,7 +6,7 @@ tags: ["ethereum", "blockchain", "solidity"]
 authorLink: https://akshatshah21.github.io/
 description: "Implementing the ERC20 standard to make a simple fungible token on Ethereum"
 summary: "Implementing the ERC20 standard to make a simple fungible token on Ethereum"
-categories: ["blockchain", "ethereum"]
+categories: ["blockchain"]
 ---
 In this blog post, I'll walk through creating a simple ERC20 token on Ethereum. This was one of my lab assignments this semester, and I thought I better make a blog post about this, because ~~I want to write consistently over here~~ why not?
 

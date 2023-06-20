@@ -1,5 +1,5 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding-problems - Category - Akshat Shah</title><link>http://akshatshah21.github.io/categories/coding-problems/</link><description>coding-problems - Category - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sun, 03 Jul 2022 10:45:56 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/categories/coding-problems/" rel="self" type="application/rss+xml"/><item><title>Coding Problem: Array of Product Except Self</title><link>http://akshatshah21.github.io/dcp-2/</link><pubDate>Sun, 03 Jul 2022 10:45:56 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-2/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding-problems - Category - Akshat Shah</title><link>http://akshatshah21.github.io/categories/coding-problems/</link><description>coding-problems - Category - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sun, 03 Jul 2022 10:45:56 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/categories/coding-problems/" rel="self" type="application/rss+xml"/><item><title>Coding Problem: Array of Product Except Self</title><link>http://akshatshah21.github.io/dcp-2/</link><pubDate>Sun, 03 Jul 2022 10:45:56 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-2/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
 <blockquote>
@@ -94,7 +94,7 @@ return result
 </div><p>The time complexity of this solution is <code>O(n)</code> with two passes required, and auxilliary space complexity is <code>O(1)</code>.</p>
 <div class="details admonition warning">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Take care of overflow!<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Take care of overflow!<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Care must be taken that the variable <code>P</code> does not overflow. Use a larger integer type, or use modular arithmetic if allowable.</div>
@@ -147,14 +147,14 @@ return result
 </code></pre></td></tr></table>
 </div>
 </div><p>The time complexity of this solution is <code>O(n)</code> and it takes three passes, while the auxilliary space complexity is <code>O(n)</code> for the prefix and suffix product arrays.</p>
-]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
 <blockquote>
 <p>Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well.</p>
 </blockquote>
-<p>You can solve this question on <a href="https://leetcode.com/problems/first-missing-positive" target="_blank" rel="noopener noreffer">LeetCode</a>.</p>
+<p>You can solve this question on <a href="https://leetcode.com/problems/first-missing-positive" target="_blank" rel="noopener noreffer ">LeetCode</a>.</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="use-a-set-to-mark-presence">Use a set to mark presence</h3>
 <p>A simple way (albeit requiring linear auxiliary space) is to traverse through the given array, and mark all the positive number present in the array as <em>present</em> using an ordered set. Then we iterate through the ordered set or from 1 to <code>n</code>, the size of the array and report the first missing number. If there is no missing number found by the time we finish, then the first missing positive integer is the <code>n + 1</code>. The following pseudocode assumes 1-based indexing.</p>
@@ -297,15 +297,15 @@ return n+1
 </code></pre></td></tr></table>
 </div>
 </div><p>This solution has <code>O(n)</code> time complexity and <code>O(1)</code> extra space (it modifies the input array).<br>
-You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a>.</p>
-]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer ">here</a>.</p>
+]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
 <blockquote>
 <p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
 </blockquote>
-<p>You can solve this question on <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noopener noreffer">LeetCode</a></p>
+<p>You can solve this question on <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noopener noreffer ">LeetCode</a></p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="recursion">Recursion!</h3>
 <p>We can use preorder traversal of a tree to encode it as a string. We start with the root, encode it, and then move on to the left subtree and serialize it, then move on to the right tree and serialize it. The base case will be when we call the recursive function for a child of a leaf node, we can encode it as &ldquo;null&rdquo;.</p>
@@ -361,10 +361,10 @@ fun buildTree(nodes, i)
     return root
 </code></pre></td></tr></table>
 </div>
-</div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
+</div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer ">here</a>.
 This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
-]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h1 id="the-question">The Question</h1>
 <blockquote>
@@ -438,7 +438,7 @@ return false
 </code></pre></td></tr></table>
 </div>
 </div><p>Since we are sorting an array (<code>O(nlogn)</code>) and looping with the <code>front</code> and <code>end</code> pointers (<code>O(n)</code>), the overall time complexity of this solution is (<code>O(nlogn)</code>). The space complexity is (<code>O(1)</code>).</p>
-<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer ">here</a></p>
 <p>If we are required to return the indices, the sorting approach cannot be used directly. We will have to make an array of pairs of <code>(val, index)</code> and then sort this array.</p>
 <h2 id="using-a-set-or-map">Using a set or map</h2>
 <p>We can iterate through the array and keep adding the elements to a set (or hashset, map or hashmap), and for every element, check if the set contains <code>(k-a[i])</code>. If we find this condition to be true, then there exists a pair that adds up to <code>k</code>: the current <code>a[i]</code> and the entry in the set, <code>k-a[i]</code>.</p>
@@ -461,6 +461,6 @@ return false
 </code></pre></td></tr></table>
 </div>
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
-<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer ">here</a></p>
 <p>If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as <code>(value, index)</code>.</p>
 ]]></description></item></channel></rss>

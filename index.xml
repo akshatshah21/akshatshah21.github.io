@@ -1,6 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Akshat Shah</title><link>http://akshatshah21.github.io/</link><description>Akshat Shah's website</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 28 Aug 2021 10:02:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Circuit Breaker - Hope is not a Design Method</title><link>http://akshatshah21.github.io/circuit-breaker/</link><pubDate>Sun, 18 Jun 2023 12:21:47 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/circuit-breaker/</guid><description><![CDATA[<div class="details admonition tip open">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Akshat Shah</title><link>http://akshatshah21.github.io/</link><description>Akshat Shah's website</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 28 Aug 2021 10:02:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Circuit Breaker - Hope is not a Design Method</title><link>http://akshatshah21.github.io/circuit-breaker/</link><pubDate>Sun, 18 Jun 2023 12:21:47 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/circuit-breaker/</guid><description><![CDATA[<div class="details admonition tip open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>TLDR<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>TLDR<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">The Circuit Breaker pattern - fail fast when it&rsquo;s likely that an operation will fail based on its previous invocations.</div>
@@ -30,11 +30,11 @@
 <h1 id="great-now-what">Great, Now What?</h1>
 <div class="details admonition quote open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>Quote<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p><em>&ldquo;Hope is not a design method.&quot;</em></p>
-<p>~ Michael T. Nygard, <a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer">Release It!: Design and Deploy Production-Ready Software</a></p>
+<p>~ Michael T. Nygard, <a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer ">Release It!: Design and Deploy Production-Ready Software</a></p>
 </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
 </ul>
 <div class="details admonition question open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-question-circle fa-fw"></i>Do we really need something like this?<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>Do we really need something like this?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Why not just use fewer retries or a shorter timeout if we are worried about wasting resources and burdening services?
@@ -54,19 +54,19 @@ Valid question! The problem with setting shorter timeouts is false negatives. If
         </div>
     </div>
 <h1 id="enter-the-circuit-breaker">Enter the Circuit Breaker</h1>
-<p>The circuit breaker pattern, popularized by Michael T. Nygard in his book, &ldquo;<a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer">Release It!</a>&quot;, is what we can use in such a situation.</p>
+<p>The circuit breaker pattern, popularized by Michael T. Nygard in his book, &ldquo;<a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer ">Release It!</a>&quot;, is what we can use in such a situation.</p>
 <h2 id="what-it-does">What it Does</h2>
 <p>Simply said, a circuit breaker acts as a <em>proxy</em> for the operation that might fail. This proxy <em>monitors</em> the number of recent failures and decides whether to attempt the operation next time it is triggered or return an exception directly, skipping the operation. It tries the operation after some time and decides whether to switch back to invoking the operation normally that it is acting as a proxy for.</p>
 <div class="details admonition info open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">How the failing operation recovers is handled externally, possibly by restoring or restarting a failed component or repairing a network connection.</div>
         </div>
     </div>
 <h2 id="states-of-the-circuit-breaker">States of the Circuit Breaker</h2>
-<p>Overall, we can guess that the circuit breaker has three states. And the naming of these states is where the <a href="https://en.wikipedia.org/wiki/Circuit_breaker" target="_blank" rel="noopener noreffer">&ldquo;circuit&rdquo; analogy</a> comes into play:</p>
+<p>Overall, we can guess that the circuit breaker has three states. And the naming of these states is where the <a href="https://en.wikipedia.org/wiki/Circuit_breaker" target="_blank" rel="noopener noreffer ">&ldquo;circuit&rdquo; analogy</a> comes into play:</p>
 <figure><a class="lightgallery" href="/circuit-breaker/img/states.png" title="The Three States of the Circuit Breaker Pattern" data-thumbnail="/circuit-breaker/img/states.png" data-sub-html="<h2>The Three States of the Circuit Breaker Pattern</h2><p>The Three States of the Circuit Breaker Pattern</p>">
         
     </a><figcaption class="image-caption">The Three States of the Circuit Breaker Pattern</figcaption>
@@ -127,30 +127,30 @@ Valid question! The problem with setting shorter timeouts is false negatives. If
 <li><strong>Temporarily degrade the functionality of the system</strong> proactively instead of users getting an error at all, like making a payment method unavailable while the circuit is open</li>
 </ul>
 <h2 id="break-the-circuit-based-on-the-type-of-exception">Break the Circuit Based on the Type of Exception</h2>
-<p>Most circuit breaker implementations allow the specification of the types of exceptions or results that should be considered when breaking a circuit. For example, exceptions arising from valid business logic conditions can be ignored by the circuit breaker while still tracking service unavailability exceptions. In the case of HTTP calls, perhaps some <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses" target="_blank" rel="noopener noreffer"><code>4xx</code></a> response codes (client error) could be ignored while <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses" target="_blank" rel="noopener noreffer"><code>5xx</code></a> codes could be tracked.</p>
+<p>Most circuit breaker implementations allow the specification of the types of exceptions or results that should be considered when breaking a circuit. For example, exceptions arising from valid business logic conditions can be ignored by the circuit breaker while still tracking service unavailability exceptions. In the case of HTTP calls, perhaps some <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses" target="_blank" rel="noopener noreffer "><code>4xx</code></a> response codes (client error) could be ignored while <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses" target="_blank" rel="noopener noreffer "><code>5xx</code></a> codes could be tracked.</p>
 <h2 id="log-circuit-events">Log Circuit Events</h2>
 <div class="details admonition quote open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>Quote<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p><em>Circuit breakers are a valuable place for monitoring. Any change in breaker state should be logged and breakers should reveal details of their state for deeper monitoring. Breaker behaviour is often a good source of warnings about deeper troubles in the environment.</em></p>
-<p>~ Martin Fowler, in his <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer">blog about circuit breakers</a></p>
+<p>~ Martin Fowler, in his <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer ">blog about circuit breakers</a></p>
 </div>
         </div>
     </div>
-<p>As an example, the circuit breakers offered by <a href="https://github.com/App-vNext/Polly" target="_blank" rel="noopener noreffer">Polly</a> and <a href="https://resilience4j.readme.io/" target="_blank" rel="noopener noreffer">resilience4j</a> provide hooks into their state transitions, where you could log useful information. These logs could be tied to <em>alerts</em> for monitoring and observability.</p>
+<p>As an example, the circuit breakers offered by <a href="https://github.com/App-vNext/Polly" target="_blank" rel="noopener noreffer ">Polly</a> and <a href="https://resilience4j.readme.io/" target="_blank" rel="noopener noreffer ">resilience4j</a> provide hooks into their state transitions, where you could log useful information. These logs could be tied to <em>alerts</em> for monitoring and observability.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>Circuit breaker is a pattern to prevent an application from invoking an operation if it is highly likely to fail. This helps save resources, offer better response times and increase the stability of a system when it is in an error state or recovering from one. However, it&rsquo;s not the best one to use in all cases. Using a circuit breaker isn&rsquo;t recommended for handling access to local private resources in an application like in-memory data structures, since it will add a lot of overhead in this case. As mentioned above, retries are more suitable for transient failures. In fact, circuit breakers can be combined with retries to counter both types. It can also not be used as a substitute for handling business logic exceptions - it&rsquo;s a fault tolerance and resilience pattern.</p>
 <h1 id="references-and-further-reading">References and Further Reading</h1>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker" target="_blank" rel="noopener noreffer">Circuit Breaker pattern - Azure Architecture Center</a></li>
-<li><a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer">CircuitBreaker - Martin Fowler</a></li>
-<li><a href="https://github.com/App-vNext/Polly/wiki/Circuit-Breaker" target="_blank" rel="noopener noreffer">App-vNext/Polly - GitHub</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern" target="_blank" rel="noopener noreffer">Circuit breaker design pattern - Wikipedia</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker" target="_blank" rel="noopener noreffer ">Circuit Breaker pattern - Azure Architecture Center</a></li>
+<li><a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer ">CircuitBreaker - Martin Fowler</a></li>
+<li><a href="https://github.com/App-vNext/Polly/wiki/Circuit-Breaker" target="_blank" rel="noopener noreffer ">App-vNext/Polly - GitHub</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern" target="_blank" rel="noopener noreffer ">Circuit breaker design pattern - Wikipedia</a></li>
 </ul>
-]]></description></item><item><title>Coding Problem: Array of Product Except Self</title><link>http://akshatshah21.github.io/dcp-2/</link><pubDate>Sun, 03 Jul 2022 10:45:56 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-2/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+]]></description></item><item><title>Coding Problem: Array of Product Except Self</title><link>http://akshatshah21.github.io/dcp-2/</link><pubDate>Sun, 03 Jul 2022 10:45:56 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-2/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
 <blockquote>
@@ -245,7 +245,7 @@ return result
 </div><p>The time complexity of this solution is <code>O(n)</code> with two passes required, and auxilliary space complexity is <code>O(1)</code>.</p>
 <div class="details admonition warning">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Take care of overflow!<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Take care of overflow!<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Care must be taken that the variable <code>P</code> does not overflow. Use a larger integer type, or use modular arithmetic if allowable.</div>
@@ -298,14 +298,14 @@ return result
 </code></pre></td></tr></table>
 </div>
 </div><p>The time complexity of this solution is <code>O(n)</code> and it takes three passes, while the auxilliary space complexity is <code>O(n)</code> for the prefix and suffix product arrays.</p>
-]]></description></item><item><title>Project Pandemonium</title><link>http://akshatshah21.github.io/project-pandemonium/</link><pubDate>Fri, 14 Jan 2022 12:36:54 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/project-pandemonium/</guid><description><![CDATA[<blockquote>
-<p>This blog was originally published by me as part of a <a href="https://medium.com/dscvjti" target="_blank" rel="noopener noreffer">blog series</a> by <a href="https://gdsc.community.dev/veermata-jijabai-technological-institute-vjti-mumbai/" target="_blank" rel="noopener noreffer">Google Student Developer Clubs, VJTI</a>.</p>
+]]></description></item><item><title>Project Pandemonium</title><link>http://akshatshah21.github.io/project-pandemonium/</link><pubDate>Fri, 14 Jan 2022 12:36:54 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/project-pandemonium/</guid><description><![CDATA[<blockquote>
+<p>This blog was originally published by me as part of a <a href="https://medium.com/dscvjti" target="_blank" rel="noopener noreffer ">blog series</a> by <a href="https://gdsc.community.dev/veermata-jijabai-technological-institute-vjti-mumbai/" target="_blank" rel="noopener noreffer ">Google Student Developer Clubs, VJTI</a>.</p>
 </blockquote>
 <p>A few days ago, during a lazy afternoon, while rummaging through my muddle of a cupboard, I found a notebook that had, unsurprisingly, my name scrawled on it. I opened the book somewhere in the middle, but those pages were blank. Then, opening the first page, I smiled, sheepish and nostalgic. Written on the first twenty or so pages of this notebook, was the account of one of my first projects as an engineering student.</p>
 <p>I immediately took a trip down memory lane. I perused those logs, consisting of long paragraphs of technical details, diagrams and outlines of activities carried out each day. But what stood out were the number of questions and exclamations. Occasionally, a few lines lamented on the roadblocks and failures that were faced, the uncertainty of whether things will work out and whether we were getting anywhere with the project.</p>
 <blockquote>
 <h2 id="about-the-project">About the project</h2>
-<p><em>Along with three friends, I was part of a project that aimed to develop a <a href="https://en.wikipedia.org/wiki/Wi-Fi_positioning_system" target="_blank" rel="noopener noreffer">WiFi Positioning System</a>, or more specifically, an <a href="https://en.wikipedia.org/wiki/Indoor_positioning_system" target="_blank" rel="noopener noreffer">Indoor Positioning System</a>. Fundamentally, this system would determine the location of a device using wireless access points that are in its vicinity. This project was under Eklavya, a mentorship program of the <a href="https://sravjti.in/" target="_blank" rel="noopener noreffer">Society of Robotics and Automation, VJTI</a>.</em></p>
+<p><em>Along with three friends, I was part of a project that aimed to develop a <a href="https://en.wikipedia.org/wiki/Wi-Fi_positioning_system" target="_blank" rel="noopener noreffer ">WiFi Positioning System</a>, or more specifically, an <a href="https://en.wikipedia.org/wiki/Indoor_positioning_system" target="_blank" rel="noopener noreffer ">Indoor Positioning System</a>. Fundamentally, this system would determine the location of a device using wireless access points that are in its vicinity. This project was under Eklavya, a mentorship program of the <a href="https://sravjti.in/" target="_blank" rel="noopener noreffer ">Society of Robotics and Automation, VJTI</a>.</em></p>
 </blockquote>
 <p>I would have loved to tell you that despite the misgivings in my memoirs, we managed to accomplish our goals. We didn&rsquo;t. And that&rsquo;s what this blog is about.</p>
 <hr>
@@ -319,7 +319,7 @@ Define the problem. We hear this all the time but seldom do we really put it int
 <p>Except of course, the ambiguity wasn&rsquo;t gone, and to the keen reader, it must be apparent that the topic mentioned in this excerpt is not what we ended up doing.</p>
 <h1 id="is-that-what-we-haddecided">Is that what we had decided?</h1>
 <div style="width:100%;height:0;padding-bottom:53%;position:relative;"><iframe src="https://giphy.com/embed/DrO4Bm325pjhc0BRM0" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/theoffice-DrO4Bm325pjhc0BRM0"></a></p>
-<p>It&rsquo;s important to get most requirements or goals clear and sorted out in the beginning. I say &ldquo;most&rdquo; because getting the requirements perfect the first time is extremely difficult, if at all possible. If there are stakeholders of the project, it will indubitably prove difficult to solicit and analyze specific and clear requirements from them at the very beginning of the project - one of the biggest drawbacks of the <a href="https://en.wikipedia.org/wiki/Waterfall_model" target="_blank" rel="noopener noreffer">Waterfall model</a> of software development. Invariably, some form of an iterative process involving prototyping and feedback is part of the trade. But the sooner these requirements get clear, the sooner a project will reach completion, and lesser time will be spent pursuing features or improvements that are not required.</p>
+<p>It&rsquo;s important to get most requirements or goals clear and sorted out in the beginning. I say &ldquo;most&rdquo; because getting the requirements perfect the first time is extremely difficult, if at all possible. If there are stakeholders of the project, it will indubitably prove difficult to solicit and analyze specific and clear requirements from them at the very beginning of the project - one of the biggest drawbacks of the <a href="https://en.wikipedia.org/wiki/Waterfall_model" target="_blank" rel="noopener noreffer ">Waterfall model</a> of software development. Invariably, some form of an iterative process involving prototyping and feedback is part of the trade. But the sooner these requirements get clear, the sooner a project will reach completion, and lesser time will be spent pursuing features or improvements that are not required.</p>
 <p>It&rsquo;s common knowledge that brainstorming in a group can help a lot with this part, because more aspects of the problem and solution will be explored, uncovering more and more questions that will hopefully be answered later on. What&rsquo;s not common knowledge is that all these (likely diverging) lines of thought should be combined to a single, coherent one early enough, otherwise the benefits of collaboration may turn futile.</p>
 <h1 id="yes-wecan">Yes, we can!</h1>
 <div class="tenor-gif-embed" data-postid="22328595" data-share-method="host" data-aspect-ratio="1.20301" data-width="90%"><a href="https://tenor.com/view/thor-really-it-is-what-it-is-gif-22328595"></a><a href="https://tenor.com/search/thor-gifs"></a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
@@ -331,14 +331,14 @@ Can we though?
 </figure>
 
 <p>Okay, very trite. But it&rsquo;s only logical that you break down the project into large functional pieces, then break those pieces down further, and refine these pieces until they&rsquo;re granular enough for someone to work on. But if you&rsquo;re working in a team, it&rsquo;s equally important to break down development into pieces that can be worked on <em>independently</em>, in parallel. How often have you worked on something where you had to wait for your friend to push that commit so that you can continue your work? This is not only a waste of time but a sign of an ineffective breakdown of tasks. With experience, this becomes easier and natural to prevent.</p>
-<p>With great division of work, comes the great requirement of reproducibility. Hopefully, you&rsquo;ll use a version control system, like <a href="https://git-scm.com/" target="_blank" rel="noopener noreffer">git</a>. For those who don&rsquo;t know, <a href="https://www.atlassian.com/git/tutorials/what-is-version-control" target="_blank" rel="noopener noreffer">version control</a> is the practice of tracking and managing changes to software code. Also use virtual environments and containers wherever appropriate. The focus of team members should be on the task at hand, not on things such as incompatibilities and installations. Use files for configuration (and check the non-confidential parts into version control) instead of typing out those command-line arguments (or worse, redefining constants in source code; been there, done that) every time. Additionally, combine work <em>nicely</em>. That means using a standard workflow to introduce changes to the project, like using pull requests, running tests, and other principles of <a href="https://www.atlassian.com/continuous-delivery/continuous-integration" target="_blank" rel="noopener noreffer">Continuous Integration</a>.</p>
+<p>With great division of work, comes the great requirement of reproducibility. Hopefully, you&rsquo;ll use a version control system, like <a href="https://git-scm.com/" target="_blank" rel="noopener noreffer ">git</a>. For those who don&rsquo;t know, <a href="https://www.atlassian.com/git/tutorials/what-is-version-control" target="_blank" rel="noopener noreffer ">version control</a> is the practice of tracking and managing changes to software code. Also use virtual environments and containers wherever appropriate. The focus of team members should be on the task at hand, not on things such as incompatibilities and installations. Use files for configuration (and check the non-confidential parts into version control) instead of typing out those command-line arguments (or worse, redefining constants in source code; been there, done that) every time. Additionally, combine work <em>nicely</em>. That means using a standard workflow to introduce changes to the project, like using pull requests, running tests, and other principles of <a href="https://www.atlassian.com/continuous-delivery/continuous-integration" target="_blank" rel="noopener noreffer ">Continuous Integration</a>.</p>
 <h1 id="write-it-down-write-it-down-write-itdown">Write it down, write it down, write it down</h1>
 <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/qlnqDO6nkw8iae2G2s" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/cbs-bob-hearts-abishola-bobheartsabishola-bayo-akinfemi-qlnqDO6nkw8iae2G2s"></a></p>
 <p>Again, it&rsquo;s a no-brainer that you should document stuff. Just like you shouldn&rsquo;t stay up too late and get up early. And just like waking up early, very few take this seriously.</p>
 <p><em>So, one should document stuff? What a drag… Why? We&rsquo;re probably going to write up a final report anyway!</em></p>
 <p>The point of documenting stuff (and humans writing anything in general) is so that you or anyone else can come back to it later if needed. It&rsquo;s communication: between you, your teammates and the same people in the future. It&rsquo;s important to document technicalities and design decisions since they will be revisited. It is important to document tasks, activities and progress so that as a team (or even individually), you know where the project is headed.</p>
-<p>If your project involves running many experiments with different conditions or parameters, consider using a dedicated tool to track them (instead of random TXT files, or notes on your phone, or the worst: messages in your group chat). This can be as simple as using a spreadsheet, but if the experiments are more complex, use specialized tools, such as <a href="https://mlflow.org/" target="_blank" rel="noopener noreffer">MLflow</a> for machine learning models. The point here is to document and facilitate easy review, search and filtering of all the experiments you do.</p>
-<p>A pro tip is to document issues that you have faced, and how you solved them (this is literally how <a href="https://stackoverflow.com/" target="_blank" rel="noopener noreffer">Stack Overflow</a> works; does it sound useful now?). This habit is like an investment. Spend some time now, dig into the problem, and document it. Next time, you&rsquo;re just a Ctrl+F away from solving that problem. This habit also pushes you to actually understand what the problem is and how to solve it, instead of copying something from the documentation or changing parameters randomly (duct tape solutions). To quote my logs:</p>
+<p>If your project involves running many experiments with different conditions or parameters, consider using a dedicated tool to track them (instead of random TXT files, or notes on your phone, or the worst: messages in your group chat). This can be as simple as using a spreadsheet, but if the experiments are more complex, use specialized tools, such as <a href="https://mlflow.org/" target="_blank" rel="noopener noreffer ">MLflow</a> for machine learning models. The point here is to document and facilitate easy review, search and filtering of all the experiments you do.</p>
+<p>A pro tip is to document issues that you have faced, and how you solved them (this is literally how <a href="https://stackoverflow.com/" target="_blank" rel="noopener noreffer ">Stack Overflow</a> works; does it sound useful now?). This habit is like an investment. Spend some time now, dig into the problem, and document it. Next time, you&rsquo;re just a Ctrl+F away from solving that problem. This habit also pushes you to actually understand what the problem is and how to solve it, instead of copying something from the documentation or changing parameters randomly (duct tape solutions). To quote my logs:</p>
 <blockquote>
 <p><em>&ldquo;In the morning, I was able to solve the GPIO errors. But I still don&rsquo;t know how.&quot;</em></p>
 </blockquote>
@@ -357,33 +357,33 @@ Can we though?
 <h1 id="connecting-people">Connecting People</h1>
 <div class="tenor-gif-embed" data-postid="13534843" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%"><a href="https://tenor.com/view/how-about-now-ready-yet-bout-gif-13534843"></a><a href="https://tenor.com/search/how+about+now-gifs"></a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 <p>Constant collaboration or being in a state of perpetual connectivity is the trend, using an array of tools like email, Discord, Slack et cetera. But this habit of staying online and open to communication all the time can be counterproductive. One major reason is attention fragmentation. Constant notifications disrupting your work and intermittent switches to replying to a message break concentration on the task at hand, leading to lower quality work than you would be doing in a state of focus.</p>
-<p>According to Cal Newport in his book <em><a href="https://www.calnewport.com/books/deep-work/" target="_blank" rel="noopener noreffer">Deep Work</a></em>, at work, it&rsquo;s common for people to develop the habit of running their day from their inbox: doing tasks as and when you receive emails about it, and using up much of their time replying to emails rather than actually working. This also prevents them from planning activities beforehand and taking a more proactive approach, since it&rsquo;s easier to use the inbox as a to-do list.</p>
+<p>According to Cal Newport in his book <em><a href="https://www.calnewport.com/books/deep-work/" target="_blank" rel="noopener noreffer ">Deep Work</a></em>, at work, it&rsquo;s common for people to develop the habit of running their day from their inbox: doing tasks as and when you receive emails about it, and using up much of their time replying to emails rather than actually working. This also prevents them from planning activities beforehand and taking a more proactive approach, since it&rsquo;s easier to use the inbox as a to-do list.</p>
 <p>For a project amongst friends, being connected to them constantly for work can easily turn into a hangout. I&rsquo;ve lost count of how many times my friends and I have switched from working on a project to playing Skribble on virtual meets.</p>
 <p>All these reasons further justify the constraints that I mentioned that you should keep on meetings. Outside of these meetings, try to hold sessions where you actually work in a focused manner.</p>
 <hr>
 <p>Finally, always remember, software development is hard. Don&rsquo;t beat yourself up if you find things tough, it&rsquo;s part of the journey. And hey, some pages of that book are still blank!</p>
-]]></description></item><item><title>Reading List: October 2021</title><link>http://akshatshah21.github.io/reading-list-oct-2021/</link><pubDate>Mon, 01 Nov 2021 15:30:14 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/reading-list-oct-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
+]]></description></item><item><title>Reading List: October 2021</title><link>http://akshatshah21.github.io/reading-list-oct-2021/</link><pubDate>Mon, 01 Nov 2021 15:30:14 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/reading-list-oct-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
 <h3 id="productivity-methods">Productivity Methods</h3>
 <p>I stumbled across the following posts by Devi Parikh while going through <a href="" rel="">this</a> repo:</p>
 <ul>
-<li><a href="https://deviparikh.medium.com/calendar-in-stead-of-to-do-lists-9ada86a512dd" target="_blank" rel="noopener noreffer">Calendar. Not to-do lists</a>: This post discusses some principles for time management. it makes the argument for using calendar to manage your time and tasks, not to-do lists. According to Parikh, to-do lists are too disorganized (especially in the time dimension, which is what we&rsquo;re trying to optimize). She then goes on to explain her method of using calendars, which involves making everything you do - not just work, but things like eating, sleeping, doing nothing - an entry on your calendar. She then discusses other principles - I found the calibration multiplier fascinating!</li>
-<li><a href="https://deviparikh.medium.com/checking-email-to-inbox-zero-e00d478cdd4b" target="_blank" rel="noopener noreffer">Checking Email → inbox Zero</a>: This is something I&rsquo;d heard about before, in the form of other terms like <em>Touching every email once</em>. This post outlines the motivation for being strict with your inbox, and dissuades procrastinating emails. Do what you need to do with that email whenever you open it, don&rsquo;t put it off for a later time.</li>
+<li><a href="https://deviparikh.medium.com/calendar-in-stead-of-to-do-lists-9ada86a512dd" target="_blank" rel="noopener noreffer ">Calendar. Not to-do lists</a>: This post discusses some principles for time management. it makes the argument for using calendar to manage your time and tasks, not to-do lists. According to Parikh, to-do lists are too disorganized (especially in the time dimension, which is what we&rsquo;re trying to optimize). She then goes on to explain her method of using calendars, which involves making everything you do - not just work, but things like eating, sleeping, doing nothing - an entry on your calendar. She then discusses other principles - I found the calibration multiplier fascinating!</li>
+<li><a href="https://deviparikh.medium.com/checking-email-to-inbox-zero-e00d478cdd4b" target="_blank" rel="noopener noreffer ">Checking Email → inbox Zero</a>: This is something I&rsquo;d heard about before, in the form of other terms like <em>Touching every email once</em>. This post outlines the motivation for being strict with your inbox, and dissuades procrastinating emails. Do what you need to do with that email whenever you open it, don&rsquo;t put it off for a later time.</li>
 </ul>
 <h3 id="the-confessions-of-marcus-hutchins-the-hacker-who-saved-the-internet">The Confessions of Marcus Hutchins, the Hacker Who Saved the Internet</h3>
-<p>I love this <a href="https://www.wired.com/story/confessions-marcus-hutchins-hacker-who-saved-the-internet" target="_blank" rel="noopener noreffer">article</a>. It is a very well written story of Marcus Hutchins, the hacker who was responsible for stopping the <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack" target="_blank" rel="noopener noreffer">WannaCry ransomware attack</a> in 2017. Apart from the cool hacker element, this article also remarkably addresses the real-world implications of cybersecurity, and the serious repercussions it can have on people and property. It delves into the grey world of Cybersecurity, and it made me think that there really isn&rsquo;t a stark line between cybercriminals and cybersecurity experts. They&rsquo;re really the same kind of people who study the same things, but are on different teams, with different intentions. This 70-90 minutes read is worth every second.</p>
+<p>I love this <a href="https://www.wired.com/story/confessions-marcus-hutchins-hacker-who-saved-the-internet" target="_blank" rel="noopener noreffer ">article</a>. It is a very well written story of Marcus Hutchins, the hacker who was responsible for stopping the <a href="https://en.wikipedia.org/wiki/WannaCry_ransomware_attack" target="_blank" rel="noopener noreffer ">WannaCry ransomware attack</a> in 2017. Apart from the cool hacker element, this article also remarkably addresses the real-world implications of cybersecurity, and the serious repercussions it can have on people and property. It delves into the grey world of Cybersecurity, and it made me think that there really isn&rsquo;t a stark line between cybercriminals and cybersecurity experts. They&rsquo;re really the same kind of people who study the same things, but are on different teams, with different intentions. This 70-90 minutes read is worth every second.</p>
 <h3 id="dropout-a-simple-way-to-prevent-neural-networks-from-overfitting">Dropout: A Simple Way to Prevent Neural Networks from Overfitting</h3>
-<p>This is the <a href="https://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf" target="_blank" rel="noopener noreffer">original paper on Dropout</a>, a technique that is commonly used while training deep neural networks today. I knew the concept of dropout, but the way that the authors present it instilled a new way of thinking about dropout and how it curbs prevents overfitting, with the intuition tending more towards gradient-boosted machines and genetic algorithms than the simple principle of &ldquo;disallowing the network to get dependent on certain pathways&rdquo;.</p>
+<p>This is the <a href="https://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf" target="_blank" rel="noopener noreffer ">original paper on Dropout</a>, a technique that is commonly used while training deep neural networks today. I knew the concept of dropout, but the way that the authors present it instilled a new way of thinking about dropout and how it curbs prevents overfitting, with the intuition tending more towards gradient-boosted machines and genetic algorithms than the simple principle of &ldquo;disallowing the network to get dependent on certain pathways&rdquo;.</p>
 <h3 id="the-yolo-papers">The YOLO papers</h3>
-<p>Many are aware that the <a href="https://pjreddie.com/" target="_blank" rel="noopener noreffer">creator</a> of <a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreffer">YOLO</a> has written quite humorous papers for it. YOLO (You Only Look Once) transformed the field of object detection when it was published in 2016. It was much faster, used less computation and was at par with the state of the art. Apart from the surprise of how simple the model is, the papers really entertain their readers with subtle humour placed here and there. More versions of YOLO have been released since, but the initial versions were written by the same author: Joseph Chet Redmon, and these papers are fun.</p>
+<p>Many are aware that the <a href="https://pjreddie.com/" target="_blank" rel="noopener noreffer ">creator</a> of <a href="https://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener noreffer ">YOLO</a> has written quite humorous papers for it. YOLO (You Only Look Once) transformed the field of object detection when it was published in 2016. It was much faster, used less computation and was at par with the state of the art. Apart from the surprise of how simple the model is, the papers really entertain their readers with subtle humour placed here and there. More versions of YOLO have been released since, but the initial versions were written by the same author: Joseph Chet Redmon, and these papers are fun.</p>
 <ul>
-<li><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener noreffer">You Only Look Once: Unified, Real-Time Object Detection</a></li>
-<li><a href="https://arxiv.org/abs/1612.08242" target="_blank" rel="noopener noreffer">YOLO9000: Better, Faster, Stronger</a></li>
-<li><a href="https://arxiv.org/abs/1804.02767" target="_blank" rel="noopener noreffer"># YOLOv3: An Incremental Improvement</a></li>
+<li><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener noreffer ">You Only Look Once: Unified, Real-Time Object Detection</a></li>
+<li><a href="https://arxiv.org/abs/1612.08242" target="_blank" rel="noopener noreffer ">YOLO9000: Better, Faster, Stronger</a></li>
+<li><a href="https://arxiv.org/abs/1804.02767" target="_blank" rel="noopener noreffer "># YOLOv3: An Incremental Improvement</a></li>
 </ul>
 <p>I never thought that research papers could be written like these. Brilliant!</p>
 <h3 id="how-to-plan-and-execute-your-ml-and-dl-projects">How to plan and execute your ML and DL projects</h3>
-<p>This <a href="https://blog.floydhub.com/structuring-and-planning-your-machine-learning-project/" target="_blank" rel="noopener noreffer">blog</a> on FloydHub by Sayak Paul outlines good practices and tooling for machine learning projects, with a focus on reproducibility, versioning and low technical debt.</p>
-]]></description></item><item><title>Making a Simple ERC20 Token</title><link>http://akshatshah21.github.io/erc20/</link><pubDate>Wed, 13 Oct 2021 22:07:20 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/erc20/</guid><description><![CDATA[<p>In this blog post, I&rsquo;ll walk through creating a simple ERC20 token on Ethereum. This was one of my lab assignments this semester, and I thought I better make a blog post about this, because <del>I want to write consistently over here</del> why not?</p>
+<p>This <a href="https://blog.floydhub.com/structuring-and-planning-your-machine-learning-project/" target="_blank" rel="noopener noreffer ">blog</a> on FloydHub by Sayak Paul outlines good practices and tooling for machine learning projects, with a focus on reproducibility, versioning and low technical debt.</p>
+]]></description></item><item><title>Making a Simple ERC20 Token</title><link>http://akshatshah21.github.io/erc20/</link><pubDate>Wed, 13 Oct 2021 22:07:20 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/erc20/</guid><description><![CDATA[<p>In this blog post, I&rsquo;ll walk through creating a simple ERC20 token on Ethereum. This was one of my lab assignments this semester, and I thought I better make a blog post about this, because <del>I want to write consistently over here</del> why not?</p>
 <p>A token in general is basically simply a digital representation of
 potentially anything. For example, a token can represent:</p>
 <ul>
@@ -414,7 +414,7 @@ blockchain or an app based on that. Utility tokens are also called &quot;app
 coins&quot; because they are explicitly designed for a certain app or
 blockchain.</p>
 <h1 id="erc20-standard">ERC20 Standard</h1>
-<p>The ERC-20 (<a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener noreffer">Ethereum Request for Comments 20</a>), proposed by Fabian
+<p>The ERC-20 (<a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener noreffer ">Ethereum Request for Comments 20</a>), proposed by Fabian
 Vogelsteller in November 2015, is a Token Standard that implements an
 API for tokens within Smart Contracts. The motivation for this EIP was
 to make &quot;a standard interface allows any tokens on Ethereum to be
@@ -546,7 +546,7 @@ whether an address has minting privileges or not.</p>
 </li>
 </ul>
 <h1 id="implementation">Implementation</h1>
-<p>We make this contract in <a href="https://soliditylang.org/" target="_blank" rel="noopener noreffer">Solidity</a>, and a simple way to start writing Ethereum contracts in Solidity is to use the <a href="https://remix.ethereum.org" target="_blank" rel="noopener noreffer">Remix IDE</a> It&rsquo;s browser-based, no setup required.</p>
+<p>We make this contract in <a href="https://soliditylang.org/" target="_blank" rel="noopener noreffer ">Solidity</a>, and a simple way to start writing Ethereum contracts in Solidity is to use the <a href="https://remix.ethereum.org" target="_blank" rel="noopener noreffer ">Remix IDE</a> It&rsquo;s browser-based, no setup required.</p>
 <h2 id="token-contract">Token Contract</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1009,7 +1009,7 @@ library called <code>SafeMath</code>.</p>
 </div><h1 id="execution">Execution</h1>
 <p>The following steps show how the contracts can be deployed, following a
 demonstration of the different functionalities coded in the contracts.
-We run a local <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreffer">Geth</a> client running a private blockchain, and use the Remix IDE to call the contracts.</p>
+We run a local <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreffer ">Geth</a> client running a private blockchain, and use the Remix IDE to call the contracts.</p>
 <ol>
 <li>
 <p>First, we initialize a local test ethereum network using the genesis
@@ -1402,57 +1402,57 @@ Vendor contract to allow users to buy and sell tokens. Remix IDE was
 used to develop and test the contracts, Geth client was used to simulate
 a test blockchain locally, and Remix and Metamask was used to deal with
 tokens.</p>
-<p>ERC20 is somewhat limited by its simplicity, even though we added on the minting and burning functions. A newer standard for fungible tokens, <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-777/" target="_blank" rel="noopener noreffer">ERC777</a> (<a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank" rel="noopener noreffer">EIP</a>) has a lot more functionality, and is backward compatible with ERC20. For non-fungible tokens, there&rsquo;s the <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/" target="_blank" rel="noopener noreffer">ERC721</a> standard, often used for collectibles and games.</p>
+<p>ERC20 is somewhat limited by its simplicity, even though we added on the minting and burning functions. A newer standard for fungible tokens, <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-777/" target="_blank" rel="noopener noreffer ">ERC777</a> (<a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank" rel="noopener noreffer ">EIP</a>) has a lot more functionality, and is backward compatible with ERC20. For non-fungible tokens, there&rsquo;s the <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/" target="_blank" rel="noopener noreffer ">ERC721</a> standard, often used for collectibles and games.</p>
 <h1 id="references">References</h1>
 <ul>
-<li><a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" target="_blank" rel="noopener noreffer">ERC-20 Token Standard | ethereum.org</a></li>
-<li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer">ERC 20 - OpenZeppelin Docs</a></li>
-<li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer">ERC20 Token Tutorial by Gilad Halmov</a></li>
+<li><a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" target="_blank" rel="noopener noreffer ">ERC-20 Token Standard | ethereum.org</a></li>
+<li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer ">ERC 20 - OpenZeppelin Docs</a></li>
+<li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer ">ERC20 Token Tutorial by Gilad Halmov</a></li>
 </ul>
-]]></description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
-<h3 id="articles-on-finance-on-tickertapeinhttpswwwtickertapein">Articles on Finance on <a href="https://www.tickertape.in/" target="_blank" rel="noopener noreffer">Tickertape.in</a></h3>
-<p>Call it a temporary whim, but I&rsquo;ve been looking into Finance and Economics <em>stuff</em> (pardon me, I&rsquo;ve never given it much attention before). Tickertape has a <a href="https://www.tickertape.in/learn/" target="_blank" rel="noopener noreffer">series of educational articles</a>, directed towards concepts in economics and finance, and aims to provide a foundation for getting started in equity market investing. This series has four modules, and I&rsquo;ve read the first one, <a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer">Elementary Economics</a>, which consists of the following articles:</p>
+]]></description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
+<h3 id="articles-on-finance-on-tickertapeinhttpswwwtickertapein">Articles on Finance on <a href="https://www.tickertape.in/" target="_blank" rel="noopener noreffer ">Tickertape.in</a></h3>
+<p>Call it a temporary whim, but I&rsquo;ve been looking into Finance and Economics <em>stuff</em> (pardon me, I&rsquo;ve never given it much attention before). Tickertape has a <a href="https://www.tickertape.in/learn/" target="_blank" rel="noopener noreffer ">series of educational articles</a>, directed towards concepts in economics and finance, and aims to provide a foundation for getting started in equity market investing. This series has four modules, and I&rsquo;ve read the first one, <a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer ">Elementary Economics</a>, which consists of the following articles:</p>
 <ol>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer">Intro to Macroeconomics</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/interest-rates-forex/" target="_blank" rel="noopener noreffer">Interest Rates &amp; Forex</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/circular-flow/" target="_blank" rel="noopener noreffer">Circular Flow</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/monetary-policy/" target="_blank" rel="noopener noreffer">Monetary Policy</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/deficits-balance-of-payments/" target="_blank" rel="noopener noreffer">Deficits &amp; Balance of Payments</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/fiscal-policy/" target="_blank" rel="noopener noreffer">Fiscal Policy</a>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer ">Intro to Macroeconomics</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/interest-rates-forex/" target="_blank" rel="noopener noreffer ">Interest Rates &amp; Forex</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/circular-flow/" target="_blank" rel="noopener noreffer ">Circular Flow</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/monetary-policy/" target="_blank" rel="noopener noreffer ">Monetary Policy</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/deficits-balance-of-payments/" target="_blank" rel="noopener noreffer ">Deficits &amp; Balance of Payments</a></li>
+<li><a href="https://www.tickertape.in/learn/modules/economics-101/fiscal-policy/" target="_blank" rel="noopener noreffer ">Fiscal Policy</a>
 Now this is most likely very fundamental for most people, but frankly, it&rsquo;s quite new for me, and I&rsquo;m finding it really interesting so far!</li>
 </ol>
-<h3 id="mlops-articles-by-tezan-sahuhttpstezansahumediumcom">MLOps Articles by <a href="https://tezansahu.medium.com" target="_blank" rel="noopener noreffer">Tezan Sahu</a></h3>
+<h3 id="mlops-articles-by-tezan-sahuhttpstezansahumediumcom">MLOps Articles by <a href="https://tezansahu.medium.com" target="_blank" rel="noopener noreffer ">Tezan Sahu</a></h3>
 <p>I&rsquo;ve been exploring Machine Learning and DevOps separately for the past few months, and I&rsquo;ve heard about the buzz around MLOps, a field which brings the practice of Machine Learning into real-world production systems and processes.
 This series of articles seems very promising in teaching the principles of MLOps, by first explaining what the DevOps culture and principles are, relating them to MLOps, and also outlining what&rsquo;s different. It then explains the ML workflow, and the principles that MLOps in particular advocates.</p>
-<p><a href="https://tezansahu.medium.com/fundamentals-of-mlops-part-1-a-gentle-introduction-to-mlops-1b184d2c32a8" target="_blank" rel="noopener noreffer">A Gentle Introduction to MLOps</a></p>
+<p><a href="https://tezansahu.medium.com/fundamentals-of-mlops-part-1-a-gentle-introduction-to-mlops-1b184d2c32a8" target="_blank" rel="noopener noreffer ">A Gentle Introduction to MLOps</a></p>
 <h3 id="authentication-system-using-ethereum">Authentication system using Ethereum</h3>
 <p>This article is a part of a trilogy of articles that introduce Ethereum and Smart Contracts, written by Sebastian Peyrott. Besides being a great introduction to Ethereum and Blockchain in general, it also has small projects that demonstrate the prospects of Blockchain, which includes an authentication system uses Ethereum to verify an individual&rsquo;s identity. I came across this series thanks to a college assignment. However, the series is from 2017, so some of the code is deprecated.</p>
-<p><a href="https://auth0.com/blog/an-introduction-to-ethereum-and-smart-contracts-part-3/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">An Introduction to Ethereum and Smart Contracts: an Authentication Solution</a></p>
-<p>It&rsquo;s also available as a <a href="https://assets.ctfassets.net/2ntc334xpx65/42fINJjatOKiG6qsQQAyc0/8b63e552f4cfef313f579b8e9c9154b5/intro-to-ethereum.pdf" target="_blank" rel="noopener noreffer">PDF</a>.</p>
+<p><a href="https://auth0.com/blog/an-introduction-to-ethereum-and-smart-contracts-part-3/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer ">An Introduction to Ethereum and Smart Contracts: an Authentication Solution</a></p>
+<p>It&rsquo;s also available as a <a href="https://assets.ctfassets.net/2ntc334xpx65/42fINJjatOKiG6qsQQAyc0/8b63e552f4cfef313f579b8e9c9154b5/intro-to-ethereum.pdf" target="_blank" rel="noopener noreffer ">PDF</a>.</p>
 <h3 id="natural-language-processing">Natural Language Processing</h3>
 <p>As part of my Final Year project, I am currently studying NLP, and I went through these articles/courses, and found them worth sharing:</p>
 <ul>
-<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener noreffer">The Illustrated Transformer by Jay Alammar</a>: This article explains the Transformer model for sequence-to-sequence tasks</li>
-<li><a href="https://lena-voita.github.io/nlp_course.html?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">NLP For You, a course by Lena Voita</a>: A text-based course on the fundamental concepts on NLP, including Word Embeddings, Text Classification, Language Modeling, Seq2seq, Attention, Transformer and Transfer Learning - this is a treasure!</li>
-<li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z" target="_blank" rel="noopener noreffer">CS224N: Natural Language Processing with Deep Learning</a> is a MOOC with lectures available on YouTube</li>
+<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener noreffer ">The Illustrated Transformer by Jay Alammar</a>: This article explains the Transformer model for sequence-to-sequence tasks</li>
+<li><a href="https://lena-voita.github.io/nlp_course.html?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer ">NLP For You, a course by Lena Voita</a>: A text-based course on the fundamental concepts on NLP, including Word Embeddings, Text Classification, Language Modeling, Seq2seq, Attention, Transformer and Transfer Learning - this is a treasure!</li>
+<li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z" target="_blank" rel="noopener noreffer ">CS224N: Natural Language Processing with Deep Learning</a> is a MOOC with lectures available on YouTube</li>
 </ul>
-<p>Thanks to my friends <a href="https://arnavsshah.github.io/" target="_blank" rel="noopener noreffer">Arnav Shah</a> and <a href="https://saharshleo.github.io/" target="_blank" rel="noopener noreffer">Saharsh Jain</a> for suggesting these resources!</p>
+<p>Thanks to my friends <a href="https://arnavsshah.github.io/" target="_blank" rel="noopener noreffer ">Arnav Shah</a> and <a href="https://saharshleo.github.io/" target="_blank" rel="noopener noreffer ">Saharsh Jain</a> for suggesting these resources!</p>
 <h3 id="a-project-of-ones-own">A Project of One&rsquo;s Own</h3>
-<p>Probably a classic now, I came across this <a href="http://paulgraham.com/own.html" target="_blank" rel="noopener noreffer">article</a> by Paul Graham. Go ahead and read it for yourself!</p>
+<p>Probably a classic now, I came across this <a href="http://paulgraham.com/own.html" target="_blank" rel="noopener noreffer ">article</a> by Paul Graham. Go ahead and read it for yourself!</p>
 <h3 id="how-to-remember-what-you-read">How to Remember What You Read</h3>
-<p>This <a href="https://fs.blog/2021/08/remember-books/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer">great article</a> by Farnam Street is something that I was thinking about for a long time before I actually googled this question and came across this article.</p>
-]]></description></item><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description><![CDATA[<h1 id="the-story">The Story</h1>
-<p>Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&hellip;), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an <a href="https://github.com/MiKTeX/miktex/issues/935" target="_blank" rel="noopener noreffer">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
+<p>This <a href="https://fs.blog/2021/08/remember-books/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer ">great article</a> by Farnam Street is something that I was thinking about for a long time before I actually googled this question and came across this article.</p>
+]]></description></item><item><title>A Guide to Install TeX on Linux</title><link>http://akshatshah21.github.io/tex-install-linux/</link><pubDate>Tue, 28 Sep 2021 15:27:19 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/tex-install-linux/</guid><description><![CDATA[<h1 id="the-story">The Story</h1>
+<p>Recently, I wanted to install a TeX system on my Ubuntu 20.04 PC. I tried installing MiKTeX after someone recommended it to me (thrice&hellip;), but I found myself unable to update TeX packages because of a cryptic SSL peer certificate error. I reported this in an <a href="https://github.com/MiKTeX/miktex/issues/935" target="_blank" rel="noopener noreffer ">issue</a> to the MiKTeX repo, but was instead told that my system did not support MiKTeX. Great.</p>
 <p>Next, I tried to install TeX Live. It seemed simple enough, with a <code>sudo apt install texlive</code>. Can&rsquo;t get any easier than this, right?</p>
-<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href="https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5" target="_blank" rel="noopener noreffer">this post on TeX Stack Exchange</a>, but this didn&rsquo;t work out.</p>
-<p>So I decided to ditch APT, and tried following the <a href="https://www.tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around    5GB of TeX software - fonts, packages, et cetera. For someone beginning with TeX, this did not sit well with me.</p>
+<p>So it turns out that the apt package for TeX Live is still the 2019 version. Now unfortunately, this meant that I again could not update packages, since <code>tlmgr</code>, TeX Live&rsquo;s package manager could not verify the signature for a repository. I tried following <a href="https://tex.stackexchange.com/questions/528634/tlmgr-unexpected-return-value-from-verify-checksum-5" target="_blank" rel="noopener noreffer ">this post on TeX Stack Exchange</a>, but this didn&rsquo;t work out.</p>
+<p>So I decided to ditch APT, and tried following the <a href="https://www.tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer ">TeX Live Quick Install docs</a> (which is probably I should have done first). But even in this method, the default mirror which was chosen was too slow, and for some reason, the default, <em>recommended</em> scheme to install TeX Live (called <em>full scheme</em>) installs around    5GB of TeX software - fonts, packages, et cetera. For someone beginning with TeX, this did not sit well with me.</p>
 <p>Enough with this rant, let me list down the steps that I followed to install TeX Live on my system. Note that there are most likely better methods/choices that one could use, but these steps worked for me.</p>
 <h1 id="what-is-tex">What is TeX?</h1>
-<p>Simply said, TeX is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href="https://en.wikipedia.org/wiki/Donald_Knuth" target="_blank" rel="noopener noreffer">Donald Knuth</a> (who is a legend, by the way).</p>
+<p>Simply said, TeX is a popular typesetting system, especially in academia, that enables one to write documents that involve a lot of formatting, mathematical equations, tables et cetera. It was made by ACM Turing Awardee <a href="https://en.wikipedia.org/wiki/Donald_Knuth" target="_blank" rel="noopener noreffer ">Donald Knuth</a> (who is a legend, by the way).</p>
 <h1 id="tex-live-installation">TeX Live Installation</h1>
 <p>TeX Live is a software distribution for TeX, and includes some programs, macros, packages and fonts. It has a package manager specifically for TeX packages, called <code>tlmgr</code>, that is used to install and update TeX packages.</p>
 <ol>
-<li>Download <code>install-tl</code> (the latest one, yay!) using <a href="https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz" target="_blank" rel="noopener noreffer">this link</a>. In case this gets changed, you can find the link <a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">in the docs</a> (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here&rsquo;s how the contents look:</li>
+<li>Download <code>install-tl</code> (the latest one, yay!) using <a href="https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz" target="_blank" rel="noopener noreffer ">this link</a>. In case this gets changed, you can find the link <a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer ">in the docs</a> (Do read the docs once before installing). Extract the contents from the .tar.gz file. Here&rsquo;s how the contents look:</li>
 </ol>
 <figure><a class="lightgallery" href="/tex-install-linux/img/1.png" title="Contents of the install-tl directory" data-thumbnail="/tex-install-linux/img/1.png" data-sub-html="<h2>Contents of the install-tl directory</h2><p>Contents of the install-tl directory</p>">
         
@@ -1463,7 +1463,7 @@ This series of articles seems very promising in teaching the principles of MLOps
 <li>
 <p>Run the <code>install-tl</code> Perl script as root. Note that the script does not require root permissions, but requires write access to the directory where it&rsquo;s going to install, which by default is <code>/usr/local</code>. You can change the directory by looking at the prompts of the script.</p>
 <p>Note that you can run the installer in GUI mode by the <code>-gui</code> flag (which I would recommend if you&rsquo;re doing this for the first time, but it requires Tcl to be installed).</p>
-<p>The <code>--repository</code> option specifies an explicit mirror to use. Try specifying some other <a href="https://ctan.org/mirrors?lang=en" target="_blank" rel="noopener noreffer">mirrors</a> if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.</p>
+<p>The <code>--repository</code> option specifies an explicit mirror to use. Try specifying some other <a href="https://ctan.org/mirrors?lang=en" target="_blank" rel="noopener noreffer ">mirrors</a> if the default mirror seems too slow. In my case, the mirror provided by NUS (and I stay in Mumbai) was much better than the default one.</p>
 </li>
 </ol>
 <div class="highlight"><div class="chroma">
@@ -1476,7 +1476,7 @@ This series of articles seems very promising in teaching the principles of MLOps
 </div>
 </div><div class="details admonition info">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-info-circle fa-fw"></i>In case you get some error related to &#39;tlpdb&#39;<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>In case you get some error related to &#39;tlpdb&#39;<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p>I came across the following error when I tried using an explicit mirror:</p>
@@ -1569,17 +1569,17 @@ install-tl: More info: https://tug.org/texlive/acquire.html
     </a><figcaption class="image-caption">TeXstudio</figcaption>
     </figure></p>
 <h1 id="references">References</h1>
-<p><a href="https://tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer">Quick Install - TeX Live</a></p>
-<p><a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer">Installing TeX Live over the Internet</a></p>
-<p><a href="https://narkive.com/i3g0zxJ0.4" target="_blank" rel="noopener noreffer">For the tlpdb error: An answer in a forum discussing &ldquo;Problems installing TeXlive in CentOS7&rdquo;</a></p>
-]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+<p><a href="https://tug.org/texlive/quickinstall.html" target="_blank" rel="noopener noreffer ">Quick Install - TeX Live</a></p>
+<p><a href="https://www.tug.org/texlive/acquire-netinstall.html" target="_blank" rel="noopener noreffer ">Installing TeX Live over the Internet</a></p>
+<p><a href="https://narkive.com/i3g0zxJ0.4" target="_blank" rel="noopener noreffer ">For the tlpdb error: An answer in a forum discussing &ldquo;Problems installing TeXlive in CentOS7&rdquo;</a></p>
+]]></description></item><item><title>Coding Problem: First Missing Positive Integer</title><link>http://akshatshah21.github.io/dcp-4/</link><pubDate>Mon, 01 Mar 2021 18:07:55 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-4/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
 <blockquote>
 <p>Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well.</p>
 </blockquote>
-<p>You can solve this question on <a href="https://leetcode.com/problems/first-missing-positive" target="_blank" rel="noopener noreffer">LeetCode</a>.</p>
+<p>You can solve this question on <a href="https://leetcode.com/problems/first-missing-positive" target="_blank" rel="noopener noreffer ">LeetCode</a>.</p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="use-a-set-to-mark-presence">Use a set to mark presence</h3>
 <p>A simple way (albeit requiring linear auxiliary space) is to traverse through the given array, and mark all the positive number present in the array as <em>present</em> using an ordered set. Then we iterate through the ordered set or from 1 to <code>n</code>, the size of the array and report the first missing number. If there is no missing number found by the time we finish, then the first missing positive integer is the <code>n + 1</code>. The following pseudocode assumes 1-based indexing.</p>
@@ -1722,15 +1722,15 @@ return n+1
 </code></pre></td></tr></table>
 </div>
 </div><p>This solution has <code>O(n)</code> time complexity and <code>O(1)</code> extra space (it modifies the input array).<br>
-You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer">here</a>.</p>
-]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer ">here</a>.</p>
+]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h2 id="the-question">The Question</h2>
 <blockquote>
 <p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
 </blockquote>
-<p>You can solve this question on <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noopener noreffer">LeetCode</a></p>
+<p>You can solve this question on <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noopener noreffer ">LeetCode</a></p>
 <h2 id="solutions">Solutions</h2>
 <h3 id="recursion">Recursion!</h3>
 <p>We can use preorder traversal of a tree to encode it as a string. We start with the root, encode it, and then move on to the left subtree and serialize it, then move on to the right tree and serialize it. The base case will be when we call the recursive function for a child of a leaf node, we can encode it as &ldquo;null&rdquo;.</p>
@@ -1786,10 +1786,10 @@ fun buildTree(nodes, i)
     return root
 </code></pre></td></tr></table>
 </div>
-</div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer">here</a>.
+</div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer ">here</a>.
 This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
-]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Author</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
+]]></description></item><item><title>Coding Problem: Two Sum</title><link>http://akshatshah21.github.io/dcp-1/</link><pubDate>Thu, 21 Jan 2021 17:30:51 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-1/</guid><description><![CDATA[<blockquote>
+<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
 </blockquote>
 <h1 id="the-question">The Question</h1>
 <blockquote>
@@ -1863,7 +1863,7 @@ return false
 </code></pre></td></tr></table>
 </div>
 </div><p>Since we are sorting an array (<code>O(nlogn)</code>) and looping with the <code>front</code> and <code>end</code> pointers (<code>O(n)</code>), the overall time complexity of this solution is (<code>O(nlogn)</code>). The space complexity is (<code>O(1)</code>).</p>
-<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/Check_2_sum.cpp" target="_blank" rel="noopener noreffer ">here</a></p>
 <p>If we are required to return the indices, the sorting approach cannot be used directly. We will have to make an array of pairs of <code>(val, index)</code> and then sort this array.</p>
 <h2 id="using-a-set-or-map">Using a set or map</h2>
 <p>We can iterate through the array and keep adding the elements to a set (or hashset, map or hashmap), and for every element, check if the set contains <code>(k-a[i])</code>. If we find this condition to be true, then there exists a pair that adds up to <code>k</code>: the current <code>a[i]</code> and the entry in the set, <code>k-a[i]</code>.</p>
@@ -1886,6 +1886,6 @@ return false
 </code></pre></td></tr></table>
 </div>
 </div><p>We are making a single pass through the array, finding whether a number exists in the set, and adding an element to the set. If we are using a BST implementation of set (C++ <code>set</code> or <code>map</code>) then the time complexity will be <code>O(nlogn)</code>, since every insert/find operation takes <code>O(logn)</code> time. If we use a hashset or hashmap (C++ <code>unordered_set</code> or <code>unordered_map</code>) then the time complexity will be <code>O(n)</code>, since insert/find operation can be done in constant time.</p>
-<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer">here</a></p>
+<p>You can find the implementation of this solution <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Hashing%20or%20Maps/Check_Numbers_Add_Upto_k_in_Array.cpp" target="_blank" rel="noopener noreffer ">here</a></p>
 <p>If we are required to return indices of these elements, then need to use a map or hashmap, with the key-value pairs as <code>(value, index)</code>.</p>
 ]]></description></item></channel></rss>

@@ -1,6 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>fault-tolerance - Tag - Akshat Shah</title><link>http://akshatshah21.github.io/tags/fault-tolerance/</link><description>fault-tolerance - Tag - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sun, 18 Jun 2023 12:21:47 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/tags/fault-tolerance/" rel="self" type="application/rss+xml"/><item><title>Circuit Breaker - Hope is not a Design Method</title><link>http://akshatshah21.github.io/circuit-breaker/</link><pubDate>Sun, 18 Jun 2023 12:21:47 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/circuit-breaker/</guid><description><![CDATA[<div class="details admonition tip open">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>fault-tolerance - Tag - Akshat Shah</title><link>http://akshatshah21.github.io/tags/fault-tolerance/</link><description>fault-tolerance - Tag - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sun, 18 Jun 2023 12:21:47 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/tags/fault-tolerance/" rel="self" type="application/rss+xml"/><item><title>Circuit Breaker - Hope is not a Design Method</title><link>http://akshatshah21.github.io/circuit-breaker/</link><pubDate>Sun, 18 Jun 2023 12:21:47 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/circuit-breaker/</guid><description><![CDATA[<div class="details admonition tip open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>TLDR<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>TLDR<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">The Circuit Breaker pattern - fail fast when it&rsquo;s likely that an operation will fail based on its previous invocations.</div>
@@ -30,11 +30,11 @@
 <h1 id="great-now-what">Great, Now What?</h1>
 <div class="details admonition quote open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>Quote<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p><em>&ldquo;Hope is not a design method.&quot;</em></p>
-<p>~ Michael T. Nygard, <a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer">Release It!: Design and Deploy Production-Ready Software</a></p>
+<p>~ Michael T. Nygard, <a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer ">Release It!: Design and Deploy Production-Ready Software</a></p>
 </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
 </ul>
 <div class="details admonition question open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-question-circle fa-fw"></i>Do we really need something like this?<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-question-circle fa-fw" aria-hidden="true"></i>Do we really need something like this?<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">Why not just use fewer retries or a shorter timeout if we are worried about wasting resources and burdening services?
@@ -54,19 +54,19 @@ Valid question! The problem with setting shorter timeouts is false negatives. If
         </div>
     </div>
 <h1 id="enter-the-circuit-breaker">Enter the Circuit Breaker</h1>
-<p>The circuit breaker pattern, popularized by Michael T. Nygard in his book, &ldquo;<a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer">Release It!</a>&quot;, is what we can use in such a situation.</p>
+<p>The circuit breaker pattern, popularized by Michael T. Nygard in his book, &ldquo;<a href="https://pragprog.com/titles/mnee2/" target="_blank" rel="noopener noreffer ">Release It!</a>&quot;, is what we can use in such a situation.</p>
 <h2 id="what-it-does">What it Does</h2>
 <p>Simply said, a circuit breaker acts as a <em>proxy</em> for the operation that might fail. This proxy <em>monitors</em> the number of recent failures and decides whether to attempt the operation next time it is triggered or return an exception directly, skipping the operation. It tries the operation after some time and decides whether to switch back to invoking the operation normally that it is acting as a proxy for.</p>
 <div class="details admonition info open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-info-circle fa-fw"></i>Info<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">How the failing operation recovers is handled externally, possibly by restoring or restarting a failed component or repairing a network connection.</div>
         </div>
     </div>
 <h2 id="states-of-the-circuit-breaker">States of the Circuit Breaker</h2>
-<p>Overall, we can guess that the circuit breaker has three states. And the naming of these states is where the <a href="https://en.wikipedia.org/wiki/Circuit_breaker" target="_blank" rel="noopener noreffer">&ldquo;circuit&rdquo; analogy</a> comes into play:</p>
+<p>Overall, we can guess that the circuit breaker has three states. And the naming of these states is where the <a href="https://en.wikipedia.org/wiki/Circuit_breaker" target="_blank" rel="noopener noreffer ">&ldquo;circuit&rdquo; analogy</a> comes into play:</p>
 <figure><a class="lightgallery" href="/circuit-breaker/img/states.png" title="The Three States of the Circuit Breaker Pattern" data-thumbnail="/circuit-breaker/img/states.png" data-sub-html="<h2>The Three States of the Circuit Breaker Pattern</h2><p>The Three States of the Circuit Breaker Pattern</p>">
         
     </a><figcaption class="image-caption">The Three States of the Circuit Breaker Pattern</figcaption>
@@ -127,26 +127,26 @@ Valid question! The problem with setting shorter timeouts is false negatives. If
 <li><strong>Temporarily degrade the functionality of the system</strong> proactively instead of users getting an error at all, like making a payment method unavailable while the circuit is open</li>
 </ul>
 <h2 id="break-the-circuit-based-on-the-type-of-exception">Break the Circuit Based on the Type of Exception</h2>
-<p>Most circuit breaker implementations allow the specification of the types of exceptions or results that should be considered when breaking a circuit. For example, exceptions arising from valid business logic conditions can be ignored by the circuit breaker while still tracking service unavailability exceptions. In the case of HTTP calls, perhaps some <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses" target="_blank" rel="noopener noreffer"><code>4xx</code></a> response codes (client error) could be ignored while <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses" target="_blank" rel="noopener noreffer"><code>5xx</code></a> codes could be tracked.</p>
+<p>Most circuit breaker implementations allow the specification of the types of exceptions or results that should be considered when breaking a circuit. For example, exceptions arising from valid business logic conditions can be ignored by the circuit breaker while still tracking service unavailability exceptions. In the case of HTTP calls, perhaps some <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses" target="_blank" rel="noopener noreffer "><code>4xx</code></a> response codes (client error) could be ignored while <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses" target="_blank" rel="noopener noreffer "><code>5xx</code></a> codes could be tracked.</p>
 <h2 id="log-circuit-events">Log Circuit Events</h2>
 <div class="details admonition quote open">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-quote-right fa-fw"></i>Quote<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-quote-right fa-fw" aria-hidden="true"></i>Quote<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><p><em>Circuit breakers are a valuable place for monitoring. Any change in breaker state should be logged and breakers should reveal details of their state for deeper monitoring. Breaker behaviour is often a good source of warnings about deeper troubles in the environment.</em></p>
-<p>~ Martin Fowler, in his <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer">blog about circuit breakers</a></p>
+<p>~ Martin Fowler, in his <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer ">blog about circuit breakers</a></p>
 </div>
         </div>
     </div>
-<p>As an example, the circuit breakers offered by <a href="https://github.com/App-vNext/Polly" target="_blank" rel="noopener noreffer">Polly</a> and <a href="https://resilience4j.readme.io/" target="_blank" rel="noopener noreffer">resilience4j</a> provide hooks into their state transitions, where you could log useful information. These logs could be tied to <em>alerts</em> for monitoring and observability.</p>
+<p>As an example, the circuit breakers offered by <a href="https://github.com/App-vNext/Polly" target="_blank" rel="noopener noreffer ">Polly</a> and <a href="https://resilience4j.readme.io/" target="_blank" rel="noopener noreffer ">resilience4j</a> provide hooks into their state transitions, where you could log useful information. These logs could be tied to <em>alerts</em> for monitoring and observability.</p>
 <h1 id="conclusion">Conclusion</h1>
 <p>Circuit breaker is a pattern to prevent an application from invoking an operation if it is highly likely to fail. This helps save resources, offer better response times and increase the stability of a system when it is in an error state or recovering from one. However, it&rsquo;s not the best one to use in all cases. Using a circuit breaker isn&rsquo;t recommended for handling access to local private resources in an application like in-memory data structures, since it will add a lot of overhead in this case. As mentioned above, retries are more suitable for transient failures. In fact, circuit breakers can be combined with retries to counter both types. It can also not be used as a substitute for handling business logic exceptions - it&rsquo;s a fault tolerance and resilience pattern.</p>
 <h1 id="references-and-further-reading">References and Further Reading</h1>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker" target="_blank" rel="noopener noreffer">Circuit Breaker pattern - Azure Architecture Center</a></li>
-<li><a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer">CircuitBreaker - Martin Fowler</a></li>
-<li><a href="https://github.com/App-vNext/Polly/wiki/Circuit-Breaker" target="_blank" rel="noopener noreffer">App-vNext/Polly - GitHub</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern" target="_blank" rel="noopener noreffer">Circuit breaker design pattern - Wikipedia</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker" target="_blank" rel="noopener noreffer ">Circuit Breaker pattern - Azure Architecture Center</a></li>
+<li><a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener noreffer ">CircuitBreaker - Martin Fowler</a></li>
+<li><a href="https://github.com/App-vNext/Polly/wiki/Circuit-Breaker" target="_blank" rel="noopener noreffer ">App-vNext/Polly - GitHub</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern" target="_blank" rel="noopener noreffer ">Circuit breaker design pattern - Wikipedia</a></li>
 </ul>
 ]]></description></item></channel></rss>

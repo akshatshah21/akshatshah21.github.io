@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>solidity - Tag - Akshat Shah</title><link>http://akshatshah21.github.io/tags/solidity/</link><description>solidity - Tag - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Wed, 13 Oct 2021 22:07:20 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/tags/solidity/" rel="self" type="application/rss+xml"/><item><title>Making a Simple ERC20 Token</title><link>http://akshatshah21.github.io/erc20/</link><pubDate>Wed, 13 Oct 2021 22:07:20 +0530</pubDate><author>Author</author><guid>http://akshatshah21.github.io/erc20/</guid><description><![CDATA[<p>In this blog post, I&rsquo;ll walk through creating a simple ERC20 token on Ethereum. This was one of my lab assignments this semester, and I thought I better make a blog post about this, because <del>I want to write consistently over here</del> why not?</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>solidity - Tag - Akshat Shah</title><link>http://akshatshah21.github.io/tags/solidity/</link><description>solidity - Tag - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Wed, 13 Oct 2021 22:07:20 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/tags/solidity/" rel="self" type="application/rss+xml"/><item><title>Making a Simple ERC20 Token</title><link>http://akshatshah21.github.io/erc20/</link><pubDate>Wed, 13 Oct 2021 22:07:20 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/erc20/</guid><description><![CDATA[<p>In this blog post, I&rsquo;ll walk through creating a simple ERC20 token on Ethereum. This was one of my lab assignments this semester, and I thought I better make a blog post about this, because <del>I want to write consistently over here</del> why not?</p>
 <p>A token in general is basically simply a digital representation of
 potentially anything. For example, a token can represent:</p>
 <ul>
@@ -29,7 +29,7 @@ blockchain or an app based on that. Utility tokens are also called &quot;app
 coins&quot; because they are explicitly designed for a certain app or
 blockchain.</p>
 <h1 id="erc20-standard">ERC20 Standard</h1>
-<p>The ERC-20 (<a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener noreffer">Ethereum Request for Comments 20</a>), proposed by Fabian
+<p>The ERC-20 (<a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener noreffer ">Ethereum Request for Comments 20</a>), proposed by Fabian
 Vogelsteller in November 2015, is a Token Standard that implements an
 API for tokens within Smart Contracts. The motivation for this EIP was
 to make &quot;a standard interface allows any tokens on Ethereum to be
@@ -161,7 +161,7 @@ whether an address has minting privileges or not.</p>
 </li>
 </ul>
 <h1 id="implementation">Implementation</h1>
-<p>We make this contract in <a href="https://soliditylang.org/" target="_blank" rel="noopener noreffer">Solidity</a>, and a simple way to start writing Ethereum contracts in Solidity is to use the <a href="https://remix.ethereum.org" target="_blank" rel="noopener noreffer">Remix IDE</a> It&rsquo;s browser-based, no setup required.</p>
+<p>We make this contract in <a href="https://soliditylang.org/" target="_blank" rel="noopener noreffer ">Solidity</a>, and a simple way to start writing Ethereum contracts in Solidity is to use the <a href="https://remix.ethereum.org" target="_blank" rel="noopener noreffer ">Remix IDE</a> It&rsquo;s browser-based, no setup required.</p>
 <h2 id="token-contract">Token Contract</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -624,7 +624,7 @@ library called <code>SafeMath</code>.</p>
 </div><h1 id="execution">Execution</h1>
 <p>The following steps show how the contracts can be deployed, following a
 demonstration of the different functionalities coded in the contracts.
-We run a local <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreffer">Geth</a> client running a private blockchain, and use the Remix IDE to call the contracts.</p>
+We run a local <a href="https://geth.ethereum.org/" target="_blank" rel="noopener noreffer ">Geth</a> client running a private blockchain, and use the Remix IDE to call the contracts.</p>
 <ol>
 <li>
 <p>First, we initialize a local test ethereum network using the genesis
@@ -1017,11 +1017,11 @@ Vendor contract to allow users to buy and sell tokens. Remix IDE was
 used to develop and test the contracts, Geth client was used to simulate
 a test blockchain locally, and Remix and Metamask was used to deal with
 tokens.</p>
-<p>ERC20 is somewhat limited by its simplicity, even though we added on the minting and burning functions. A newer standard for fungible tokens, <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-777/" target="_blank" rel="noopener noreffer">ERC777</a> (<a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank" rel="noopener noreffer">EIP</a>) has a lot more functionality, and is backward compatible with ERC20. For non-fungible tokens, there&rsquo;s the <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/" target="_blank" rel="noopener noreffer">ERC721</a> standard, often used for collectibles and games.</p>
+<p>ERC20 is somewhat limited by its simplicity, even though we added on the minting and burning functions. A newer standard for fungible tokens, <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-777/" target="_blank" rel="noopener noreffer ">ERC777</a> (<a href="https://eips.ethereum.org/EIPS/eip-777" target="_blank" rel="noopener noreffer ">EIP</a>) has a lot more functionality, and is backward compatible with ERC20. For non-fungible tokens, there&rsquo;s the <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-721/" target="_blank" rel="noopener noreffer ">ERC721</a> standard, often used for collectibles and games.</p>
 <h1 id="references">References</h1>
 <ul>
-<li><a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" target="_blank" rel="noopener noreffer">ERC-20 Token Standard | ethereum.org</a></li>
-<li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer">ERC 20 - OpenZeppelin Docs</a></li>
-<li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer">ERC20 Token Tutorial by Gilad Halmov</a></li>
+<li><a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" target="_blank" rel="noopener noreffer ">ERC-20 Token Standard | ethereum.org</a></li>
+<li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer ">ERC 20 - OpenZeppelin Docs</a></li>
+<li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer ">ERC20 Token Tutorial by Gilad Halmov</a></li>
 </ul>
 ]]></description></item></channel></rss>

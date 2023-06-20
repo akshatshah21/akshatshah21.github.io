@@ -489,7 +489,7 @@ theme = "LoveIt"
   # Table Of Contents settings
   [markup.tableOfContents]
     startLevel = 1
-    endLevel = 6
+    endLevel = 2
 
 # Author config
 [author]

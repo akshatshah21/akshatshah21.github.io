@@ -67,3 +67,29 @@
     }
 }
 
+
+.single {
+  .single-title {
+    margin: 1rem 0 1.5rem;
+    font-size: 2.25rem;
+    font-weight: 100;
+    line-height: 140%;
+    font-family: $title-font-family;
+  }
+
+  .post-meta {
+    font-size: 1rem;
+  }
+
+  .post-meta-line {
+    line-height: 1.5rem;
+  }
+
+  .content {
+    font-size: 1.1rem;
+    > h1 {
+        font-weight: lighter;
+        line-height: 100%;
+    }
+  }
+}

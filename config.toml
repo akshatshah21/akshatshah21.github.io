@@ -133,7 +133,7 @@ theme = "LoveIt"
       # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
       title = "Akshat Shah"
       # subtitle shown in home page
-      subtitle = "Program Associate (Technology) at Wells Fargo" 
+      subtitle = "Software Engineer at Wells Fargo" 
       # whether to use typeit animation for subtitle
       typeit = false
       # whether to show social links

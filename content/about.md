@@ -14,7 +14,7 @@ With a keen interest in programming and software, I am looking forward to improv
 
 I graduated with a Bachelors in Technology (Information Technology) from [VJTI](https://vjti.ac.in/), Mumbai, in June 2022. I'm currently a Software Engineer at Wells Fargo, Bengaluru. In my free time, I like to read, write and listen to my unvarying playlist of music. I'm always in for a good, meaningful movie or TV show, and I like to try my luck at badminton and carrom!
 
-You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
+You can view my resume by clicking [here](/docs/Akshat.pdf).
 
 # Experience
 ## [Wells Fargo](https://www.wellsfargojobs.com/WF-India-PHL)
@@ -22,7 +22,8 @@ You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
 * *Program Associate (Technology), July 2022 - July 2023*
 * Part of the Auto Lending Technology Division under Consumer Technology
 * Working in key modernization and resiliency initiatives involving microservices architecture
-* Working with .NET Core, Python and MongoDB
+* Contributing to key POCs involving ML-based automation
+* Working with .NET Core, Python, MongoDB, Helm-Kubernetes
 
 ## [Wells Fargo](https://www.wellsfargojobs.com/WF-India-PHL)
 * *Intern, April - July 2021*
@@ -48,9 +49,9 @@ You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
 
 # Education
 ## [Veermata Jijabai Technological Institute](https://vjtimumbai.in/)
-* *August 2018 - Present, Mumbai*
+* *August 2018 - May 2022, Mumbai*
 * Bachelor of Technology (BTech) in Information Technology
-* CGPA: 9.27
+* CGPA: 9.21
 
 ## [Kishinchand Chellaram College](https://www.kccollege.edu.in/)
 * *July 2016 - May 2018, Mumbai*
@@ -65,7 +66,7 @@ You can view my resume by clicking [here](/docs/Akshat%20Shah.pdf).
 * Stood at the first rank in school
 
 # Skills and Tech
-My academic courses include the core subjects of Computer Science, like Data Structures and Algorithms, Operating Systems, Database Management Systems and Computer Networks. Along with these, notable courses include System Administration, Machine Learning, Blockchain Technology, Software Engineering and Object Oriented Analysis and Design.
+My academic courses included the core subjects of Computer Science, like Data Structures and Algorithms, Operating Systems, Database Management Systems and Computer Networks. Along with these, notable courses include System Administration, Machine Learning, Blockchain Technology, Software Engineering and Object Oriented Analysis and Design.
 
 I'm proficient in C++, JavaScript and Python, and familiar with Java. Having done many projects in Web Development, I'm fluent in languages and web frameworks, including HTML, CSS, JavaScript, NodeJS, ReactJS, TailwindCSS, Flask and Express JS. I have worked with SQL databases like PostgreSQL, as well as with NoSQL databases like MongoDB, Firebase Realtime Database and Neo4J. Apart from Web Development, I have done a few native Android Development projects using Java and Kotlin, and have had a stint of dabbling in Robotics in my First Year. In the past year I have studied Machine Learning, Deep Learning and Natural Language Processing, practising on problems using Scikit-learn and PyTorch. 
 

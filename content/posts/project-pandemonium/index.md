@@ -26,6 +26,7 @@ A project can be very chaotic. A number of things can go wrong, and every action
 
 # But what's the problem?
 <iframe src="https://giphy.com/embed/l1Et0eHN0m9daH7ZS" style="max-width:100%; width:100%;" height="360px" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/spongebob-spongebob-squarepants-season-5-l1Et0eHN0m9daH7ZS"></a></p>
+
 Define the problem. We hear this all the time but seldom do we really put it into effect, or at least with the required level of sincerity, specificity and clarity. *"I want to make a chatting application"* might seem self-explanatory as the definition of the required solution, but it's not. The necessity for a clear understanding of the requirements, the scope and priorities, and the assumptions of a solution cannot be emphasized enough. Indeed, this is one of the major reasons why my WiFi Positioning System project was, in subtle terms, a letdown. I vividly remember *not* being sure about what we were making. To quote the very first line in my logs:
 
 > *"After days of ambiguity, our group was able to decide firmly about the project idea - Localization using Triangulation."*
@@ -43,6 +44,7 @@ It's common knowledge that brainstorming in a group can help a lot with this par
 # Yes, we can!
 
 <div class="tenor-gif-embed" data-postid="22328595" data-share-method="host" data-aspect-ratio="1.20301" data-width="90%"><a href="https://tenor.com/view/thor-really-it-is-what-it-is-gif-22328595"></a><a href="https://tenor.com/search/thor-gifs"></a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 Can we though?
 
 Another important aspect of planning is feasibility. Gauging the feasibility of a solution is, admittedly, difficult. It requires experience, which I definitely didn't have then, and no one can have enough. However, research can help here. If it's a research project or maybe a data science project, a literature review is helpful, and in most cases, expected. Published work like papers, blogs, source code repositories can help one understand the work that others pursuing similar goals have done, as well as an understanding of the technical difficulty, skills and resources required, and therefore, the feasibility of the project. Did we do a literature review for WiFi Positioning? Yes! But it was very, very haphazard and half-hearted. To make a literature review worthwhile, document it while doing it (and not when you're typing out the final report). Not only does this make researching an active task, but it helps down the line. What's better, going through a 20-page research paper *again* when you need to, or going through a summary that you have written yourself?

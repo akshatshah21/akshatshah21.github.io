@@ -1,0 +1,750 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>LeetCode 75 - Part 1 - Array/String - Akshat Shah</title><meta name=Description content="LeetCode 75. Two problems a day. Part 1."><meta property="og:title" content="LeetCode 75 - Part 1 - Array/String"><meta property="og:description" content="LeetCode 75. Two problems a day. Part 1."><meta property="og:type" content="article"><meta property="og:url" content="http://akshatshah21.github.io/lc75-1/"><meta property="og:image" content="http://akshatshah21.github.io/static/favicon.svg"><meta property="article:published_time" content="2024-04-27T19:30:30+00:00"><meta property="article:modified_time" content="2024-04-27T19:30:30+00:00"><meta property="og:site_name" content="My cool site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://akshatshah21.github.io/static/favicon.svg"><meta name=twitter:title content="LeetCode 75 - Part 1 - Array/String"><meta name=twitter:description content="LeetCode 75. Two problems a day. Part 1."><meta name=application-name content="Akshat Shah"><meta name=apple-mobile-web-app-title content="Akshat Shah"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#00aba9"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#42bc42><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://akshatshah21.github.io/lc75-1/><link rel=prev href=http://akshatshah21.github.io/circuit-breaker/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"LeetCode 75 - Part 1 - Array/String","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/akshatshah21.github.io\/lc75-1\/"},"image":["http:\/\/akshatshah21.github.io\/static\/favicon.svg"],"genre":"posts","keywords":"data-structures, algorithms, coding-problems","wordcount":4215,"url":"http:\/\/akshatshah21.github.io\/lc75-1\/","datePublished":"2024-04-27T19:30:30+00:00","dateModified":"2024-04-27T19:30:30+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Akshat Shah"},"description":"LeetCode 75. Two problems a day. Part 1."}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Akshat Shah">Akshat Shah</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/about/ title="About Akshat">About </a><a class=menu-item href=/projects/ title="Akshat's Projects">Projects </a><a class=menu-item href=/posts/ title="Akshat's posts">Posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=https://akshatshah21.github.io/imagination-boundless rel="noopener noreffer" target=_blank>Creative Works </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Akshat Shah">Akshat Shah</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/about/ title="About Akshat">About</a><a class=menu-item href=/projects/ title="Akshat's Projects">Projects</a><a class=menu-item href=/posts/ title="Akshat's posts">Posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=https://akshatshah21.github.io/imagination-boundless rel="noopener noreffer" target=_blank>Creative Works</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode 75 - Part 1 - Array/String</h1><hr><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://akshatshah21.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Akshat Shah</a></span>&nbsp;<span class=post-category>included in <a href=/categories/coding-problems/><i class="far fa-folder fa-fw" aria-hidden=true></i>coding-problems</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime="Apr 27 2024">Apr 27 2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;4215 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;20 minutes&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#intent>Intent</a></li><li><a href=#11-merge-strings-alternately>1.1 Merge Strings Alternately</a><ul><li><a href=#question>Question</a></li><li><a href=#solutions>Solutions</a></li></ul></li><li><a href=#12-greatest-common-divisor-of-strings>1.2 Greatest Common Divisor of Strings</a><ul><li><a href=#question-1>Question</a></li><li><a href=#solutions-1>Solutions</a></li></ul></li><li><a href=#13-kids-with-the-greatest-number-of-candies>1.3 Kids With the Greatest Number of Candies</a><ul><li><a href=#question-2>Question</a></li><li><a href=#solutions-2>Solutions</a></li></ul></li><li><a href=#14-can-place-flowers>1.4 Can Place Flowers</a><ul><li><a href=#question-3>Question</a></li><li><a href=#solutions-3>Solutions</a></li></ul></li><li><a href=#15-reverse-vowels-of-a-string>1.5 Reverse Vowels of a String</a><ul><li><a href=#question-4>Question</a></li><li><a href=#solution>Solution</a></li></ul></li><li><a href=#16-reverse-words-in-a-string>1.6 Reverse Words in a String</a><ul><li><a href=#question-5>Question</a></li><li><a href=#solutions-4>Solutions</a></li></ul></li><li><a href=#17-product-of-array-except-self>1.7 Product of Array Except Self</a><ul><li><a href=#question-6>Question</a></li><li><a href=#solutions-5>Solutions</a></li></ul></li><li><a href=#18-increasing-triplet-subsequence>1.8 Increasing Triplet Subsequence</a><ul><li><a href=#question-7>Question</a></li><li><a href=#solutions-6>Solutions</a></li></ul></li><li><a href=#19-string-compression>1.9 String Compression</a><ul><li><a href=#question-8>Question</a></li><li><a href=#solutions-7>Solutions</a></li></ul></li></ul></nav></div></div><div class=content id=content><h1 id=intent>Intent</h1><p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>And so this is one more attempt to change that.<br>LeetCode 75. Two problems a day, starting April 25, 2024.<br>To further motivate consistency and completion of this, I&rsquo;ve decided I will do write-ups for all of these problems and perhaps publish them on my blog. Let&rsquo;s see.</p><p>This is Part 1 - Array/String.</p><h1 id=11-merge-strings-alternately>1.1 Merge Strings Alternately</h1><p><a href=https://leetcode.com/problems/merge-strings-alternately target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question>Question</h2><p>Given two strings, merge them such that the characters in the result string are alternately from each string. If one string is exhausted, append the remainder of the other string to the result.</p><h2 id=solutions>Solutions</h2><p>This is like the simple merge operation from Merge Sort!</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>mergeAlternately</span><span class=p>(</span><span class=n>string</span> <span class=n>word1</span><span class=p>,</span> <span class=n>string</span> <span class=n>word2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>string</span> <span class=n>ret</span> <span class=o>=</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>len1</span> <span class=o>=</span> <span class=n>word1</span><span class=p>.</span><span class=n>length</span><span class=p>();</span>
+        <span class=kt>int</span> <span class=n>len2</span> <span class=o>=</span> <span class=n>word2</span><span class=p>.</span><span class=n>length</span><span class=p>();</span>
+        <span class=kt>int</span> <span class=n>p1</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>p2</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>p1</span> <span class=o>&lt;</span> <span class=n>len1</span> <span class=o>&amp;&amp;</span> <span class=n>p2</span> <span class=o>&lt;</span> <span class=n>len2</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>ret</span> <span class=o>+=</span> <span class=n>word1</span><span class=p>[</span><span class=n>p1</span><span class=o>++</span><span class=p>];</span>
+            <span class=n>ret</span> <span class=o>+=</span> <span class=n>word2</span><span class=p>[</span><span class=n>p2</span><span class=o>++</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>p1</span> <span class=o>&lt;</span> <span class=n>len1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>ret</span> <span class=o>+=</span> <span class=n>word1</span><span class=p>[</span><span class=n>p1</span><span class=o>++</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>p2</span> <span class=o>&lt;</span> <span class=n>len2</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>ret</span> <span class=o>+=</span> <span class=n>word2</span><span class=p>[</span><span class=n>p2</span><span class=o>++</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>ret</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h1 id=12-greatest-common-divisor-of-strings>1.2 Greatest Common Divisor of Strings</h1><p><a href=https://leetcode.com/problems/greatest-common-divisor-of-strings target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-1>Question</h2><ul><li>String <code>t</code> is said to <em>&lsquo;divide&rsquo;</em> string <code>s</code> if the <code>s = t + t + t + ... + t</code> (<code>t</code> concatenated one or more times)</li><li>With this definition of <code>division</code>, find the <code>GCD</code> of two given strings <code>str1</code> and <code>str2</code> (the largest string that divides both)</li></ul><blockquote><p><strong>Example 1:</strong>
+<strong>Input:</strong> <code>str1 = "ABCABC", str2 = "ABC"</code>
+<strong>Output:</strong> <code>"ABC"</code></p></blockquote><blockquote><p><strong>Example 2:</strong>
+<strong>Input:</strong> <code>str1 = "ABABAB", str2 = "ABAB"</code>
+<strong>Output:</strong> <code>"AB"</code></p></blockquote><blockquote><p><strong>Example 3:</strong>
+<strong>Input:</strong> <code>str1 = "LEET", str2 = "CODE"</code>
+<strong>Output:</strong> <code>""</code></p></blockquote><h2 id=solutions-1>Solutions</h2><h3 id=observations>Observations</h3><ul><li>Consider cyclically traversing both strings together one character at a time. If at any point we see a mismatch, then the GCD string must be empty</li><li>This further reveals that we probably need to use that one repeating substring (evident in above examples as &ldquo;AB&rdquo; or &ldquo;ABC&rdquo;</li></ul><h3 id=initial-solution>Initial Solution</h3><p>After trying out some test cases on paper and submitting some naive solution, an interesting test case was revealed. Consider the following test case:</p><blockquote><p>Input: <code>str1 = "ABABABABABABABAB, str2 = "ABABAB"</code></p></blockquote><p>Basically str1 is &ldquo;AB&rdquo; 8 times, while str2 is &ldquo;AB&rdquo; 3 times.</p><p>My naive solution involved checking whether the smaller string (potentially the GCD) matches cyclically with the larger string, but that&rsquo;s not correct as the above example shows. The correct output is just &ldquo;AB&rdquo;, not &ldquo;ABABAB&rdquo;. This is interesting since the GCD of 3 and 8 is 1.</p><p>So here&rsquo;s an idea: the GCD of the two strings is the repeating substring, concatenated <code>g</code> times, where g is the GCD of number of instances of that repeating substring in each string.</p><p>To find that <em>repeating substring</em> component, we try all possible prefixes of a string and check whether it <em>divides</em> the entire string. We take the smallest such prefix, and call it the <code>divisor</code>, and also count the number of concatenations it takes to get the complete string (~the <em>quotient</em>).</p><p>We then try finding the quotient for the other string, and then calculate the GCD of the two quotients, which is <code>g</code> as defined above.</p><p>If at any point, there is a character mismatch (while traversing one string - start to end - and a potential divisor - cyclically), this means that the GCD string must be empty.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=n>pair</span><span class=o>&lt;</span><span class=n>string</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>getSmallestDivisor</span><span class=p>(</span><span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>string</span> <span class=n>prefix</span> <span class=o>=</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>s</span><span class=p>.</span><span class=n>length</span><span class=p>();</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>prefix</span> <span class=o>+=</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+            <span class=kt>int</span> <span class=n>p</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+            <span class=kt>int</span> <span class=n>quotient</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+            <span class=kt>bool</span> <span class=n>match</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+            <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>char</span><span class=o>&amp;</span> <span class=nl>c</span> <span class=p>:</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+                <span class=k>if</span> <span class=p>(</span><span class=n>c</span> <span class=o>!=</span> <span class=n>prefix</span><span class=p>[</span><span class=n>p</span><span class=p>])</span> <span class=p>{</span>
+                    <span class=n>match</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+                    <span class=k>break</span><span class=p>;</span>
+                <span class=p>}</span>
+				<span class=n>p</span> <span class=o>=</span> <span class=p>(</span><span class=n>p</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>  <span class=c1>// cyclic traveral, i = prefixLength
+</span><span class=c1></span>                <span class=k>if</span> <span class=p>(</span><span class=n>p</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+                    <span class=n>quotient</span><span class=o>++</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>match</span> <span class=o>&amp;&amp;</span> <span class=n>p</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+                <span class=k>return</span> <span class=p>{</span> <span class=n>prefix</span><span class=p>,</span> <span class=n>quotient</span> <span class=p>};</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=p>{</span> <span class=n>s</span><span class=p>,</span> <span class=mi>1</span> <span class=p>};</span>  <span class=c1>// no divisor except self
+</span><span class=c1></span>    <span class=p>}</span>
+
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>gcdOfStrings</span><span class=p>(</span><span class=n>string</span> <span class=n>str1</span><span class=p>,</span> <span class=n>string</span> <span class=n>str2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>auto</span> <span class=n>p</span> <span class=o>=</span> <span class=n>getSmallestDivisor</span><span class=p>(</span><span class=n>str1</span><span class=p>);</span>
+        <span class=n>string</span> <span class=n>divisor</span> <span class=o>=</span> <span class=n>p</span><span class=p>.</span><span class=n>first</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>q1</span> <span class=o>=</span> <span class=n>p</span><span class=p>.</span><span class=n>second</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>p2</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>q2</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>divisorLen</span> <span class=o>=</span> <span class=n>divisor</span><span class=p>.</span><span class=n>length</span><span class=p>();</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>char</span><span class=o>&amp;</span> <span class=nl>c</span> <span class=p>:</span> <span class=n>str2</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>c</span> <span class=o>!=</span> <span class=n>divisor</span><span class=p>[</span><span class=n>p2</span><span class=p>])</span> <span class=p>{</span>
+                <span class=k>return</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=n>p2</span> <span class=o>=</span> <span class=p>(</span><span class=n>p2</span> <span class=o>+</span> <span class=mi>1</span><span class=p>)</span> <span class=o>%</span> <span class=n>divisorLen</span><span class=p>;</span>  <span class=c1>// cyclic traversal
+</span><span class=c1></span>            <span class=k>if</span> <span class=p>(</span><span class=n>p2</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span>
+                <span class=n>q2</span><span class=o>++</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>p2</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>)</span>
+            <span class=k>return</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+        <span class=n>string</span> <span class=n>ret</span> <span class=o>=</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>g</span> <span class=o>=</span> <span class=n>gcd</span><span class=p>(</span><span class=n>q1</span><span class=p>,</span> <span class=n>q2</span><span class=p>);</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>g</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>ret</span> <span class=o>+=</span> <span class=n>divisor</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>ret</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>The time complexity of this solution is <code>O(N^2 + M)</code>, where N = length of str1, M = length of str2. <code>N^2</code> because we try all prefixes of str1 and traverse str1 for each of them, and <code>+M</code> because we traverse str2 with the smallest divisor of str1.</p><p>One simple optimization would be to to call the <code>getSmallestDivisor</code> function for the smaller of the two given strings. Another one is to check length divisibility before traversing to check for divisibility of the strings.</p><p>The auxiliary space is <code>O(N)</code>.</p><p>The brute force solution on LeetCode is similar to this solution.</p><h3 id=optimal-solution>Optimal Solution</h3><p>The optimal solution given on LeetCode is amazing, and uses the fact that the length of the GCD string will be the same as the GCD of the length of the two strings, assuming that the two are made of a common repeating substring. (In the above brute force solution, we dealed in terms of the GCD of number of repeating instances, which can be transformed to length by multiplying the number of instances with the length of the repeating substring).</p><p>There are two parts to it:</p><ol><li>Do these two strings have a non-empty GCD string?</li><li>If they do, then the length of the GCD string must be the same as the GCD of the length of the two strings. And we can simply take the prefix of any string with that length - this prefix is common repeating substring (called <code>base</code> in the LeetCode solution) repeated GCD(len1, len2) times.</li></ol><p>The clever way of checking whether there exists a non-empty GCD string is to check if <code>str1 + str2 == str2 + str</code>. This extends from the fact that if there is a common repeating substring that forms both strings, these two concatenations would be the same.
+For example: ABAB and ABABAB. Here since they have AB as the common repeating substring - (ABAB)(ABABAB) == (ABABAB)(ABAB)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>gcdOfStrings</span><span class=p>(</span><span class=n>string</span> <span class=n>str1</span><span class=p>,</span> <span class=n>string</span> <span class=n>str2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>str1</span> <span class=o>+</span> <span class=n>str2</span> <span class=o>!=</span> <span class=n>str2</span> <span class=o>+</span> <span class=n>str1</span><span class=p>)</span> <span class=k>return</span> <span class=s>&#34;&#34;</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>l1</span> <span class=o>=</span> <span class=n>str1</span><span class=p>.</span><span class=n>length</span><span class=p>(),</span> <span class=n>l2</span> <span class=o>=</span> <span class=n>str2</span><span class=p>.</span><span class=n>length</span><span class=p>();</span>
+        <span class=kt>int</span> <span class=n>g</span> <span class=o>=</span> <span class=n>gcd</span><span class=p>(</span><span class=n>l1</span><span class=p>,</span> <span class=n>l2</span><span class=p>);</span>
+        <span class=k>return</span> <span class=n>str1</span><span class=p>.</span><span class=n>substr</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>g</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h1 id=13-kids-with-the-greatest-number-of-candies>1.3 Kids With the Greatest Number of Candies</h1><p><a href=https://leetcode.com/problems/kids-with-the-greatest-number-of-candies target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-2>Question</h2><p>Given an array of <code>n</code> numbers and a number <code>x</code>, return a boolean array with true values at those indices where, upon adding <code>x</code> to the element and leaving all other elements unchanged, the current element will be a maximum.
+There can be multiple maximums.</p><h2 id=solutions-2>Solutions</h2><p>Find the maximum number in the input array, and map each element to true if its value plus <code>x</code> is greater than or equal to the maximum</p><h3 id=c>C++</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>bool</span><span class=o>&gt;</span> <span class=n>kidsWithCandies</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>candies</span><span class=p>,</span> <span class=kt>int</span> <span class=n>extraCandies</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>max</span> <span class=o>=</span> <span class=o>*</span><span class=n>max_element</span><span class=p>(</span><span class=n>candies</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>candies</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>bool</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>candies</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>res</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=n>i</span> <span class=o>+</span> <span class=n>extraCandies</span> <span class=o>&gt;=</span> <span class=n>max</span><span class=p>);</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h3 id=java>Java</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>class</span> <span class=nc>Solution</span> <span class=o>{</span>
+    <span class=kd>public</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>Boolean</span><span class=o>&gt;</span> <span class=nf>kidsWithCandies</span><span class=o>(</span><span class=kt>int</span><span class=o>[]</span> <span class=n>candies</span><span class=o>,</span> <span class=kt>int</span> <span class=n>extraCandies</span><span class=o>)</span> <span class=o>{</span>
+        <span class=kt>int</span> <span class=n>max</span> <span class=o>=</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>stream</span><span class=o>(</span><span class=n>candies</span><span class=o>).</span><span class=na>max</span><span class=o>().</span><span class=na>getAsInt</span><span class=o>();</span>
+        <span class=k>return</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>stream</span><span class=o>(</span><span class=n>candies</span><span class=o>).</span><span class=na>map</span><span class=o>(</span><span class=n>i</span> <span class=o>-&gt;</span> <span class=n>i</span> <span class=o>+</span> <span class=n>extraCandies</span> <span class=o>&gt;=</span> <span class=n>max</span><span class=o>).</span><span class=na>getAsBoolean</span><span class=o>();</span><span class=n>i</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><h3 id=python>Python</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Solution</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>kidsWithCandies</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>candies</span><span class=p>:</span> <span class=n>List</span><span class=p>[</span><span class=nb>int</span><span class=p>],</span> <span class=n>extraCandies</span><span class=p>:</span> <span class=nb>int</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>List</span><span class=p>[</span><span class=nb>bool</span><span class=p>]:</span>
+        <span class=n>max_candies</span> <span class=o>=</span> <span class=nb>max</span><span class=p>(</span><span class=n>candies</span><span class=p>)</span>
+        <span class=k>return</span> <span class=p>[</span><span class=n>i</span> <span class=o>+</span> <span class=n>extraCandies</span> <span class=o>&gt;=</span> <span class=n>max_candies</span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=n>candies</span><span class=p>]</span>
+        
+</code></pre></td></tr></table></div></div><h3 id=javascript>JavaScript</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-javascript data-lang=javascript><span class=cm>/**
+</span><span class=cm> * @param {number[]} candies
+</span><span class=cm> * @param {number} extraCandies
+</span><span class=cm> * @return {boolean[]}
+</span><span class=cm> */</span>
+<span class=kd>var</span> <span class=nx>kidsWithCandies</span> <span class=o>=</span> <span class=kd>function</span><span class=p>(</span><span class=nx>candies</span><span class=p>,</span> <span class=nx>extraCandies</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>maxCandies</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(...</span><span class=nx>candies</span><span class=p>);</span>
+    <span class=k>return</span> <span class=nx>candies</span><span class=p>.</span><span class=nx>map</span><span class=p>(</span><span class=nx>i</span> <span class=p>=&gt;</span> <span class=nx>i</span> <span class=o>+</span> <span class=nx>extraCandies</span> <span class=o>&gt;=</span> <span class=nx>maxCandies</span><span class=p>);</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h3 id=c-1>C#</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=n>IList</span><span class=p>&lt;</span><span class=kt>bool</span><span class=p>&gt;</span> <span class=n>KidsWithCandies</span><span class=p>(</span><span class=kt>int</span><span class=p>[]</span> <span class=n>candies</span><span class=p>,</span> <span class=kt>int</span> <span class=n>extraCandies</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>var</span> <span class=n>maxCandies</span> <span class=p>=</span> <span class=n>candies</span><span class=p>.</span><span class=n>Max</span><span class=p>();</span>
+        <span class=k>return</span> <span class=n>candies</span><span class=p>.</span><span class=n>Select</span><span class=p>(</span><span class=n>i</span> <span class=p>=&gt;</span> <span class=n>i</span> <span class=p>+</span> <span class=n>extraCandies</span> <span class=p>&gt;=</span> <span class=n>maxCandies</span><span class=p>).</span><span class=n>ToList</span><span class=p>();</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h1 id=14-can-place-flowers>1.4 Can Place Flowers</h1><p><a href=https://leetcode.com/problems/can-place-flowers target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-3>Question</h2><p>Given a binary array, return whether it is possible to add <code>x</code> 1s in the array without there being two adjacent 1s.</p><h2 id=solutions-3>Solutions</h2><p>Traverse the array, and try placing a 1 wherever possible (~greedily). It will be possible to place a 1 if <code>i-1</code> and <code>i+1</code> have 0s or are out of bounds.</p><h3 id=c-2>C++</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>bool</span> <span class=n>canPlaceFlowers</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>flowerbed</span><span class=p>,</span> <span class=kt>int</span> <span class=n>n</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>l</span> <span class=o>=</span> <span class=n>flowerbed</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>n</span> <span class=o>&gt;</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>l</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>flowerbed</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=k>continue</span><span class=p>;</span>
+            <span class=k>if</span> <span class=p>((</span><span class=n>i</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>||</span> <span class=n>flowerbed</span><span class=p>[</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=o>&amp;&amp;</span> <span class=p>(</span><span class=n>i</span> <span class=o>==</span> <span class=n>l</span><span class=o>-</span><span class=mi>1</span> <span class=o>||</span> <span class=n>flowerbed</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>))</span> <span class=p>{</span> 
+                <span class=n>flowerbed</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+                <span class=n>n</span><span class=o>--</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h3 id=java-1>Java</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>class</span> <span class=nc>Solution</span> <span class=o>{</span>
+    <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>canPlaceFlowers</span><span class=o>(</span><span class=kt>int</span><span class=o>[]</span> <span class=n>flowerbed</span><span class=o>,</span> <span class=kt>int</span> <span class=n>n</span><span class=o>)</span> <span class=o>{</span>
+        <span class=kd>final</span> <span class=kt>int</span> <span class=n>l</span> <span class=o>=</span> <span class=n>flowerbed</span><span class=o>.</span><span class=na>length</span><span class=o>;</span>
+        <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span> <span class=n>n</span> <span class=o>&gt;</span> <span class=n>0</span> <span class=o>&amp;&amp;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>l</span><span class=o>;</span> <span class=n>i</span><span class=o>++)</span> <span class=o>{</span>
+            <span class=k>if</span> <span class=o>(</span><span class=n>flowerbed</span><span class=o>[</span><span class=n>i</span><span class=o>]</span> <span class=o>==</span> <span class=n>1</span><span class=o>)</span>
+                <span class=k>continue</span><span class=o>;</span>
+            <span class=k>if</span> <span class=o>((</span><span class=n>i</span> <span class=o>==</span> <span class=n>0</span> <span class=o>||</span> <span class=n>flowerbed</span><span class=o>[</span><span class=n>i</span><span class=o>-</span><span class=n>1</span><span class=o>]</span> <span class=o>==</span> <span class=n>0</span><span class=o>)</span> <span class=o>&amp;&amp;</span> 
+                <span class=o>(</span><span class=n>i</span> <span class=o>==</span> <span class=n>l</span><span class=o>-</span><span class=n>1</span> <span class=o>||</span> <span class=n>flowerbed</span><span class=o>[</span><span class=n>i</span><span class=o>+</span><span class=n>1</span><span class=o>]</span> <span class=o>==</span> <span class=n>0</span><span class=o>))</span> <span class=o>{</span>
+                    <span class=n>flowerbed</span><span class=o>[</span><span class=n>i</span><span class=o>]</span> <span class=o>=</span> <span class=n>1</span><span class=o>;</span>
+                    <span class=n>n</span><span class=o>--;</span>
+                <span class=o>}</span>
+        <span class=o>}</span>
+        <span class=k>return</span> <span class=n>n</span> <span class=o>==</span> <span class=n>0</span><span class=o>;</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><h1 id=15-reverse-vowels-of-a-string>1.5 Reverse Vowels of a String</h1><p>[Problem on LeetCode](<a href=https://leetcode.com/problems/reverse-vowels-of-a-string>https://leetcode.com/problems/reverse-vowels-of-a-string</a></p><h2 id=question-4>Question</h2><p>Given a string, reverse the order of vowels that appear in it.
+For example, <code>hello</code> becomes <code>holle</code>.
+The string can contain ASCII-printable characters.</p><h2 id=solution>Solution</h2><p>An immediate solution is to store a list of vowels as they appear in the string, then replace them in reverse order with the list.
+The next logical step is to realize you can use two pointers and swap vowels only, skipping other characters (much like how you reverse a string with two pointers).</p><p>A subtle thing to note here is that the vowels can be lower as well as upper case</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=k>const</span> <span class=n>set</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;</span> <span class=n>VOWELS</span> <span class=o>=</span> <span class=p>{</span> <span class=sc>&#39;a&#39;</span><span class=p>,</span> <span class=sc>&#39;A&#39;</span><span class=p>,</span> <span class=sc>&#39;e&#39;</span><span class=p>,</span> <span class=sc>&#39;E&#39;</span><span class=p>,</span> <span class=sc>&#39;i&#39;</span><span class=p>,</span> <span class=sc>&#39;I&#39;</span><span class=p>,</span> <span class=sc>&#39;o&#39;</span><span class=p>,</span> <span class=sc>&#39;O&#39;</span><span class=p>,</span> <span class=sc>&#39;u&#39;</span><span class=p>,</span> <span class=sc>&#39;U&#39;</span> <span class=p>};</span>
+
+    <span class=kt>bool</span> <span class=nf>isVowel</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>&amp;</span><span class=n>c</span><span class=p>)</span> <span class=p>{</span>
+        <span class=k>return</span> <span class=n>VOWELS</span><span class=p>.</span><span class=n>count</span><span class=p>(</span><span class=n>c</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>reverseVowels</span><span class=p>(</span><span class=n>string</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>l</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>r</span> <span class=o>=</span> <span class=n>s</span><span class=p>.</span><span class=n>length</span><span class=p>()</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
+        
+        <span class=k>while</span> <span class=p>(</span><span class=n>l</span> <span class=o>&lt;</span> <span class=n>r</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>isVowel</span><span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>l</span><span class=p>]))</span> <span class=p>{</span>
+                <span class=n>l</span><span class=o>++</span><span class=p>;</span>
+                <span class=k>continue</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>isVowel</span><span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>r</span><span class=p>]))</span> <span class=p>{</span>
+                <span class=n>r</span><span class=o>--</span><span class=p>;</span>
+                <span class=k>continue</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=n>swap</span><span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>l</span><span class=p>],</span> <span class=n>s</span><span class=p>[</span><span class=n>r</span><span class=p>]);</span>
+            <span class=n>l</span><span class=o>++</span><span class=p>;</span>
+            <span class=n>r</span><span class=o>--</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>s</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h1 id=16-reverse-words-in-a-string>1.6 Reverse Words in a String</h1><p><a href=https://leetcode.com/problems/reverse-words-in-a-string target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-5>Question</h2><p>Given a string, reverse the words in it. Also remove any extra whitespaces - leading, trailing and between the words.</p><p><strong>Follow-up</strong>: If the string data type is mutable in your language, can you solve it <strong>in-place</strong> with <code>O(1)</code> extra space?</p><h2 id=solutions-4>Solutions</h2><p>Ah, so easy to do if you have the right functions available&mldr; Check out the following solutions in decreasing order of simplicity - Python and Java. Both these languages have a convenient standard <code>split</code> function, as well as a function to <code>trim</code> or <code>strip</code> whitespaces. For an online assessment (or real life, lol), this would be the way to go. But if an interviewer is asking you this question, they&rsquo;re not looking for these solutions. Plus, look at the follow-up.</p><h3 id=python-1>Python</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Solution</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>reverseWords</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>s</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>
+        <span class=n>s</span> <span class=o>=</span> <span class=n>s</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
+        <span class=n>words</span> <span class=o>=</span> <span class=n>s</span><span class=o>.</span><span class=n>split</span><span class=p>()</span>
+        <span class=n>words</span><span class=o>.</span><span class=n>reverse</span><span class=p>()</span>
+        <span class=k>return</span> <span class=s1>&#39; &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>words</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>Questions like these remind you that it&rsquo;s helpful to be fluent in multiple languages for coding problems</p><h3 id=java-2>Java</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>class</span> <span class=nc>Solution</span> <span class=o>{</span>
+    <span class=kd>public</span> <span class=n>String</span> <span class=nf>reverseWords</span><span class=o>(</span><span class=n>String</span> <span class=n>s</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>String</span><span class=o>[]</span> <span class=n>words</span> <span class=o>=</span> <span class=n>s</span><span class=o>.</span><span class=na>trim</span><span class=o>().</span><span class=na>split</span><span class=o>(</span><span class=s>&#34;\\s+&#34;</span><span class=o>);</span>
+        <span class=n>StringBuilder</span> <span class=n>stringBuilder</span> <span class=o>=</span> <span class=k>new</span> <span class=n>StringBuilder</span><span class=o>();</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>words</span><span class=o>.</span><span class=na>length</span><span class=o>;</span>
+        <span class=k>for</span> <span class=o>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>n</span><span class=o>-</span><span class=n>1</span><span class=o>;</span> <span class=n>i</span><span class=o>&gt;</span><span class=n>0</span><span class=o>;</span> <span class=n>i</span><span class=o>--)</span> <span class=o>{</span>
+            <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>words</span><span class=o>[</span><span class=n>i</span><span class=o>]);</span>
+            <span class=n>stringBuilder</span><span class=o>.</span><span class=na>append</span><span class=o>(</span><span class=n>words</span><span class=o>[</span><span class=n>i</span><span class=o>]);</span>
+            <span class=n>stringBuilder</span><span class=o>.</span><span class=na>append</span><span class=o>(</span><span class=sc>&#39; &#39;</span><span class=o>);</span>
+        <span class=o>}</span>
+        <span class=n>stringBuilder</span><span class=o>.</span><span class=na>append</span><span class=o>(</span><span class=n>words</span><span class=o>[</span><span class=n>0</span><span class=o>]);</span>
+        <span class=k>return</span> <span class=n>stringBuilder</span><span class=o>.</span><span class=na>toString</span><span class=o>();</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>Notice how using Java&rsquo;s <code>split</code> method here is different from using Python&rsquo;s: you need to trim the string in Java first, in Python you don&rsquo;t. Ah, language subtleties.</p><h3 id=solving-this-in-place>Solving this in-place</h3><ol><li>Reverse the entire string</li><li>Then reverse each word in the reversed string (remember, words are delimited by one or more spaces).
+This would reverse the order of words in the string. Try it out, and this isn&rsquo;t too difficult to come up with intuitively :-).</li></ol><p>As a final step, we would need to get rid of extra whitespaces (leading, trailing and between words). For this we need to keep two pointers - a <code>read</code> pointer and a <code>write</code> pointer, and write the entire string again in the same buffer, with decisioning to ignore the extra spaces. The challenge here would be to write this parsing and writing logic elegantly. Refer to the C++ code below to see how I did it (likely not the best way).</p><p>And now for the big one.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>string</span> <span class=n>reverseWords</span><span class=p>(</span><span class=n>string</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>reverse</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>s</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>s</span><span class=p>.</span><span class=n>length</span><span class=p>();</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39; &#39;</span><span class=p>)</span> <span class=k>continue</span><span class=p>;</span>
+            <span class=kt>int</span> <span class=n>start</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+            <span class=k>while</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span> <span class=o>&amp;&amp;</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=sc>&#39; &#39;</span><span class=p>)</span> <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+            <span class=kt>int</span> <span class=n>end</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+            <span class=n>reverse</span><span class=p>(</span><span class=n>s</span><span class=p>.</span><span class=n>begin</span><span class=p>()</span> <span class=o>+</span> <span class=n>start</span><span class=p>,</span> <span class=n>s</span><span class=p>.</span><span class=n>begin</span><span class=p>()</span> <span class=o>+</span> <span class=n>end</span><span class=p>);</span>
+        <span class=p>}</span>
+
+        <span class=c1>// collapse spaces
+</span><span class=c1></span>        <span class=kt>int</span> <span class=n>write</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>bool</span> <span class=n>endWord</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>read</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>read</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>read</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>endWord</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>s</span><span class=p>[</span><span class=n>write</span><span class=o>++</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39; &#39;</span><span class=p>;</span>
+                <span class=n>endWord</span> <span class=o>=</span> <span class=nb>false</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>read</span><span class=p>]</span> <span class=o>!=</span> <span class=sc>&#39; &#39;</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>s</span><span class=p>[</span><span class=n>write</span><span class=o>++</span><span class=p>]</span> <span class=o>=</span> <span class=n>s</span><span class=p>[</span><span class=n>read</span><span class=p>];</span>
+                <span class=k>if</span> <span class=p>(</span><span class=n>read</span> <span class=o>&lt;</span> <span class=n>n</span> <span class=o>&amp;&amp;</span> <span class=n>s</span><span class=p>[</span><span class=n>read</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39; &#39;</span><span class=p>)</span> <span class=n>endWord</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>write</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39; &#39;</span><span class=p>)</span> <span class=n>write</span><span class=o>--</span><span class=p>;</span>
+        <span class=k>return</span> <span class=n>s</span><span class=p>.</span><span class=n>substr</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>write</span><span class=p>);</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h1 id=17-product-of-array-except-self>1.7 Product of Array Except Self</h1><p><a href=https://leetcode.com/problems/product-of-array-except-self target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-6>Question</h2><ul><li>Given an input array, return an array where each element of the result array holds the product of the entire input array except the element at that position in the input array.</li><li>You cannot use the division operation</li><li>Do it in O(N) time</li><li><strong>Follow-up</strong>: Do it in O(1) <em>auxiliary</em> space</li></ul><h2 id=solutions-5>Solutions</h2><p>The most direct way of doing this is calculating the product of the entire array and then dividing it by each element to get the result array. This needs to handle 0s in the array:</p><ul><li>If there are two or more 0s, then the entire result array would be 0s (at least one 0 would be part of every product)</li><li>If there is exactly one 0, then only that position will have the entire product (without 0) and the rest of the array would hold 0s (since this 0 would be in every other product)</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>productExceptSelf</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>nums</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=kt>int</span> <span class=n>product</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>zeroes</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>zeroIdx</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>zeroes</span><span class=o>++</span><span class=p>;</span>
+                <span class=n>zeroIdx</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=k>else</span> <span class=n>product</span> <span class=o>*=</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>zeroes</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>zeroes</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>res</span><span class=p>[</span><span class=n>zeroIdx</span><span class=p>]</span> <span class=o>=</span> <span class=n>product</span><span class=p>;</span>
+            <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+        <span class=p>}</span>
+
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>product</span> <span class=o>/</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+        
+        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>This is an O(N) time, O(1) solution, but it uses the division operator, which is not allowed according to the question.</p><p>The brute force way of solving this would be to calculate for each element, the product of the other elements - an O(N^2) solution. From this solution, we can observe that we&rsquo;re repeating a lot of calculations. What would help here are prefix and suffix products. So here&rsquo;s what we can do:</p><ul><li>Calculate a prefix product array: `pref[i] = nums[0] * nums[1] * &mldr; * nums[i-1]; pref[0] = 1</li><li>Calculate a suffix product array: <code>suff[i] = nums[i+1] * nums[i+2] * ... * nums[n-1]; suff[n-1] = 1</code></li><li>Then, the result array is simply: <code>res[i] = pref[i] * suff[i]</code></li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>productExceptSelf</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>a</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>a</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=kt>int</span> <span class=n>pre</span><span class=p>[</span><span class=n>n</span><span class=p>],</span> <span class=n>suf</span><span class=p>[</span><span class=n>n</span><span class=p>];</span>
+        <span class=n>pre</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=n>suf</span><span class=p>[</span><span class=n>n</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>pre</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>pre</span><span class=p>[</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>*</span> <span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>n</span><span class=o>-</span><span class=mi>2</span><span class=p>;</span> <span class=n>i</span><span class=o>&gt;=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>suf</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>suf</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>*</span> <span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>ans</span><span class=p>(</span><span class=n>n</span><span class=p>);</span>
+        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>ans</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>pre</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>*</span> <span class=n>suf</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>ans</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>This is an O(N) time solution, but it takes O(N) space for the prefix and suffix array.</p><p>Observation: We&rsquo;re going from 0 to n-1 again for calculating the result array.
+Instead of keeping an array of prefix products, we can keep a single prefix product variable, use it for the result calculation and update the same variable (we don&rsquo;t need the previous prefix products). This takes saves creating and maintaining one array. But we still need the suffix array since we&rsquo;re going from 0 to n-1.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>productExceptSelf</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>nums</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>suffixProduct</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>n</span><span class=o>-</span><span class=mi>2</span><span class=p>;</span> <span class=n>i</span><span class=o>&gt;=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>suffixProduct</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>suffixProduct</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>*</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=kt>int</span> <span class=n>prefixProduct</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>prefixProduct</span> <span class=o>*</span> <span class=n>suffixProduct</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+            <span class=n>prefixProduct</span> <span class=o>*=</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>Now, we need to have O(1) auxiliary space. This is usually a hint for using the input array and modifying it in-place. But in this case, we can instead use the result array itself! We can initially store suffix products in the result array, and then using the prefix product, update each element as we go from 0 to n-1. This reduces our auxiliary space to O(1) - the result array is not auxiliary, and apart from that we just have single variables.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>productExceptSelf</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>nums</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=c1>// first, fill the result with suffix product
+</span><span class=c1></span>        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>(</span><span class=n>n</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>n</span><span class=o>-</span><span class=mi>2</span><span class=p>;</span> <span class=n>i</span><span class=o>&gt;=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>*</span> <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+        <span class=p>}</span>
+
+        <span class=c1>// then multiply prefix product
+</span><span class=c1></span>        <span class=kt>int</span> <span class=n>prefixProduct</span> <span class=o>=</span> <span class=n>nums</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>*</span> <span class=n>prefixProduct</span><span class=p>;</span>
+            <span class=n>prefixProduct</span> <span class=o>*=</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+        <span class=p>}</span>
+        
+        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+
+</code></pre></td></tr></table></div></div><h1 id=18-increasing-triplet-subsequence>1.8 Increasing Triplet Subsequence</h1><p><a href=https://leetcode.com/problems/increasing-triplet-subsequence target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-7>Question</h2><p>Given an array of integers, return true if there exist distinct indices <code>i</code>, <code>j</code>, <code>k</code> such that <code>i &lt; j &lt; k</code> and <code>nums[i] &lt; nums[j] &lt; nums[k]</code></p><h2 id=solutions-6>Solutions</h2><p>The brute force way of doing this is to find a pair <code>(i, k, j)</code> among all such unordered pairs where the conditions hold true. This solution has O(N^3) time complexity.
+Intuition leads us to think in terms of minimum values. One way of thinking about this is that we need to find some <em>local</em> minimum <code>i</code>, after which there exists another <em>local</em> minimum <code>j</code> that is greater than the number at <code>i</code>, after which there should exist at least one number that&rsquo;s greater than the one at <code>j</code>. The way to do this in linear time would be to store the two lowest values encountered so far - <code>min</code> and <code>min2</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>min = INT_MAX, min2 = INT_MAX
+for(int i: nums) {
+	if (i &lt;= min) min = i
+	if (i &lt; min2) min2 = i
+	if (i &gt; min2) return true
+}
+return false
+</code></pre></td></tr></table></div></div><ul><li><code>min</code> is a potential `nums[i]</li><li><code>min2</code> is a potential <code>nums[j]</code>, but it doesn&rsquo;t necessarily store one corresponding to <code>min</code> being <code>nums[i]</code>. Rather, it can also store a potential <code>nums[j]</code> corresponding to a previous value of <code>min</code> (a potential <code>nums[i]</code> that was encountered previously but is now replaced with another).</li></ul><p>The reason for <code>min2</code>'s definition can be understood with the following test case:
+<code>[9, 10, 5, 11, 10, 9, 8]</code>
+This is how we update <code>min</code> and <code>min2</code>. Initially, both hold <code>INT_MAX</code>:</p><ul><li>At <code>i = 0</code>, <code>nums[i] = 9</code>: <code>min = 9, min2 = INT_MAX</code>*</li><li>At <code>i = 1</code>, <code>nums[i] = 10</code>: <code>min = 9, min2 = 10</code></li><li>At <code>i = 2</code>, <code>nums[i] = 5</code>: <code>min = 5, min2 = 10</code>. Note that here we do not update <code>min2</code> to 9 (<code>j > i</code>), but neither do we reset it (I reset it in an earlier version, which won&rsquo;t work - we&rsquo;ll see why)</li><li>At <code>i = 3</code>, <code>nums[i] = 11</code>: <code>min = 5, min2 = 10</code>. Now we finally encounter a value that is greater than <code>min2</code> (<code>k > j</code> and <code>nums[k] > nums[j]</code>) And we also observe that we do indeed have an answer: (9, 10, 11). Note that <code>min</code> is holding <code>5</code>, but it&rsquo;s not part of the current <code>(nums[i], nums[j], nums[k])</code> tuple that we have as the match - <code>nums[i]</code> is actually 9, even though we replaced <code>min</code>. But it&rsquo;s <code>min2</code> storing <code>10</code> is what tells us that we have encountered some number before it such that it&rsquo;s lower than <code>10</code>. <code>10</code> is actually corresponding to <code>9</code> as its pair, not 5. This really is that one pivot of the solution.
+Let&rsquo;s say we reset <code>min2</code> each time we encounter a number lower than the current <code>min</code>, with this same test case. This is how it would turn out:</li><li>At <code>i = 0</code>, <code>nums[i] = 9</code>: <code>min = 9, min2 = INT_MAX</code>*</li><li>At <code>i = 1</code>, <code>nums[i] = 10</code>: <code>min = 9, min2 = 10</code></li><li>At <code>i = 2</code>, <code>nums[i] = 5</code>: <code>min = 5, min2 = INT_MAX</code>. Note that here we <strong>do reset it</strong></li><li>At <code>i = 3</code>, <code>nums[i] = 11</code>: <code>min = 5, min2 = 11</code></li><li>At <code>i = 4</code>, <code>nums[i] = 10</code>: <code>min = 5, min2 = 10</code></li><li>At <code>i = 5</code>, <code>nums[i] = 9</code>: <code>min = 5, min2 = 9</code></li><li>At <code>i = 6</code>, <code>nums[i] = 8</code>: <code>min = 5, min2 = 8</code>
+We reach the end, and return false, even though we do have a possible answer: (9, 10, 11). This is why resetting <code>min2</code> will not work.
+The fact that <code>min2</code> has already been replaced, means that there exists a <code>min</code> (before <code>min2</code> and less than <code>min2</code>) before it, even though the current value of <code>min</code> might be different.</li></ul><p>I found this in the comments in one of the solutions:</p><blockquote><p>updating <code>min1</code> simply prepares to form a new pair of <code>min&lt;min2</code>. The existing <code>min2</code> represents the older <code>min1 &lt; min2</code> pair</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>bool</span> <span class=n>increasingTriplet</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>min</span> <span class=o>=</span> <span class=n>INT_MAX</span><span class=p>,</span> <span class=n>min2</span> <span class=o>=</span> <span class=n>INT_MAX</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>nums</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;=</span> <span class=n>min</span><span class=p>)</span>   <span class=n>min</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>        <span class=c1>// prepares for new min, min2 pair. min2 still represents older min, min2 pair!!
+</span><span class=c1></span>            <span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>&lt;</span> <span class=n>min2</span><span class=p>)</span>  <span class=n>min2</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+            <span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>&gt;</span> <span class=n>min2</span><span class=p>)</span> <span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>Effectively just three lines, wow.</p><h1 id=19-string-compression>1.9 String Compression</h1><p><a href=https://leetcode.com/problems/string-compression target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-8>Question</h2><p>Given an array of characters, compress it such that each subarray of the same character is replaced with the character followed by the length of that subarray. If the length of the subarray is 1, skip the length, just place the character. Modify the input in-place.
+Examples:</p><ul><li><code>["a","a","b","b","c","c","c"] -> ["a","2","b","2","c","3"]</code></li><li><code>['a'] -> ['a']</code></li></ul><h2 id=solutions-7>Solutions</h2><p>Classic read-write pointers approach. Traverse the array and maintain a <code>currentChar</code> and <code>currentCharCount</code>, and for each new character encountered, write the <code>currentChar</code> and <code>currentCharCount</code> to the array.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=kt>void</span> <span class=n>appendNumberToCharArray</span><span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=n>num</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;</span> <span class=o>&amp;</span><span class=n>chars</span><span class=p>,</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=n>write</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>string</span> <span class=n>s</span> <span class=o>=</span> <span class=n>to_string</span><span class=p>(</span><span class=n>num</span><span class=p>);</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>&amp;</span><span class=nl>c</span><span class=p>:</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>chars</span><span class=p>[</span><span class=n>write</span><span class=o>++</span><span class=p>]</span> <span class=o>=</span> <span class=n>c</span><span class=p>;</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+    <span class=kt>void</span> <span class=nf>appendCharCount</span><span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=n>num</span><span class=p>,</span> <span class=k>const</span> <span class=kt>char</span> <span class=o>&amp;</span><span class=n>c</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;</span> <span class=o>&amp;</span><span class=n>chars</span><span class=p>,</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=n>write</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>chars</span><span class=p>[</span><span class=n>write</span><span class=o>++</span><span class=p>]</span> <span class=o>=</span> <span class=n>c</span><span class=p>;</span>
+        <span class=k>if</span> <span class=p>(</span><span class=n>num</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>appendNumberToCharArray</span><span class=p>(</span><span class=n>num</span><span class=p>,</span> <span class=n>chars</span><span class=p>,</span> <span class=n>write</span><span class=p>);</span>
+        <span class=p>}</span>
+    <span class=p>}</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>int</span> <span class=n>compress</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>char</span><span class=o>&gt;&amp;</span> <span class=n>chars</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>char</span> <span class=n>currentChar</span> <span class=o>=</span> <span class=n>chars</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+        <span class=kt>int</span> <span class=n>write</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>currentCharCount</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>chars</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>chars</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=n>currentChar</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>appendCharCount</span><span class=p>(</span><span class=n>currentCharCount</span><span class=p>,</span> <span class=n>currentChar</span><span class=p>,</span> <span class=n>chars</span><span class=p>,</span> <span class=n>write</span><span class=p>);</span>
+                <span class=n>currentCharCount</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+                <span class=n>currentChar</span> <span class=o>=</span> <span class=n>chars</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+            <span class=p>}</span>
+            <span class=n>currentCharCount</span><span class=o>++</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=n>appendCharCount</span><span class=p>(</span><span class=n>currentCharCount</span><span class=p>,</span> <span class=n>currentChar</span><span class=p>,</span> <span class=n>chars</span><span class=p>,</span> <span class=n>write</span><span class=p>);</span>
+        <span class=k>return</span> <span class=n>write</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>Looking at my previous submissions from June 2020 to Feb 2024 to now, I&rsquo;ve gone from repeating code (not using functions) and using terrible one-letter variables for everything to good(?) variable names and helper functions. Progress?</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on Apr 27 2024</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/lc75-1/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=http://akshatshah21.github.io/lc75-1/ data-title="LeetCode 75 - Part 1 - Array/String" data-via=AkshatShah21 data-hashtags=data-structures,algorithms,coding-problems><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=http://akshatshah21.github.io/lc75-1/ data-hashtag=data-structures><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=http://akshatshah21.github.io/lc75-1/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=http://akshatshah21.github.io/lc75-1/ data-title="LeetCode 75 - Part 1 - Array/String" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Pinterest" data-sharer=pinterest data-url=http://akshatshah21.github.io/lc75-1/ data-description="LeetCode 75. Two problems a day. Part 1."><i class="fab fa-pinterest fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Tumblr" data-sharer=tumblr data-url=http://akshatshah21.github.io/lc75-1/ data-title="LeetCode 75 - Part 1 - Array/String" data-caption="LeetCode 75. Two problems a day. Part 1." data-tags=data-structures,algorithms,coding-problems><i class="fab fa-tumblr fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=http://akshatshah21.github.io/lc75-1/ data-title="LeetCode 75 - Part 1 - Array/String"><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=http://akshatshah21.github.io/lc75-1/><i class="fab fa-reddit fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Pocket" data-sharer=pocket data-url=http://akshatshah21.github.io/lc75-1/><i class="fab fa-get-pocket fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/data-structures/>data-structures</a>,&nbsp;<a href=/tags/algorithms/>algorithms</a>,&nbsp;<a href=/tags/coding-problems/>coding-problems</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/circuit-breaker/ class=prev rel=prev title="Circuit Breaker - Hope is not a Design Method"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>Circuit Breaker - Hope is not a Design Method</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><h5><em>"Through chances various, through all vicissitudes, we make our way..." - Aeneid</em></h5></div><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i>LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2024</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://akshatshah21.github.io target=_blank>Akshat Shah</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/katex/katex.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-177XEHY4ST',{'anonymize_ip':true});</script><script type=text/javascript src="https://www.googletagmanager.com/gtag/js?id=G-177XEHY4ST" async></script></body></html>

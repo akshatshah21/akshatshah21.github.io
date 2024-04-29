@@ -1,4 +1,372 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Akshat Shah</title><link>http://akshatshah21.github.io/</link><description>Akshat Shah's website</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 28 Aug 2021 10:02:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode 75 - Part 1 - Array/String</title><link>http://akshatshah21.github.io/lc75-1/</link><pubDate>Sat, 27 Apr 2024 19:30:30 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-1/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Akshat Shah</title><link>http://akshatshah21.github.io/</link><description>Akshat Shah's website</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 28 Aug 2021 10:02:19 +0530</lastBuildDate><atom:link href="http://akshatshah21.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode 75 - Part 2 - Two Pointers</title><link>http://akshatshah21.github.io/lc75-2/</link><pubDate>Mon, 29 Apr 2024 02:01:37 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-2/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
+And so this is one more attempt to change that.<br>
+LeetCode 75. Two problems a day, starting April 25, 2024.<br>
+To further motivate consistency and completion of this, I&rsquo;ve decided I will do write-ups for all of these problems and perhaps publish them on my blog. Let&rsquo;s see.</p>
+<p>This is Part 2 - Two Pointers.</p>
+<h1 id="21-move-zeroes">2.1 Move Zeroes</h1>
+<p><a href="https://leetcode.com/problems/move-zeroes" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question">Question</h2>
+<p>Given an array of integers, modify it in-place so that all the 0s in the array are at the end of the array and the relative order of other non-zero elements is retained.</p>
+<p><strong>Follow-up:</strong>: Minimize the total number of array writes.</p>
+<h2 id="solutions">Solutions</h2>
+<p>First method that came to my mind was to count the number of zeroes, then move all non-zero elements to the front, and then write all 0s at the back. An important observation here is that for a non-zero element, its position in the result array can be its original position or one before its original position. So we can use two pointers to move non-zero elements ahead, and if we go from left to right, we won&rsquo;t accidentally overwrite an element that&rsquo;s at its final position.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">moveZeroes</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">i</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">bool</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">});</span>
+
+        <span class="kt">int</span> <span class="n">write</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">write</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N)<br>
+Space Complexity: O(1)<br>
+But, this has multiple passes of the array. Sure, we could combine counting zeros with moving elements ahead but writing all 0s at the end would still go through part of the array itself, and the number of writes in the array would be the same as number of elements.</p>
+<p>We don&rsquo;t really need to keep a count of zeroes, simply moving all non-zero elements ahead and then writing 0s to the remaining positions in the array would also work:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">moveZeroes</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 0 to write-1: non-zeroes
+</span><span class="c1"></span>        <span class="c1">// write to i-1: zeroes
+</span><span class="c1"></span>        <span class="c1">// i to n-1: unexplored
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">write</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">nums</span><span class="p">[</span><span class="n">write</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="p">(;</span> <span class="n">write</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">write</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">nums</span><span class="p">[</span><span class="n">write</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N)<br>
+Space Complexity: O(1)<br>
+This is still one complete pass, plus some more iterations to write 0s, and the number of array writes is still equal to the number of array elements.</p>
+<p>What we&rsquo;re doing currently is writing 0s explicitly in all cases. Consider the following test case: <code>[0, 0, 0, 1]</code> -&gt; <code>[1, 0, 0, 0]</code>. Here, even though effectively only <code>1</code> is shifted ahead, using above solution we are writing 1 once and 0 thrice. But, all that&rsquo;s required is putting the <code>1</code> at the first position, and putting a <code>0</code> at the final position (2 writes). So we can make use of swapping instead of separate explicit writes for non-zero and zero elements.<br>
+However, consider the following test case: <code>[0, 1, 1, 1]</code> -&gt; <code>[1, 1, 1, 0]</code>. Here, we still do 4 writes with swapping; however it&rsquo;s still as good as the above solution in terms of number of array writes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">void</span> <span class="n">moveZeroes</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 0 to write-1: non-zeroes
+</span><span class="c1"></span>        <span class="c1">// write to i-1: zeroes
+</span><span class="c1"></span>        <span class="c1">// i to n-1: unexplored
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">write</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">swap</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">write</span><span class="o">++</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N)<br>
+Space Complexity: O(1)<br>
+The number of writes in this case depends on the testcase (2 times the number of non-zero elements), but is lower than or equal to than the previous solutions as demonstrated in the above example.</p>
+<h1 id="22-is-subsequence">2.2 Is Subsequence</h1>
+<p><a href="https://leetcode.com/problems/is-subsequence" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-1">Question</h2>
+<p>Given strings <code>s</code> and <code>t</code>, check if <code>s</code> is a subsequence of <code>t</code>.</p>
+<blockquote>
+<p>A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., &ldquo;ace&rdquo; is a subsequence of &ldquo;abcde&rdquo; while &ldquo;aec&rdquo; is not).</p>
+</blockquote>
+<blockquote>
+<p><strong>Follow up:</strong> Suppose there are lots of incoming <code>s</code>, say <code>s1, s2, ..., sk</code> where <code>k &gt;= 10^9</code>, and you want to check one by one to see if <code>t</code> has its subsequence. In this scenario, how would you change your code?</p>
+</blockquote>
+<h2 id="solution">Solution</h2>
+<p>We can use two pointers, one for <code>t</code> and one for <code>s</code>. We move both pointers ahead if characters match, or we move the pointer to <code>t</code> only in case the characters don&rsquo;t match (a <em>deleted</em> character from <code>t</code> in subsequence terms).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">isSubsequence</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">tIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">tLen</span> <span class="o">=</span> <span class="n">t</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">sLen</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">sIdx</span> <span class="o">&lt;</span> <span class="n">sLen</span> <span class="o">&amp;&amp;</span> <span class="n">tIdx</span> <span class="o">&lt;</span> <span class="n">tLen</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">sIdx</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">[</span><span class="n">tIdx</span><span class="p">])</span>
+                <span class="n">sIdx</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">tIdx</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">sIdx</span> <span class="o">==</span> <span class="n">sLen</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N+M) where N, M are the string lengths<br>
+Space Complexity: O(1)</p>
+<h3 id="follow-up">Follow-up</h3>
+<p>In case we have an incoming stream of <code>s</code> to check whether they are subsequences of <code>t</code>, we can pre-compute the following information: a map from character to a sorted list of indices of that character in <code>t</code>. Then, for each s:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pos = charIndices[s[0]][0]
+for char in s[1..n-1]:
+	pos = charIndices[char].upper_bound(pos)
+	if pos == -1:    // not found =&gt; no further index in t which holds char
+		return false
+
+return true
+</code></pre></td></tr></table>
+</div>
+</div><p>For each character, we find the next closest possible position (upper bound: lowest element strictly greater than) in t that holds the same character. We keep doing this for every character and keep updating <code>pos</code>. If at any point the binary search (upper bound) fails, it indicates that there is no further position in <code>t</code> that has the character we&rsquo;re looking for, so the current <code>s</code> cannot be a subsequence of <code>t</code>. If we are able to exhaust all characters of an <code>s</code>, that means <code>s</code> is a subsequence of <code>t</code>.<br>
+The time complexity of this solution is O(k * S * log(T)), where S = max length of an <code>s</code>, and <code>T</code> is the length of <code>T</code>. If we had used the same simple two pointer solution as above, it would be O(k * S * T) instead.</p>
+<h1 id="23-container-with-most-water">2.3 Container With Most Water</h1>
+<p><a href="https://leetcode.com/problems/container-with-most-water" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-2">Question</h2>
+<p>Given an array of positive integers indicating heights of vertical lines drawn such that the endpoints of the lines are <code>(i, 0)</code> and <code>(i, heights[i])</code>, find two lines that together with the x-axis form a container, such that the container contains the most water. Return <em>the maximum amount of water a container can store</em>.</p>
+<h2 id="solution-1">Solution</h2>
+<p>The brute force solution is to try all pairs of lines <code>(i, j), j &gt; i</code> and find the maximum area <code>(j-i) * min(heights[i] * heights[j])</code>. This has O(N^2) time complexity and will not satisfy the given input size limits (10^5 lines).</p>
+<p>There are two things that are contributing to the area - the width <code>(j-i)</code> and the lesser of the heights of the two lines. We can start with the widest possible container (first and last lines), and move inwards using two pointers greedily. How? By discarding the shorter of the two current lines. How can we justify this greedy step?</p>
+<ul>
+<li>Consider that currently we have a container with two lines of heights <code>a</code> and <code>b</code>, (<code>a &gt; b</code>). And the width is <code>w</code>.</li>
+<li>So current area is <code>w * a</code></li>
+<li>Now, since we&rsquo;re moving pointers inwards, <code>w</code> is going to decrease by <code>1</code> in the next iteration</li>
+<li>If we retain the shorter line <code>a</code> and move inwards by discarding <code>b</code>, then the maximum possible area of the next iteration will be <code>a * (w-1)</code>, since the height of the container is minimum of the heights of its two lines</li>
+<li>If we retain the longer line <code>b</code> and move inwards by discarding <code>a</code>, then the maximum possible area of the next iteration will be <code>b * (w-1)</code>.
+So we can conclude that it&rsquo;s always optimal to stick with the longer line, since the shorter line will not be able to form a better container in future iterations, and we can ignore it safely for future considerations.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">maxArea</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">height</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">maxArea</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">maxArea</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxArea</span><span class="p">,</span> <span class="p">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">*</span> <span class="n">min</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">height</span><span class="p">[</span><span class="n">right</span><span class="p">]));</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">[</span><span class="n">right</span><span class="p">])</span> <span class="n">left</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">else</span> <span class="n">right</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxArea</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N)<br>
+Space Complexity: O(1)</p>
+<h1 id="24-max-number-of-k-sum-pairs">2.4 Max Number of K-Sum Pairs</h1>
+<p><a href="https://leetcode.com/problems/max-number-of-k-sum-pairs" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-3">Question</h2>
+<p>Given an array of integers and an integer <code>k</code>, return the number of times it is possible to do the following operation:<br>
+Pick two elements that add up to <code>k</code>, and remove them from the array.</p>
+<h2 id="solution-2">Solution</h2>
+<p>In other words, we need to find the number of pairs in the array that add up to <code>k</code>, and we can include an element in one pair only. This is a modification of the popular <em>Two-Sum</em> problem.</p>
+<p>The brute force method is to consider all unordered pairs in the array - a O(N^2) solution.</p>
+<p>We can sort the array and use two pointers at starting at each end (lowest and greatest numbers in the array). Then, for each iteration, check if the current numbers add up to <code>k</code>, and count that pair. If not, we update the left or right pointer to get to a higher or lower sum respectively. This works since the array is sorted.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">maxOperations</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">res</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">left</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">right</span><span class="o">--</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">left</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">right</span><span class="o">--</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N * logN)<br>
+Space Complexity: O(1)</p>
+<p>Another method is to use a hashmap to keep a memory of elements encountered previously to find required pairs.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">maxOperations</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">freq</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span><span class="p">:</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">freq</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">freq</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">freq</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">res</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">freq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Time Complexity: O(N)<br>
+Space Complexity: O(N)</p>
+]]></description></item><item><title>LeetCode 75 - Part 1 - Array/String</title><link>http://akshatshah21.github.io/lc75-1/</link><pubDate>Sat, 27 Apr 2024 19:30:30 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-1/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
 <p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
 And so this is one more attempt to change that.<br>
 LeetCode 75. Two problems a day, starting April 25, 2024.<br>
@@ -2759,69 +3127,4 @@ return n+1
 </div>
 </div><p>This solution has <code>O(n)</code> time complexity and <code>O(1)</code> extra space (it modifies the input array).<br>
 You can find the C++ implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/master/C%2B%2B/Arrays/First_Missing_Positive_Int.cpp" target="_blank" rel="noopener noreffer ">here</a>.</p>
-]]></description></item><item><title>Coding Problem: Serialize a Binary Tree</title><link>http://akshatshah21.github.io/dcp-3/</link><pubDate>Mon, 01 Mar 2021 18:03:44 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/dcp-3/</guid><description><![CDATA[<blockquote>
-<p><a href="https://www.dailycodingproblem.com/" target="_blank" rel="noopener noreffer ">DailyCodingProblem</a> is a great website that sends coding problems to your inbox daily.</p>
-</blockquote>
-<h2 id="the-question">The Question</h2>
-<blockquote>
-<p>Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.</p>
-</blockquote>
-<p>You can solve this question on <a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree" target="_blank" rel="noopener noreffer ">LeetCode</a></p>
-<h2 id="solutions">Solutions</h2>
-<h3 id="recursion">Recursion!</h3>
-<p>We can use preorder traversal of a tree to encode it as a string. We start with the root, encode it, and then move on to the left subtree and serialize it, then move on to the right tree and serialize it. The base case will be when we call the recursive function for a child of a leaf node, we can encode it as &ldquo;null&rdquo;.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">fun serialize(root)
-  if root is null then return &#34;null&#34;
-  return str(root-&gt;val) + &#34;,&#34; + serialize(root-&gt;left) + &#34;,&#34; + serialize(root-&gt;right)
-</code></pre></td></tr></table>
-</div>
-</div><p>For deserializing a string of the type formed by <code>serialize</code>, we can again make use of the preorder traversal, since we know that is the order in which the serialized string was built.</p>
-<p>First, we can split the string by its delimiter (a comma, in this case) to get a list of nodes (including null nodes) and then traverse the list, while we build the tree in preorder traversal. We do this by keeping the pointer of the list common across all recursive calls, and each recursive call builds a subtree, in preorder. Whenever we hit a null element in the list, we simply return null.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">fun deserialize(tree)
-  nodes = tree.split(&#34;,&#34;)
-  i = 0
-  root = buildTree(nodes, i)
-  return root
-
-fun buildTree(nodes, i)
-  if nodes[i] == &#34;null&#34; then
-    return null
-  else
-    root = Node(int(root))
-    i = i + 1
-    root.left = buildTree(nodes, i)
-    i = i + 1
-    root.right = buildTree(nodes, i)
-    return root
-</code></pre></td></tr></table>
-</div>
-</div><p>You can find the Python implementation <a href="https://github.com/akshatshah21/Data-Structures-and-Algorithms/blob/python/Python/BinaryTree/Serialize_Deserialize_Binary_Tree.py" target="_blank" rel="noopener noreffer ">here</a>.
-This can be implemented in C++ easily too, but right now I&rsquo;m a little lazy to write out the split function :-).</p>
 ]]></description></item></channel></rss>

@@ -1,4 +1,291 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding-problems - Category - Akshat Shah</title><link>http://akshatshah21.github.io/categories/coding-problems/</link><description>coding-problems - Category - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Mon, 29 Apr 2024 02:01:37 +0000</lastBuildDate><atom:link href="http://akshatshah21.github.io/categories/coding-problems/" rel="self" type="application/rss+xml"/><item><title>LeetCode 75 - Part 2 - Two Pointers</title><link>http://akshatshah21.github.io/lc75-2/</link><pubDate>Mon, 29 Apr 2024 02:01:37 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-2/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>coding-problems - Category - Akshat Shah</title><link>http://akshatshah21.github.io/categories/coding-problems/</link><description>coding-problems - Category - Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 11 May 2024 18:31:07 +0000</lastBuildDate><atom:link href="http://akshatshah21.github.io/categories/coding-problems/" rel="self" type="application/rss+xml"/><item><title>LeetCode 75 - Part 4 - Prefix Sum</title><link>http://akshatshah21.github.io/lc75-4/</link><pubDate>Sat, 11 May 2024 18:31:07 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-4/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
+And so this is one more attempt to change that.<br>
+LeetCode 75. Two problems a day, starting April 25, 2024.<br>
+To further motivate consistency and completion of this, I&rsquo;ve decided I will do write-ups for all of these problems and perhaps publish them on my blog. Let&rsquo;s see.</p>
+<p>This is Part 4 - Prefix Sum.</p>
+<h1 id="41-find-the-highest-altitude">4.1 Find the Highest Altitude</h1>
+<p><a href="https://leetcode.com/problems/find-the-highest-altitude" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question">Question</h2>
+<p>Given an array of integers, where each integer denotes the <em>gain</em> in altitude (starting altitude 0) from the previous position, find the highest altitude ever reached. If the integer is negative, the gain is negative (drop in altitude).</p>
+<h2 id="solution">Solution</h2>
+<p>We can simply maintain the current altitude and the global maximum altitude. <code>O(N)</code> time, <code>O(1)</code> auxiliary space</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">largestAltitude</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">gain</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">maxAlt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">currentAlt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span><span class="p">:</span> <span class="n">gain</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">currentAlt</span> <span class="o">+=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">maxAlt</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxAlt</span><span class="p">,</span> <span class="n">currentAlt</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxAlt</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="42-find-pivot-index">4.2 Find Pivot Index</h1>
+<p><a href="https://leetcode.com/problems/find-pivot-index/" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-1">Question</h2>
+<p>Given an array of integers, find the leftmost index where the sum of all elements to the left is equal to the sum of all elements to the right (element at current index is not included in either sum). This index is termed the <em>pivot</em> index.</p>
+<h2 id="solution-1">Solution</h2>
+<p>The brute force solution will be to test each index <code>i</code> for being the pivot by calculating the sum of elements to its left, $\sum_{j=0}^{i-1}{a[j]}$ and the sum of elements to its right, $\sum_{j=i+1}^{n-1}{a[j]}$ and checking if they are equal. This would be a quadratic time solution.</p>
+<p>We can observe that we&rsquo;re repeating a lot of sum calculations. We can instead use prefix and suffix sums. We can also avoid creating and storing prefix/suffix sum arrays and just maintain two variables for the prefix sum and suffix sum, since at every index, we only need its prefix and suffix sum. So we can maintain these two sums as we move from left to right and for each index we can check if they are equal. This is an <code>O(N)</code> time solution and uses constant space. It requires two passes - for calculating suffix sum, and then to test each index for being the pivot.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">pivotIndex</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">suffixSum</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">prefixSum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">suffixSum</span> <span class="o">-=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">prefixSum</span> <span class="o">==</span> <span class="n">suffixSum</span><span class="p">)</span> <span class="k">return</span> <span class="n">i</span><span class="p">;</span>
+            <span class="n">prefixSum</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>LeetCode 75 - Part 3 - Sliding Window</title><link>http://akshatshah21.github.io/lc75-3/</link><pubDate>Sat, 11 May 2024 18:13:02 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-3/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
+And so this is one more attempt to change that.<br>
+LeetCode 75. Two problems a day, starting April 25, 2024.<br>
+To further motivate consistency and completion of this, I&rsquo;ve decided I will do write-ups for all of these problems and perhaps publish them on my blog. Let&rsquo;s see.</p>
+<p>This is Part 3 - Sliding Window.</p>
+<h1 id="31-maximum-average-subarray-i">3.1 Maximum Average Subarray I</h1>
+<p><a href="https://leetcode.com/problems/maximum-average-subarray-i" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question">Question</h2>
+<p>Given an array of integers, find the a contiguous subarray of length <code>k</code> such that its average is maximized. Return the max average.</p>
+<h2 id="solution">Solution</h2>
+<p>Brute-force solution will be to iterate through the array and find the average of each subarray of length <code>k</code> starting at each position, keeping track of maximum average. This would have a time complexity of <code>O(N*k)</code>, while auxiliary space is constant.</p>
+<p>In the above approach, as we move the start index of the subarray under consideration from <code>i</code> to <code>i+1</code>, we repeat the steps of calculating the sum from <code>i+1</code> to <code>i+k</code>. This observation leads us to thinking of a sliding window approach (subarray of fixed length is a hint). So we maintain the sum of elements in a k-length sliding window, and use these sums to find averages of the subarray. While moving the window by one position, we remove the leftmost element and add the next element on the right - we update sum accordingly. So this approach gives us an <code>O(N)</code> time complexity solution (space is constant).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">double</span> <span class="n">findMaxAverage</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">maxSum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="p">];</span>
+            <span class="n">maxSum</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxSum</span><span class="p">,</span> <span class="n">sum</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxSum</span> <span class="o">/</span> <span class="n">k</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="32-maximum-number-of-vowels-in-a-substring-of-given-length">3.2 Maximum Number of Vowels in a Substring of Given Length</h1>
+<p><a href="https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-1">Question</h2>
+<p>Given a string, find a substring of length <code>k</code> such that the number of vowels in the substring is maximized. Return this maximum count.</p>
+<h2 id="solution-1">Solution</h2>
+<p><strong>Brute-force</strong>: For each index, consider the substring starting from that index of length <code>k</code>, and count the number of vowels in that substring. Keep track of max count of vowels in a substring. This has a time complexity of <code>O(N*k)</code>, where <code>N</code> is the length of the complete string.</p>
+<p>We can observe that when moving from the substring starting at <code>i</code> to <code>i+1</code>, we&rsquo;re counting vowels from <code>i+1</code> to <code>i+k</code> again. We can instead maintain the count of vowels in a sliding window of length <code>k</code>. We check whether the leftmost element (the one being removed from sliding window) or the element to the right of the window (the one being added) are vowels, and update the count of vowels in the window accordingly, while maintaining a global max count. This gives us an <code>O(N)</code> time solution with constant auxiliary space.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="k">static</span> <span class="kt">bool</span> <span class="n">isVowel</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;a&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;e&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;i&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;o&#39;</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">&#39;u&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">maxVowels</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">count_if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">isVowel</span><span class="p">);</span>
+        <span class="kt">int</span> <span class="n">maxCount</span> <span class="o">=</span> <span class="n">count</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">k</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">isVowel</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">isVowel</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">k</span><span class="p">]))</span> <span class="n">count</span><span class="o">--</span><span class="p">;</span>
+            <span class="n">maxCount</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxCount</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxCount</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="33-max-consecutive-ones-iii">3.3 Max Consecutive Ones III</h1>
+<p><a href="https://leetcode.com/problems/max-consecutive-ones-iii/" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-2">Question</h2>
+<p>Given a binary array, find the maximum number of consecutive 1s in the array if you can flip at most <code>k</code> 0s.</p>
+<h2 id="solution-2">Solution</h2>
+<p>We need to find the longest subarray consisting of all 1s and at most <code>k</code> 0s (that will be flipped to 1s). We can maintain a sliding window (of variable length) that tries to expand as much as possible (1s are fine to expand with, and for 0s, we have an upper limit of <code>k</code>).</p>
+<p>When it&rsquo;s no longer possible to expand (there&rsquo;s a 0 on the immediate right of the window, but we&rsquo;ve already included <code>k</code> 0s), we need to shrink from the left, so that we get more room for including the 0 on the right. To be able to include the 0, we need to let go of one 0 from the left, so we shrink in from left until after a 0 is removed. Then we can include the 0 on the right and we can expand further. This is an <code>O(N)</code> time solution, since the start and end pointers go through each element at most once each. Auxiliary space complexity is constant.</p>
+<p>One thing that&rsquo;s tricky in questions like these is to be able to express the correct intent exhaustively using conditionals and loops. Looking at my historic solutions, I guess my latest version is decent:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">longestOnes</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">zeros</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">maxl</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">end</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">zeros</span> <span class="o">&lt;</span> <span class="n">k</span><span class="p">)</span> 
+                    <span class="n">zeros</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">else</span> <span class="p">{</span>
+					<span class="k">while</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">start</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// removing 1s doesn&#39;t give room for another 0
+</span><span class="c1"></span>                    <span class="n">start</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// remove the 0
+</span><span class="c1"></span>                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">maxl</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxl</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="34-longest-subarray-of-1s-after-deleting-one-element">3.4 Longest Subarray of 1&rsquo;s After Deleting One Element</h1>
+<p><a href="https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-3">Question</h2>
+<p>Given an binary array, find the longest non-empty subarray containing only 1s after deleting one element from the array.</p>
+<h2 id="solution-3">Solution</h2>
+<p>This problem can be stated as finding the maximum number of consecutive 1s after deleting exactly one element. Hence it&rsquo;s very similar to 3.3 Max Consecutive Ones III. We can find the max number of consecutive 1s, allowing there to be at most 1 zero in the subarray (since we can delete that 0). Since we must delete one element, the length to consider would be one less than such a candidate subarray. The time complexity of this solution will be <code>O(N)</code>, with constant auxiliary space.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">longestSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">maxl</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">zeros</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">end</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">zeros</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> 
+                    <span class="n">zeros</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="k">while</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">start</span><span class="o">++</span><span class="p">;</span>
+                    <span class="n">start</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">maxl</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">maxl</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">maxl</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>LeetCode 75 - Part 2 - Two Pointers</title><link>http://akshatshah21.github.io/lc75-2/</link><pubDate>Mon, 29 Apr 2024 02:01:37 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-2/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
 <p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
 And so this is one more attempt to change that.<br>
 LeetCode 75. Two problems a day, starting April 25, 2024.<br>

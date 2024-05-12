@@ -1,0 +1,447 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>LeetCode 75 - Part 5 - Hash Map / Set - Akshat Shah</title><meta name=Description content="LeetCode 75. Two problems a day. Part 5."><meta property="og:title" content="LeetCode 75 - Part 5 - Hash Map / Set"><meta property="og:description" content="LeetCode 75. Two problems a day. Part 5."><meta property="og:type" content="article"><meta property="og:url" content="http://akshatshah21.github.io/lc75-5/"><meta property="og:image" content="http://akshatshah21.github.io/static/favicon.svg"><meta property="article:published_time" content="2024-05-12T08:25:27+00:00"><meta property="article:modified_time" content="2024-05-12T08:25:27+00:00"><meta property="og:site_name" content="My cool site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://akshatshah21.github.io/static/favicon.svg"><meta name=twitter:title content="LeetCode 75 - Part 5 - Hash Map / Set"><meta name=twitter:description content="LeetCode 75. Two problems a day. Part 5."><meta name=application-name content="Akshat Shah"><meta name=apple-mobile-web-app-title content="Akshat Shah"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#00aba9"><link rel=icon href=/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#42bc42><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://akshatshah21.github.io/lc75-5/><link rel=prev href=http://akshatshah21.github.io/lc75-4/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"LeetCode 75 - Part 5 - Hash Map / Set","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/akshatshah21.github.io\/lc75-5\/"},"image":["http:\/\/akshatshah21.github.io\/static\/favicon.svg"],"genre":"posts","keywords":"data-structures, algorithms, coding-problems","wordcount":2005,"url":"http:\/\/akshatshah21.github.io\/lc75-5\/","datePublished":"2024-05-12T08:25:27+00:00","dateModified":"2024-05-12T08:25:27+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Akshat Shah"},"description":"LeetCode 75. Two problems a day. Part 5."}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Akshat Shah">Akshat Shah</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/about/ title="About Akshat">About </a><a class=menu-item href=/projects/ title="Akshat's Projects">Projects </a><a class=menu-item href=/posts/ title="Akshat's posts">Posts </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=https://akshatshah21.github.io/imagination-boundless rel="noopener noreffer" target=_blank>Creative Works </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Akshat Shah">Akshat Shah</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/about/ title="About Akshat">About</a><a class=menu-item href=/projects/ title="Akshat's Projects">Projects</a><a class=menu-item href=/posts/ title="Akshat's posts">Posts</a><a class=menu-item href=/tags/>Tags</a><a class=menu-item href=/categories/>Categories</a><a class=menu-item href=https://akshatshah21.github.io/imagination-boundless rel="noopener noreffer" target=_blank>Creative Works</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LeetCode 75 - Part 5 - Hash Map / Set</h1><hr><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://akshatshah21.github.io/ title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>Akshat Shah</a></span>&nbsp;<span class=post-category>included in <a href=/categories/coding-problems/><i class="far fa-folder fa-fw" aria-hidden=true></i>coding-problems</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime="May 12 2024">May 12 2024</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;2005 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;10 minutes&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#intent>Intent</a></li><li><a href=#51-find-the-difference-of-two-arrays>5.1 Find the Difference of Two Arrays</a><ul><li><a href=#question>Question</a></li><li><a href=#solution>Solution</a></li></ul></li><li><a href=#52-unique-occurrences>5.2 Unique Occurrences</a><ul><li><a href=#question-1>Question</a></li><li><a href=#solution-1>Solution</a></li></ul></li><li><a href=#53-determine-if-two-strings-are-close>5.3 Determine if Two Strings Are Close</a><ul><li><a href=#question-2>Question</a></li><li><a href=#solution-2>Solution</a></li></ul></li><li><a href=#54-equal-row-and-column-pairs>5.4 Equal Row and Column Pairs</a><ul><li><a href=#question-3>Question</a></li><li><a href=#solution-3>Solution</a></li></ul></li></ul></nav></div></div><div class=content id=content><h1 id=intent>Intent</h1><p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>And so this is one more attempt to change that.<br>LeetCode 75. Two problems a day, starting April 25, 2024.<br>To further motivate consistency and completion of this, I&rsquo;ve decided I will do write-ups for all of these problems and perhaps publish them on my blog. Let&rsquo;s see.</p><p>This is Part 5 - Hash Map / Set.</p><h1 id=51-find-the-difference-of-two-arrays>5.1 Find the Difference of Two Arrays</h1><p><a href=https://leetcode.com/problems/find-the-difference-of-two-arrays target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question>Question</h2><p>Given two arrays, find both set differences of the two arrays (A-B and B-A).</p><h2 id=solution>Solution</h2><p>We can find a solution for A-B, and use the same one for B-A.</p><p>A naive way of finding set difference is to search through the <em>subtrahend</em> B for each element in the <em>minuend</em> A (are these the correct terms to use here?). If we don&rsquo;t find a match, that element from A is part of the result set A-B. Note that we need to return a set as the result, so it cannot have duplicates, so we need to deduplicate the result we find from the naive search too (sorting or hashset). This would have a time complexity of <code>O(N*M)</code>.</p><p>We can use a hash set to store the unique occurences of B, and then iterate through A, checking for a match in B&rsquo;s hash set. If we don&rsquo;t find a match, we add it to the result hash set A-B. This gives us an <code>O(N+M)</code> time solution with <code>O(M)</code> auxiliary space complexity (A-B is part of the result).</p><p>We can also sort B, and then iterate through A to find matches in a sorted B using binary search. Each search would be <code>O(logM)</code>, so overall time complexity would be <code>O(N*logM + M*logM) = O((N+M)logM)</code> (<code>NlogM</code> for searching A&rsquo;s elements, and <code>MlogM</code> for sorting B). Again deduplication would be required (or use hash set of A to begin with).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;</span> <span class=n>findDifference</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums1</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>unordered_set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>s1</span> <span class=o>=</span> <span class=n>unordered_set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>nums1</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>nums1</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>unordered_set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>s2</span> <span class=o>=</span> <span class=n>unordered_set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>nums2</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>nums2</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>diff1</span><span class=p>,</span> <span class=n>diff2</span><span class=p>;</span>
+        
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>s1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>s2</span><span class=p>.</span><span class=n>count</span><span class=p>(</span><span class=n>i</span><span class=p>))</span> <span class=n>diff1</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
+        <span class=p>}</span>
+
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>s2</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>s1</span><span class=p>.</span><span class=n>count</span><span class=p>(</span><span class=n>i</span><span class=p>))</span> <span class=n>diff2</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
+        <span class=p>}</span>
+
+        <span class=k>return</span> <span class=p>{</span> <span class=n>diff1</span><span class=p>,</span> <span class=n>diff2</span> <span class=p>};</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>Fancy C++:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;</span> <span class=n>findDifference</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums1</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>s1</span> <span class=o>=</span> <span class=n>set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>nums1</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>nums1</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>s2</span> <span class=o>=</span> <span class=n>set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>nums2</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>nums2</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>diff1</span><span class=p>,</span> <span class=n>diff2</span><span class=p>;</span>
+        <span class=n>set_difference</span><span class=p>(</span><span class=n>s1</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>s1</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=n>s2</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>s2</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=n>std</span><span class=o>::</span><span class=n>inserter</span><span class=p>(</span><span class=n>diff1</span><span class=p>,</span> <span class=n>diff1</span><span class=p>.</span><span class=n>begin</span><span class=p>()));</span>
+        <span class=n>set_difference</span><span class=p>(</span><span class=n>s2</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>s2</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=n>s1</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>s1</span><span class=p>.</span><span class=n>end</span><span class=p>(),</span> <span class=n>std</span><span class=o>::</span><span class=n>inserter</span><span class=p>(</span><span class=n>diff2</span><span class=p>,</span> <span class=n>diff2</span><span class=p>.</span><span class=n>begin</span><span class=p>()));</span>
+
+        <span class=k>return</span> <span class=p>{</span> <span class=n>diff1</span><span class=p>,</span> <span class=n>diff2</span> <span class=p>};</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>We can also use a procedure like the merge in Merge-sort. Good for practice with pointers and procedurals :dizzy_face: but i don&rsquo;t think this version is very readable:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>private</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>set_difference</span><span class=p>(</span><span class=k>const</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=o>&amp;</span><span class=n>nums1</span><span class=p>,</span> <span class=k>const</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=o>&amp;</span><span class=n>nums2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>diff</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>p1</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>p2</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=kt>int</span> <span class=n>n1</span> <span class=o>=</span> <span class=n>nums1</span><span class=p>.</span><span class=n>size</span><span class=p>(),</span> <span class=n>n2</span> <span class=o>=</span> <span class=n>nums2</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>p1</span> <span class=o>&lt;</span> <span class=n>n1</span> <span class=o>&amp;&amp;</span> <span class=n>p2</span> <span class=o>&lt;</span> <span class=n>n2</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>diff</span><span class=p>.</span><span class=n>empty</span><span class=p>()</span> <span class=o>&amp;&amp;</span> <span class=n>diff</span><span class=p>.</span><span class=n>back</span><span class=p>()</span> <span class=o>==</span> <span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>])</span> <span class=p>{</span>
+                <span class=n>p1</span><span class=o>++</span><span class=p>;</span>
+                <span class=k>continue</span><span class=p>;</span>
+            <span class=p>}</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>]</span> <span class=o>&lt;</span> <span class=n>nums2</span><span class=p>[</span><span class=n>p2</span><span class=p>])</span> <span class=p>{</span>
+                <span class=n>diff</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=o>++</span><span class=p>]);</span>
+            <span class=p>}</span> <span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>]</span> <span class=o>==</span> <span class=n>nums2</span><span class=p>[</span><span class=n>p2</span><span class=p>]){</span>
+                <span class=k>while</span> <span class=p>(</span><span class=n>p1</span> <span class=o>&lt;</span> <span class=n>n1</span> <span class=o>&amp;&amp;</span> <span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>]</span> <span class=o>==</span> <span class=n>nums2</span><span class=p>[</span><span class=n>p2</span><span class=p>])</span> <span class=n>p1</span><span class=o>++</span><span class=p>;</span>
+            <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+                <span class=n>p2</span><span class=o>++</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=k>while</span> <span class=p>(</span><span class=n>p1</span> <span class=o>&lt;</span> <span class=n>n1</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>diff</span><span class=p>.</span><span class=n>empty</span><span class=p>())</span> <span class=p>{</span>
+                <span class=n>diff</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>]);</span>
+            <span class=p>}</span> <span class=k>else</span> <span class=nf>if</span> <span class=p>(</span><span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>]</span> <span class=o>!=</span> <span class=n>diff</span><span class=p>.</span><span class=n>back</span><span class=p>())</span> <span class=p>{</span>
+                <span class=n>diff</span><span class=p>.</span><span class=n>emplace_back</span><span class=p>(</span><span class=n>nums1</span><span class=p>[</span><span class=n>p1</span><span class=p>]);</span>
+            <span class=p>}</span>
+            <span class=n>p1</span><span class=o>++</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>diff</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;</span> <span class=n>findDifference</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums1</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>nums2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>sort</span><span class=p>(</span><span class=n>nums1</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>nums1</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>sort</span><span class=p>(</span><span class=n>nums2</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>nums2</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>diff1</span> <span class=o>=</span> <span class=n>set_difference</span><span class=p>(</span><span class=n>nums1</span><span class=p>,</span> <span class=n>nums2</span><span class=p>);</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>diff2</span> <span class=o>=</span> <span class=n>set_difference</span><span class=p>(</span><span class=n>nums2</span><span class=p>,</span> <span class=n>nums1</span><span class=p>);</span>
+
+        <span class=k>return</span> <span class=p>{</span> <span class=n>diff1</span><span class=p>,</span> <span class=n>diff2</span> <span class=p>};</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>In other languages:</p><h3 id=python>Python</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Solution</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>findDifference</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>nums1</span><span class=p>,</span> <span class=n>nums2</span><span class=p>):</span>
+        <span class=s2>&#34;&#34;&#34;
+</span><span class=s2>        :type nums1: List[int]
+</span><span class=s2>        :type nums2: List[int]
+</span><span class=s2>        :rtype: List[List[int]]
+</span><span class=s2>        &#34;&#34;&#34;</span>
+        <span class=n>s1</span> <span class=o>=</span> <span class=nb>set</span><span class=p>(</span><span class=n>nums1</span><span class=p>)</span>
+        <span class=n>s2</span> <span class=o>=</span> <span class=nb>set</span><span class=p>(</span><span class=n>nums2</span><span class=p>)</span>
+        <span class=n>d1</span> <span class=o>=</span> <span class=n>s1</span> <span class=o>-</span> <span class=n>s2</span>
+        <span class=n>d2</span> <span class=o>=</span> <span class=n>s2</span> <span class=o>-</span> <span class=n>s1</span>
+        <span class=k>return</span> <span class=p>[</span><span class=nb>list</span><span class=p>(</span><span class=n>d1</span><span class=p>),</span> <span class=nb>list</span><span class=p>(</span><span class=n>d2</span><span class=p>)]</span>
+</code></pre></td></tr></table></div></div><p>Lol</p><h3 id=javascript>JavaScript</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-javascript data-lang=javascript><span class=cm>/**
+</span><span class=cm> * @param {number[]} nums1
+</span><span class=cm> * @param {number[]} nums2
+</span><span class=cm> * @return {number[][]}
+</span><span class=cm> */</span>
+<span class=kd>var</span> <span class=nx>findDifference</span> <span class=o>=</span> <span class=kd>function</span><span class=p>(</span><span class=nx>nums1</span><span class=p>,</span> <span class=nx>nums2</span><span class=p>)</span> <span class=p>{</span>
+    <span class=kr>const</span> <span class=nx>s1</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Set</span><span class=p>(</span><span class=nx>nums1</span><span class=p>);</span>
+    <span class=kr>const</span> <span class=nx>s2</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>Set</span><span class=p>(</span><span class=nx>nums2</span><span class=p>);</span>
+    <span class=kr>const</span> <span class=nx>diff1</span> <span class=o>=</span> <span class=p>[];</span>
+    <span class=kr>const</span> <span class=nx>diff2</span> <span class=o>=</span> <span class=p>[];</span>
+    <span class=nx>s1</span><span class=p>.</span><span class=nx>forEach</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>s2</span><span class=p>.</span><span class=nx>has</span><span class=p>(</span><span class=nx>x</span><span class=p>))</span> <span class=nx>diff1</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>x</span><span class=p>);</span>
+    <span class=p>});</span>
+    <span class=nx>s2</span><span class=p>.</span><span class=nx>forEach</span><span class=p>(</span><span class=nx>x</span> <span class=p>=&gt;</span> <span class=p>{</span>
+        <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>s1</span><span class=p>.</span><span class=nx>has</span><span class=p>(</span><span class=nx>x</span><span class=p>))</span> <span class=nx>diff2</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>x</span><span class=p>);</span>
+    <span class=p>});</span>
+
+    <span class=k>return</span> <span class=p>[</span><span class=nx>diff1</span><span class=p>,</span> <span class=nx>diff2</span><span class=p>];</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>Apparently the <code>difference</code> method of JS&rsquo;s <code>Set</code> has <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference target=_blank rel="noopener noreffer">limited availability</a>.</p><h3 id=c>C#</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-csharp data-lang=csharp><span class=k>public</span> <span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+    <span class=k>public</span> <span class=n>IList</span><span class=p>&lt;</span><span class=n>IList</span><span class=p>&lt;</span><span class=kt>int</span><span class=p>&gt;&gt;</span> <span class=n>FindDifference</span><span class=p>(</span><span class=kt>int</span><span class=p>[]</span> <span class=n>nums1</span><span class=p>,</span> <span class=kt>int</span><span class=p>[]</span> <span class=n>nums2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>IList</span><span class=p>&lt;</span><span class=n>IList</span><span class=p>&lt;</span><span class=kt>int</span><span class=p>&gt;&gt;</span> <span class=n>res</span> <span class=p>=</span> <span class=k>new</span> <span class=n>List</span><span class=p>&lt;</span><span class=n>IList</span><span class=p>&lt;</span><span class=kt>int</span><span class=p>&gt;&gt;();</span>
+        <span class=n>res</span><span class=p>.</span><span class=n>Add</span><span class=p>(</span><span class=n>nums1</span><span class=p>.</span><span class=n>Distinct</span><span class=p>().</span><span class=n>Where</span><span class=p>(</span><span class=n>x</span> <span class=p>=&gt;</span> <span class=p>!</span><span class=n>nums2</span><span class=p>.</span><span class=n>Contains</span><span class=p>(</span><span class=n>x</span><span class=p>)).</span><span class=n>ToList</span><span class=p>());</span>
+        <span class=n>res</span><span class=p>.</span><span class=n>Add</span><span class=p>(</span><span class=n>nums2</span><span class=p>.</span><span class=n>Distinct</span><span class=p>().</span><span class=n>Where</span><span class=p>(</span><span class=n>x</span> <span class=p>=&gt;</span> <span class=p>!</span><span class=n>nums1</span><span class=p>.</span><span class=n>Contains</span><span class=p>(</span><span class=n>x</span><span class=p>)).</span><span class=n>ToList</span><span class=p>());</span>
+        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h3 id=java>Java</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>class</span> <span class=nc>Solution</span> <span class=o>{</span>
+    <span class=kd>private</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=nf>getSetDifference</span><span class=o>(</span><span class=kt>int</span><span class=o>[]</span> <span class=n>nums1</span><span class=o>,</span> <span class=kt>int</span><span class=o>[]</span> <span class=n>nums2</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>Set</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=n>s1</span> <span class=o>=</span> <span class=k>new</span> <span class=n>HashSet</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;();</span>
+        <span class=n>Set</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=n>s2</span> <span class=o>=</span> <span class=k>new</span> <span class=n>HashSet</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;();</span>
+
+        <span class=k>for</span> <span class=o>(</span><span class=kd>final</span> <span class=kt>int</span> <span class=n>i</span><span class=o>:</span> <span class=n>nums1</span><span class=o>)</span> <span class=n>s1</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=n>i</span><span class=o>);</span>
+        <span class=k>for</span> <span class=o>(</span><span class=kd>final</span> <span class=kt>int</span> <span class=n>i</span><span class=o>:</span> <span class=n>nums2</span><span class=o>)</span> <span class=n>s2</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=n>i</span><span class=o>);</span>
+
+        <span class=n>List</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;</span> <span class=n>diff</span> <span class=o>=</span> <span class=k>new</span> <span class=n>ArrayList</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;();</span>
+        <span class=k>for</span> <span class=o>(</span><span class=kd>final</span> <span class=kt>int</span> <span class=n>i</span><span class=o>:</span> <span class=n>s1</span><span class=o>)</span> <span class=o>{</span>
+            <span class=k>if</span> <span class=o>(!</span><span class=n>s2</span><span class=o>.</span><span class=na>contains</span><span class=o>(</span><span class=n>i</span><span class=o>))</span> <span class=n>diff</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=n>i</span><span class=o>);</span>
+        <span class=o>}</span>
+        <span class=k>return</span> <span class=n>diff</span><span class=o>;</span>
+    <span class=o>}</span>
+    <span class=kd>public</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>List</span><span class=o>&lt;</span><span class=n>Integer</span><span class=o>&gt;&gt;</span> <span class=nf>findDifference</span><span class=o>(</span><span class=kt>int</span><span class=o>[]</span> <span class=n>nums1</span><span class=o>,</span> <span class=kt>int</span><span class=o>[]</span> <span class=n>nums2</span><span class=o>)</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>asList</span><span class=o>(</span>
+            <span class=n>getSetDifference</span><span class=o>(</span><span class=n>nums1</span><span class=o>,</span> <span class=n>nums2</span><span class=o>),</span>
+            <span class=n>getSetDifference</span><span class=o>(</span><span class=n>nums2</span><span class=o>,</span> <span class=n>nums1</span><span class=o>)</span>
+        <span class=o>);</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><h1 id=52-unique-occurrences>5.2 Unique Occurrences</h1><p><a href=https://leetcode.com/problems/unique-number-of-occurrences target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-1>Question</h2><p>Given an array of integers, check whether number of occurences of each value in the array is unique or not.</p><h2 id=solution-1>Solution</h2><p>We need to check if the frequencies of each value are unique or not. To find the frequencies, we can use a hash map, and then to find if all these frequencies are unique or not, we can use a hash set and check if the size of this hash set of frequencies is the same as the frequency hash map. We can also sort the frequencies and then check if each one is unique or not. This would save some space, but will not change the space complexity as we&rsquo;re already creating a hash map of frequencies (<code>O(N)</code>). Also, just cleaner?</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>bool</span> <span class=n>uniqueOccurrences</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&amp;</span> <span class=n>arr</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>unordered_map</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>freq</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>arr</span><span class=p>)</span> <span class=n>freq</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
+        <span class=n>unordered_set</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>freqSet</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=k>auto</span> <span class=o>&amp;</span><span class=nl>i</span><span class=p>:</span> <span class=n>freq</span><span class=p>)</span> <span class=n>freqSet</span><span class=p>.</span><span class=n>insert</span><span class=p>(</span><span class=n>i</span><span class=p>.</span><span class=n>second</span><span class=p>);</span>
+        <span class=k>return</span> <span class=n>freqSet</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>==</span> <span class=n>freq</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h1 id=53-determine-if-two-strings-are-close>5.3 Determine if Two Strings Are Close</h1><p><a href=https://leetcode.com/problems/determine-if-two-strings-are-close target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-2>Question</h2><p>From LeetCode:</p><blockquote><p>Two strings are considered <strong>close</strong> if you can attain one from the other using the following operations:</p><ul><li>Operation 1: Swap any two <strong>existing</strong> characters.<ul><li>For example, <code>abcde -> aecdb</code></li></ul></li><li>Operation 2: Transform <strong>every</strong> occurrence of one <strong>existing</strong> character into another <strong>existing</strong> character, and do the same with the other character.<ul><li>For example, <code>aacabb -> bbcbaa</code> (all <code>a</code>'s turn into <code>b</code>'s, and all <code>b</code>'s turn into <code>a</code>'s)
+You can use the operations on either string as many times as necessary.<br>Given two strings, <code>word1</code> and <code>word2</code>, return <code>true</code> <em>if</em> <code>word1</code> <em>and</em> <code>word2</code> <em>are <strong>close</strong>, and</em> <code>false</code> <em>otherwise.</em></li></ul></li></ul></blockquote><h2 id=solution-2>Solution</h2><p>After trying out some examples, we can see that this problem can be reduced to finding whether the list of frequencies of characters in the two strings are the same and if every character present in one string is present in the other. Note that the frequency of a particular character in both strings need not match - rather it is the list of frequencies of the characters (decoupled from the characters themselves (since they can be transformed into others)) that must match. We can use a hash map to find frequencies in each string (here a 26-length array is fine since only lowercase alphabets are present in the strings).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>bool</span> <span class=n>closeStrings</span><span class=p>(</span><span class=n>string</span> <span class=n>word1</span><span class=p>,</span> <span class=n>string</span> <span class=n>word2</span><span class=p>)</span> <span class=p>{</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>charFreq1</span><span class=p>(</span><span class=mi>26</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+        <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>charFreq2</span><span class=p>(</span><span class=mi>26</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>&amp;</span><span class=nl>c</span><span class=p>:</span> <span class=n>word1</span><span class=p>)</span> <span class=n>charFreq1</span><span class=p>[</span><span class=n>c</span><span class=o>-</span><span class=sc>&#39;a&#39;</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=k>const</span> <span class=kt>char</span> <span class=o>&amp;</span><span class=nl>c</span><span class=p>:</span> <span class=n>word2</span><span class=p>)</span> <span class=n>charFreq2</span><span class=p>[</span><span class=n>c</span><span class=o>-</span><span class=sc>&#39;a&#39;</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
+
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=mi>26</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>charFreq1</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=n>charFreq2</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>)</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>charFreq1</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=mi>0</span> <span class=o>&amp;&amp;</span> <span class=n>charFreq2</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+        <span class=p>}</span>
+
+        <span class=n>sort</span><span class=p>(</span><span class=n>charFreq1</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>charFreq1</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+        <span class=n>sort</span><span class=p>(</span><span class=n>charFreq2</span><span class=p>.</span><span class=n>begin</span><span class=p>(),</span> <span class=n>charFreq2</span><span class=p>.</span><span class=n>end</span><span class=p>());</span>
+
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=mi>26</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>charFreq1</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=n>charFreq2</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><h1 id=54-equal-row-and-column-pairs>5.4 Equal Row and Column Pairs</h1><p><a href=https://leetcode.com/problems/equal-row-and-column-pairs target=_blank rel="noopener noreffer">Problem on LeetCode</a></p><h2 id=question-3>Question</h2><p>Given an $N \times N$ matrix, find the number of pairs (row, column) where the row == column (element-wise).</p><h2 id=solution-3>Solution</h2><p>The brute-force solution will involve checking each column for each row and comparing the two. A comparison would take <code>O(N)</code> time and to iterate through each candidate pair would take <code>O(N^2)</code> time, bringing the overall time complexity of this approach to <code>O(N^3)</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>int</span> <span class=n>equalPairs</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;&amp;</span> <span class=n>grid</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>grid</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=kt>int</span> <span class=n>count</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>r</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>r</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>r</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>c</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>c</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>c</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+                <span class=kt>int</span> <span class=n>i</span><span class=p>;</span>
+                <span class=k>for</span> <span class=p>(</span><span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+                    <span class=k>if</span> <span class=p>(</span><span class=n>grid</span><span class=p>[</span><span class=n>r</span><span class=p>][</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=n>grid</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>c</span><span class=p>])</span> <span class=k>break</span><span class=p>;</span>
+                <span class=p>}</span>
+                <span class=k>if</span> <span class=p>(</span><span class=n>i</span> <span class=o>==</span> <span class=n>n</span><span class=p>)</span> <span class=n>count</span><span class=o>++</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>count</span><span class=p>;</span>
+        
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div><p>We need to somehow store the knowledge of a row in a data structure so that we can check if a column matches with it. This is a use case for hashing. We need to hash each row and store its hash in a hash map (the value being the frequency of such a row), and then iterate through each column, check whether a column&rsquo;s hash exists in the map, and add to the count of result pairs accordingly. Now the question is - how to hash a row (or in general, an array or vector)?</p><p>Some solutions suggest using serialization to string or JSON for the row - then this serialized string becomes the hash key. The calculation and comparison of these hashes is <code>O(N)</code>, so for <code>N</code> rows, creating the hash map would be <code>O(N^2)</code> and checking for N columns would again be <code>O(N^2)</code>. This is better than the naive <code>O(N^3)</code> solution, and takes <code>O(N^2)</code> space (since each row could be unique, so N serialized arrays of size N would be stored as keys).</p><p>Hashing strings should hint towards tries! Instead of storing each array by serializing it, we could instead use a trie, where each node corresponds to an element in the arrays. The root node denotes an empty array and each node has a <code>children</code> hash map which points to its children using the elements as keys. In the leaf nodes, we store the count of such arrays (number of rows). Then we try finding each column in the trie, and if we do find a match till the leaf node, we update the result count of matching row-column pairs with the count at the leaf node. This has the same time complexity <code>O(N^2)</code> and space complexity <code>O(N^2)</code> but is still more space-efficient than the hash map using serialization (lot of subarrays can be repeated in the keys).</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cpp data-lang=cpp><span class=k>class</span> <span class=nc>TrieNode</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=n>unordered_map</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=n>TrieNode</span><span class=o>*&gt;</span> <span class=n>children</span><span class=p>;</span>
+    <span class=kt>bool</span> <span class=n>isTerminal</span><span class=p>;</span>
+    <span class=kt>int</span> <span class=n>count</span><span class=p>;</span>
+    <span class=n>TrieNode</span><span class=p>()</span><span class=o>:</span> <span class=n>isTerminal</span><span class=p>(</span><span class=nb>false</span><span class=p>),</span> <span class=n>count</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span> <span class=p>{}</span>
+<span class=p>};</span>
+
+<span class=k>class</span> <span class=nc>Solution</span> <span class=p>{</span>
+<span class=k>public</span><span class=o>:</span>
+    <span class=kt>int</span> <span class=n>equalPairs</span><span class=p>(</span><span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;&amp;</span> <span class=n>grid</span><span class=p>)</span> <span class=p>{</span>
+        <span class=kt>int</span> <span class=n>n</span> <span class=o>=</span> <span class=n>grid</span><span class=p>.</span><span class=n>size</span><span class=p>();</span>
+        <span class=n>TrieNode</span> <span class=o>*</span><span class=n>root</span> <span class=o>=</span> <span class=k>new</span> <span class=n>TrieNode</span><span class=p>();</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>TrieNode</span><span class=o>*</span> <span class=n>curr</span> <span class=o>=</span> <span class=n>root</span><span class=p>;</span>
+            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>j</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+                <span class=k>if</span> <span class=p>(</span><span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>children</span><span class=p>.</span><span class=n>count</span><span class=p>(</span><span class=n>grid</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>])</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+                    <span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>children</span><span class=p>[</span><span class=n>grid</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]]</span> <span class=o>=</span> <span class=k>new</span> <span class=n>TrieNode</span><span class=p>();</span>
+                <span class=p>}</span>
+                <span class=n>curr</span> <span class=o>=</span> <span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>children</span><span class=p>[</span><span class=n>grid</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]];</span>
+            <span class=p>}</span>
+            <span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>isTerminal</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
+            <span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>count</span><span class=o>++</span><span class=p>;</span>
+        <span class=p>}</span>
+        <span class=kt>int</span> <span class=n>count</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>j</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+            <span class=n>TrieNode</span><span class=o>*</span> <span class=n>curr</span> <span class=o>=</span> <span class=n>root</span><span class=p>;</span>
+            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+                <span class=k>if</span> <span class=p>(</span><span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>children</span><span class=p>.</span><span class=n>count</span><span class=p>(</span><span class=n>grid</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>])</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+                    <span class=k>break</span><span class=p>;</span>
+                <span class=p>}</span>
+                <span class=n>curr</span> <span class=o>=</span> <span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>children</span><span class=p>[</span><span class=n>grid</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]];</span>
+            <span class=p>}</span>
+            <span class=k>if</span> <span class=p>(</span><span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>isTerminal</span><span class=p>)</span> <span class=p>{</span>
+                <span class=n>count</span> <span class=o>+=</span> <span class=n>curr</span> <span class=o>-&gt;</span> <span class=n>count</span><span class=p>;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+        <span class=k>return</span> <span class=n>count</span><span class=p>;</span>
+    <span class=p>}</span>
+<span class=p>};</span>
+</code></pre></td></tr></table></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on May 12 2024</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/lc75-5/index.md target=_blank>Read Markdown</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=http://akshatshah21.github.io/lc75-5/ data-title="LeetCode 75 - Part 5 - Hash Map / Set" data-via=AkshatShah21 data-hashtags=data-structures,algorithms,coding-problems><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=http://akshatshah21.github.io/lc75-5/ data-hashtag=data-structures><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Linkedin" data-sharer=linkedin data-url=http://akshatshah21.github.io/lc75-5/><i class="fab fa-linkedin fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on WhatsApp" data-sharer=whatsapp data-url=http://akshatshah21.github.io/lc75-5/ data-title="LeetCode 75 - Part 5 - Hash Map / Set" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Pinterest" data-sharer=pinterest data-url=http://akshatshah21.github.io/lc75-5/ data-description="LeetCode 75. Two problems a day. Part 5."><i class="fab fa-pinterest fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Tumblr" data-sharer=tumblr data-url=http://akshatshah21.github.io/lc75-5/ data-title="LeetCode 75 - Part 5 - Hash Map / Set" data-caption="LeetCode 75. Two problems a day. Part 5." data-tags=data-structures,algorithms,coding-problems><i class="fab fa-tumblr fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=http://akshatshah21.github.io/lc75-5/ data-title="LeetCode 75 - Part 5 - Hash Map / Set"><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=http://akshatshah21.github.io/lc75-5/><i class="fab fa-reddit fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Pocket" data-sharer=pocket data-url=http://akshatshah21.github.io/lc75-5/><i class="fab fa-get-pocket fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/data-structures/>data-structures</a>,&nbsp;<a href=/tags/algorithms/>algorithms</a>,&nbsp;<a href=/tags/coding-problems/>coding-problems</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/lc75-4/ class=prev rel=prev title="LeetCode 75 - Part 4 - Prefix Sum"><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>LeetCode 75 - Part 4 - Prefix Sum</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><h5><em>"Through chances various, through all vicissitudes, we make our way..." - Aeneid</em></h5></div><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.68.3">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i>LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2024</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://akshatshah21.github.io target=_blank>Akshat Shah</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i></a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/katex/katex.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-177XEHY4ST',{'anonymize_ip':true});</script><script type=text/javascript src="https://www.googletagmanager.com/gtag/js?id=G-177XEHY4ST" async></script></body></html>

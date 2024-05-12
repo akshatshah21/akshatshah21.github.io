@@ -1,4 +1,572 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - Akshat Shah</title><link>http://akshatshah21.github.io/posts/</link><description>All Posts | Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sat, 11 May 2024 18:31:07 +0000</lastBuildDate><atom:link href="http://akshatshah21.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>LeetCode 75 - Part 4 - Prefix Sum</title><link>http://akshatshah21.github.io/lc75-4/</link><pubDate>Sat, 11 May 2024 18:31:07 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-4/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - Akshat Shah</title><link>http://akshatshah21.github.io/posts/</link><description>All Posts | Akshat Shah</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>akshatshah_21@yahoo.in (Akshat Shah)</managingEditor><webMaster>akshatshah_21@yahoo.in (Akshat Shah)</webMaster><lastBuildDate>Sun, 12 May 2024 08:25:27 +0000</lastBuildDate><atom:link href="http://akshatshah21.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>LeetCode 75 - Part 5 - Hash Map / Set</title><link>http://akshatshah21.github.io/lc75-5/</link><pubDate>Sun, 12 May 2024 08:25:27 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-5/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
+<p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
+And so this is one more attempt to change that.<br>
+LeetCode 75. Two problems a day, starting April 25, 2024.<br>
+To further motivate consistency and completion of this, I&rsquo;ve decided I will do write-ups for all of these problems and perhaps publish them on my blog. Let&rsquo;s see.</p>
+<p>This is Part 5 - Hash Map / Set.</p>
+<h1 id="51-find-the-difference-of-two-arrays">5.1 Find the Difference of Two Arrays</h1>
+<p><a href="https://leetcode.com/problems/find-the-difference-of-two-arrays" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question">Question</h2>
+<p>Given two arrays, find both set differences of the two arrays (A-B and B-A).</p>
+<h2 id="solution">Solution</h2>
+<p>We can find a solution for A-B, and use the same one for B-A.</p>
+<p>A naive way of finding set difference is to search through the <em>subtrahend</em> B for each element in the <em>minuend</em> A (are these the correct terms to use here?). If we don&rsquo;t find a match, that element from A is part of the result set A-B. Note that we need to return a set as the result, so it cannot have duplicates, so we need to deduplicate the result we find from the naive search too (sorting or hashset). This would have a time complexity of <code>O(N*M)</code>.</p>
+<p>We can use a hash set to store the unique occurences of B, and then iterate through A, checking for a match in B&rsquo;s hash set. If we don&rsquo;t find a match, we add it to the result hash set A-B. This gives us an <code>O(N+M)</code> time solution with <code>O(M)</code> auxiliary space complexity (A-B is part of the result).</p>
+<p>We can also sort B, and then iterate through A to find matches in a sorted B using binary search. Each search would be <code>O(logM)</code>, so overall time complexity would be <code>O(N*logM + M*logM) = O((N+M)logM)</code> (<code>NlogM</code> for searching A&rsquo;s elements, and <code>MlogM</code> for sorting B). Again deduplication would be required (or use hash set of A to begin with).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">findDifference</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums2</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">diff1</span><span class="p">,</span> <span class="n">diff2</span><span class="p">;</span>
+        
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span><span class="p">:</span> <span class="n">s1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">s2</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="n">diff1</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span><span class="p">:</span> <span class="n">s2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">s1</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">i</span><span class="p">))</span> <span class="n">diff2</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="p">{</span> <span class="n">diff1</span><span class="p">,</span> <span class="n">diff2</span> <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Fancy C++:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">findDifference</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">nums2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums2</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">diff1</span><span class="p">,</span> <span class="n">diff2</span><span class="p">;</span>
+        <span class="n">set_difference</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">s2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">inserter</span><span class="p">(</span><span class="n">diff1</span><span class="p">,</span> <span class="n">diff1</span><span class="p">.</span><span class="n">begin</span><span class="p">()));</span>
+        <span class="n">set_difference</span><span class="p">(</span><span class="n">s2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">s1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">s1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">inserter</span><span class="p">(</span><span class="n">diff2</span><span class="p">,</span> <span class="n">diff2</span><span class="p">.</span><span class="n">begin</span><span class="p">()));</span>
+
+        <span class="k">return</span> <span class="p">{</span> <span class="n">diff1</span><span class="p">,</span> <span class="n">diff2</span> <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>We can also use a procedure like the merge in Merge-sort. Good for practice with pointers and procedurals :dizzy_face: but i don&rsquo;t think this version is very readable:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">set_difference</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums1</span><span class="p">,</span> <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">diff</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">p1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">nums1</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">nums2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">&lt;</span> <span class="n">n2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">diff</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">diff</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">==</span> <span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="p">])</span> <span class="p">{</span>
+                <span class="n">diff</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="o">++</span><span class="p">]);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="p">]){</span>
+                <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">n1</span> <span class="o">&amp;&amp;</span> <span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="p">])</span> <span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">p2</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">n1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">diff</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">diff</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">diff</span><span class="p">.</span><span class="n">back</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">diff</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]);</span>
+            <span class="p">}</span>
+            <span class="n">p1</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">diff</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">findDifference</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">nums2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums2</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">diff1</span> <span class="o">=</span> <span class="n">set_difference</span><span class="p">(</span><span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span><span class="p">);</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">diff2</span> <span class="o">=</span> <span class="n">set_difference</span><span class="p">(</span><span class="n">nums2</span><span class="p">,</span> <span class="n">nums1</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="p">{</span> <span class="n">diff1</span><span class="p">,</span> <span class="n">diff2</span> <span class="p">};</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In other languages:</p>
+<h3 id="python">Python</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findDifference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums1</span><span class="p">,</span> <span class="n">nums2</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        :type nums1: List[int]
+</span><span class="s2">        :type nums2: List[int]
+</span><span class="s2">        :rtype: List[List[int]]
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nums1</span><span class="p">)</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nums2</span><span class="p">)</span>
+        <span class="n">d1</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span>
+        <span class="n">d2</span> <span class="o">=</span> <span class="n">s2</span> <span class="o">-</span> <span class="n">s1</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">d1</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">d2</span><span class="p">)]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Lol</p>
+<h3 id="javascript">JavaScript</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+</span><span class="cm"> * @param {number[]} nums1
+</span><span class="cm"> * @param {number[]} nums2
+</span><span class="cm"> * @return {number[][]}
+</span><span class="cm"> */</span>
+<span class="kd">var</span> <span class="nx">findDifference</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nums1</span><span class="p">,</span> <span class="nx">nums2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">nums1</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">(</span><span class="nx">nums2</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">diff1</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kr">const</span> <span class="nx">diff2</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">s1</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">s2</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">x</span><span class="p">))</span> <span class="nx">diff1</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="nx">s2</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">s1</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">x</span><span class="p">))</span> <span class="nx">diff2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="nx">diff1</span><span class="p">,</span> <span class="nx">diff2</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Apparently the <code>difference</code> method of JS&rsquo;s <code>Set</code> has <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/difference" target="_blank" rel="noopener noreffer ">limited availability</a>.</p>
+<h3 id="c">C#</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="n">IList</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">FindDifference</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">nums1</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">nums2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">IList</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;</span> <span class="n">res</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">IList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;&gt;();</span>
+        <span class="n">res</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">nums1</span><span class="p">.</span><span class="n">Distinct</span><span class="p">().</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="p">!</span><span class="n">nums2</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">x</span><span class="p">)).</span><span class="n">ToList</span><span class="p">());</span>
+        <span class="n">res</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">nums2</span><span class="p">.</span><span class="n">Distinct</span><span class="p">().</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="p">!</span><span class="n">nums1</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">x</span><span class="p">)).</span><span class="n">ToList</span><span class="p">());</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="java">Java</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">getSetDifference</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">:</span> <span class="n">nums1</span><span class="o">)</span> <span class="n">s1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">:</span> <span class="n">nums2</span><span class="o">)</span> <span class="n">s2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">diff</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">:</span> <span class="n">s1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">s2</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">i</span><span class="o">))</span> <span class="n">diff</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">diff</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">findDifference</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums1</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+            <span class="n">getSetDifference</span><span class="o">(</span><span class="n">nums1</span><span class="o">,</span> <span class="n">nums2</span><span class="o">),</span>
+            <span class="n">getSetDifference</span><span class="o">(</span><span class="n">nums2</span><span class="o">,</span> <span class="n">nums1</span><span class="o">)</span>
+        <span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="52-unique-occurrences">5.2 Unique Occurrences</h1>
+<p><a href="https://leetcode.com/problems/unique-number-of-occurrences" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-1">Question</h2>
+<p>Given an array of integers, check whether number of occurences of each value in the array is unique or not.</p>
+<h2 id="solution-1">Solution</h2>
+<p>We need to check if the frequencies of each value are unique or not. To find the frequencies, we can use a hash map, and then to find if all these frequencies are unique or not, we can use a hash set and check if the size of this hash set of frequencies is the same as the frequency hash map. We can also sort the frequencies and then check if each one is unique or not. This would save some space, but will not change the space complexity as we&rsquo;re already creating a hash map of frequencies (<code>O(N)</code>). Also, just cleaner?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">uniqueOccurrences</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">freq</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="nl">i</span><span class="p">:</span> <span class="n">arr</span><span class="p">)</span> <span class="n">freq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">freqSet</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="o">&amp;</span><span class="nl">i</span><span class="p">:</span> <span class="n">freq</span><span class="p">)</span> <span class="n">freqSet</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">freqSet</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="n">freq</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="53-determine-if-two-strings-are-close">5.3 Determine if Two Strings Are Close</h1>
+<p><a href="https://leetcode.com/problems/determine-if-two-strings-are-close" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-2">Question</h2>
+<p>From LeetCode:</p>
+<blockquote>
+<p>Two strings are considered <strong>close</strong> if you can attain one from the other using the following operations:</p>
+<ul>
+<li>Operation 1: Swap any two <strong>existing</strong> characters.
+<ul>
+<li>For example, <code>abcde -&gt; aecdb</code></li>
+</ul>
+</li>
+<li>Operation 2: Transform <strong>every</strong> occurrence of one <strong>existing</strong> character into another <strong>existing</strong> character, and do the same with the other character.
+<ul>
+<li>For example, <code>aacabb -&gt; bbcbaa</code> (all <code>a</code>'s turn into <code>b</code>'s, and all <code>b</code>'s turn into <code>a</code>'s)
+You can use the operations on either string as many times as necessary.<br>
+Given two strings, <code>word1</code> and <code>word2</code>, return <code>true</code> <em>if</em> <code>word1</code> <em>and</em> <code>word2</code> <em>are <strong>close</strong>, and</em> <code>false</code> <em>otherwise.</em></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="solution-2">Solution</h2>
+<p>After trying out some examples, we can see that this problem can be reduced to finding whether the list of frequencies of characters in the two strings are the same and if every character present in one string is present in the other. Note that the frequency of a particular character in both strings need not match - rather it is the list of frequencies of the characters (decoupled from the characters themselves (since they can be transformed into others)) that must match. We can use a hash map to find frequencies in each string (here a 26-length array is fine since only lowercase alphabets are present in the strings).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">closeStrings</span><span class="p">(</span><span class="n">string</span> <span class="n">word1</span><span class="p">,</span> <span class="n">string</span> <span class="n">word2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">charFreq1</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">charFreq2</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span><span class="nl">c</span><span class="p">:</span> <span class="n">word1</span><span class="p">)</span> <span class="n">charFreq1</span><span class="p">[</span><span class="n">c</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">&amp;</span><span class="nl">c</span><span class="p">:</span> <span class="n">word2</span><span class="p">)</span> <span class="n">charFreq2</span><span class="p">[</span><span class="n">c</span><span class="o">-</span><span class="sc">&#39;a&#39;</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">charFreq1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">charFreq2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">charFreq1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">charFreq2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">sort</span><span class="p">(</span><span class="n">charFreq1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">charFreq1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">charFreq2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">charFreq2</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">26</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">charFreq1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">charFreq2</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="54-equal-row-and-column-pairs">5.4 Equal Row and Column Pairs</h1>
+<p><a href="https://leetcode.com/problems/equal-row-and-column-pairs" target="_blank" rel="noopener noreffer ">Problem on LeetCode</a></p>
+<h2 id="question-3">Question</h2>
+<p>Given an $N \times N$ matrix, find the number of pairs (row, column) where the row == column (element-wise).</p>
+<h2 id="solution-3">Solution</h2>
+<p>The brute-force solution will involve checking each column for each row and comparing the two. A comparison would take <code>O(N)</code> time and to iterate through each candidate pair would take <code>O(N^2)</code> time, bringing the overall time complexity of this approach to <code>O(N^3)</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">equalPairs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">r</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">r</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">c</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">c</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">c</span><span class="p">])</span> <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span> <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+        
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>We need to somehow store the knowledge of a row in a data structure so that we can check if a column matches with it. This is a use case for hashing. We need to hash each row and store its hash in a hash map (the value being the frequency of such a row), and then iterate through each column, check whether a column&rsquo;s hash exists in the map, and add to the count of result pairs accordingly. Now the question is - how to hash a row (or in general, an array or vector)?</p>
+<p>Some solutions suggest using serialization to string or JSON for the row - then this serialized string becomes the hash key. The calculation and comparison of these hashes is <code>O(N)</code>, so for  <code>N</code> rows, creating the hash map would be <code>O(N^2)</code> and checking for N columns would again be <code>O(N^2)</code>. This is better than the naive <code>O(N^3)</code> solution, and takes <code>O(N^2)</code> space (since each row could be unique, so N serialized arrays of size N would be stored as keys).</p>
+<p>Hashing strings should hint towards tries! Instead of storing each array by serializing it, we could instead use a trie, where each node corresponds to an element in the arrays. The root node denotes an empty array and each node has a <code>children</code> hash map which points to its children using the elements as keys. In the leaf nodes, we store the count of such arrays (number of rows). Then we try finding each column in the trie, and if we do find a match till the leaf node, we update the result count of matching row-column pairs with the count at the leaf node. This has the same time complexity <code>O(N^2)</code> and space complexity <code>O(N^2)</code> but is still more space-efficient than the hash map using serialization (lot of subarrays can be repeated in the keys).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">TrieNode</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">TrieNode</span><span class="o">*&gt;</span> <span class="n">children</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="n">isTerminal</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">count</span><span class="p">;</span>
+    <span class="n">TrieNode</span><span class="p">()</span><span class="o">:</span> <span class="n">isTerminal</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span> <span class="n">count</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">equalPairs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="n">TrieNode</span> <span class="o">*</span><span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrieNode</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">TrieNode</span><span class="o">*</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">children</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">children</span><span class="p">[</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TrieNode</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">children</span><span class="p">[</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]];</span>
+            <span class="p">}</span>
+            <span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">isTerminal</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">TrieNode</span><span class="o">*</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">children</span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">children</span><span class="p">[</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]];</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">isTerminal</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="n">curr</span> <span class="o">-&gt;</span> <span class="n">count</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>LeetCode 75 - Part 4 - Prefix Sum</title><link>http://akshatshah21.github.io/lc75-4/</link><pubDate>Sat, 11 May 2024 18:31:07 +0000</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/lc75-4/</guid><description><![CDATA[<h1 id="intent">Intent</h1>
 <p><strong>Confession</strong>: I&rsquo;ve never been comfortable with DSA, Coding Problems or Competitive Programming.<br>
 And so this is one more attempt to change that.<br>
 LeetCode 75. Two problems a day, starting April 25, 2024.<br>
@@ -3100,36 +3668,4 @@ tokens.</p>
 <li><a href="https://docs.openzeppelin.com/contracts/3.x/api/token/erc20" target="_blank" rel="noopener noreffer ">ERC 20 - OpenZeppelin Docs</a></li>
 <li><a href="https://www.toptal.com/ethereum/create-erc20-token-tutorial" target="_blank" rel="noopener noreffer ">ERC20 Token Tutorial by Gilad Halmov</a></li>
 </ul>
-]]></description></item><item><title>Reading List: September 2021</title><link>http://akshatshah21.github.io/reading-list-sept-2021/</link><pubDate>Tue, 28 Sep 2021 19:21:19 +0530</pubDate><author>Akshat Shah</author><guid>http://akshatshah21.github.io/reading-list-sept-2021/</guid><description><![CDATA[<p>Here&rsquo;s a list of articles, courses, books, videos, and any other things that I found personally interesting and went through them:</p>
-<h3 id="articles-on-finance-on-tickertapeinhttpswwwtickertapein">Articles on Finance on <a href="https://www.tickertape.in/" target="_blank" rel="noopener noreffer ">Tickertape.in</a></h3>
-<p>Call it a temporary whim, but I&rsquo;ve been looking into Finance and Economics <em>stuff</em> (pardon me, I&rsquo;ve never given it much attention before). Tickertape has a <a href="https://www.tickertape.in/learn/" target="_blank" rel="noopener noreffer ">series of educational articles</a>, directed towards concepts in economics and finance, and aims to provide a foundation for getting started in equity market investing. This series has four modules, and I&rsquo;ve read the first one, <a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer ">Elementary Economics</a>, which consists of the following articles:</p>
-<ol>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/intro-to-macro-economics/" target="_blank" rel="noopener noreffer ">Intro to Macroeconomics</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/interest-rates-forex/" target="_blank" rel="noopener noreffer ">Interest Rates &amp; Forex</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/circular-flow/" target="_blank" rel="noopener noreffer ">Circular Flow</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/monetary-policy/" target="_blank" rel="noopener noreffer ">Monetary Policy</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/deficits-balance-of-payments/" target="_blank" rel="noopener noreffer ">Deficits &amp; Balance of Payments</a></li>
-<li><a href="https://www.tickertape.in/learn/modules/economics-101/fiscal-policy/" target="_blank" rel="noopener noreffer ">Fiscal Policy</a>
-Now this is most likely very fundamental for most people, but frankly, it&rsquo;s quite new for me, and I&rsquo;m finding it really interesting so far!</li>
-</ol>
-<h3 id="mlops-articles-by-tezan-sahuhttpstezansahumediumcom">MLOps Articles by <a href="https://tezansahu.medium.com" target="_blank" rel="noopener noreffer ">Tezan Sahu</a></h3>
-<p>I&rsquo;ve been exploring Machine Learning and DevOps separately for the past few months, and I&rsquo;ve heard about the buzz around MLOps, a field which brings the practice of Machine Learning into real-world production systems and processes.
-This series of articles seems very promising in teaching the principles of MLOps, by first explaining what the DevOps culture and principles are, relating them to MLOps, and also outlining what&rsquo;s different. It then explains the ML workflow, and the principles that MLOps in particular advocates.</p>
-<p><a href="https://tezansahu.medium.com/fundamentals-of-mlops-part-1-a-gentle-introduction-to-mlops-1b184d2c32a8" target="_blank" rel="noopener noreffer ">A Gentle Introduction to MLOps</a></p>
-<h3 id="authentication-system-using-ethereum">Authentication system using Ethereum</h3>
-<p>This article is a part of a trilogy of articles that introduce Ethereum and Smart Contracts, written by Sebastian Peyrott. Besides being a great introduction to Ethereum and Blockchain in general, it also has small projects that demonstrate the prospects of Blockchain, which includes an authentication system uses Ethereum to verify an individual&rsquo;s identity. I came across this series thanks to a college assignment. However, the series is from 2017, so some of the code is deprecated.</p>
-<p><a href="https://auth0.com/blog/an-introduction-to-ethereum-and-smart-contracts-part-3/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer ">An Introduction to Ethereum and Smart Contracts: an Authentication Solution</a></p>
-<p>It&rsquo;s also available as a <a href="https://assets.ctfassets.net/2ntc334xpx65/42fINJjatOKiG6qsQQAyc0/8b63e552f4cfef313f579b8e9c9154b5/intro-to-ethereum.pdf" target="_blank" rel="noopener noreffer ">PDF</a>.</p>
-<h3 id="natural-language-processing">Natural Language Processing</h3>
-<p>As part of my Final Year project, I am currently studying NLP, and I went through these articles/courses, and found them worth sharing:</p>
-<ul>
-<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener noreffer ">The Illustrated Transformer by Jay Alammar</a>: This article explains the Transformer model for sequence-to-sequence tasks</li>
-<li><a href="https://lena-voita.github.io/nlp_course.html?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer ">NLP For You, a course by Lena Voita</a>: A text-based course on the fundamental concepts on NLP, including Word Embeddings, Text Classification, Language Modeling, Seq2seq, Attention, Transformer and Transfer Learning - this is a treasure!</li>
-<li><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z" target="_blank" rel="noopener noreffer ">CS224N: Natural Language Processing with Deep Learning</a> is a MOOC with lectures available on YouTube</li>
-</ul>
-<p>Thanks to my friends <a href="https://arnavsshah.github.io/" target="_blank" rel="noopener noreffer ">Arnav Shah</a> and <a href="https://saharshleo.github.io/" target="_blank" rel="noopener noreffer ">Saharsh Jain</a> for suggesting these resources!</p>
-<h3 id="a-project-of-ones-own">A Project of One&rsquo;s Own</h3>
-<p>Probably a classic now, I came across this <a href="http://paulgraham.com/own.html" target="_blank" rel="noopener noreffer ">article</a> by Paul Graham. Go ahead and read it for yourself!</p>
-<h3 id="how-to-remember-what-you-read">How to Remember What You Read</h3>
-<p>This <a href="https://fs.blog/2021/08/remember-books/?utm_source=pocket_mylist" target="_blank" rel="noopener noreffer ">great article</a> by Farnam Street is something that I was thinking about for a long time before I actually googled this question and came across this article.</p>
 ]]></description></item></channel></rss>

@@ -6,13 +6,20 @@
 {{< image src="../assets/img/me_at_skandagiri.jpg" caption="That's me!" width="60%" >}}
 
 
-With a keen interest in programming and software, I am looking forward to improve my skills and work on projects and problems in the fields of Full Stack Web Development, DevOps and Machine Learning. Besides these, you'll find me active on competitive programming websites and venturing into the sport of [CTFs](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)). You can see some of my projects [here](https://github.com/akshatshah21).
+With a keen interest in programming and software, I am looking forward to improve my skills and work on projects and problems in the fields of AI Engineering and Full Stack Web Development. You can see some of my projects [here](https://github.com/akshatshah21).
 
 I graduated with a Bachelors in Technology (Information Technology) from [VJTI](https://vjti.ac.in/), Mumbai, in June 2022. I'm currently a Software Engineer at Wells Fargo, Bengaluru. In my free time, I like to read, write and listen to my unvarying playlist of music. I'm always in for a good, meaningful movie or TV show, and I like to try my luck at badminton and carrom!
 
 You can view my resume by clicking [here](/docs/Akshat.pdf).
 
 # Experience
+## [Harmoney](https://www.harmoney.in)
+* *Software Engineer, July 2024 - Present*
+* Part of the Backend Engineering team responsible for three fast-moving apps
+* Working on AI-powered features for fixed income market research and analysis, involving agent orchestration and workflows
+* Contributing to key trade execution workflows
+* Working with Python (Django, Flask and FastAPI), PostgreSQL, Google ADK, AWS and OpenAI
+
 ## [Wells Fargo](https://www.wellsfargojobs.com/WF-India-PHL)
 * *Software Engineer, July 2023 - Present*
 * *Program Associate (Technology), July 2022 - July 2023*
@@ -66,4 +73,4 @@ My academic courses included the core subjects of Computer Science, like Data St
 
 I'm proficient in C++, JavaScript and Python, and familiar with Java. Having done many projects in Web Development, I'm fluent in languages and web frameworks, including HTML, CSS, JavaScript, NodeJS, ReactJS, TailwindCSS, Flask and Express JS. I have worked with SQL databases like PostgreSQL, as well as with NoSQL databases like MongoDB, Firebase Realtime Database and Neo4J. Apart from Web Development, I have done a few native Android Development projects using Java and Kotlin, and have had a stint of dabbling in Robotics in my First Year. In the past year I have studied Machine Learning, Deep Learning and Natural Language Processing, practising on problems using Scikit-learn and PyTorch. 
 
-Currently, I am learning about the design and development of applications using .NET Core and related tools, focusing on the principles of software development and clean and maintainable code.
+Currently, I am learning about the design and development of AI-powered applications, LLM prompting, agentic workflows and orchestration.

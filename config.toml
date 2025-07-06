@@ -129,11 +129,11 @@ theme = "LoveIt"
       # Gravatar Email for preferred avatar in home page
       gravatarEmail = ""
       # URL of avatar shown in home page
-      avatarURL = "/img/me7.jpg"
+      avatarURL = "/img/me_at_chikmagalur.jpg"
       # LoveIt CHANGED | 0.2.7 title shown in home page (HTML format is supported)
       title = "Akshat Shah"
       # subtitle shown in home page
-      subtitle = "Software Engineer at Wells Fargo" 
+      subtitle = "Software Engineer at Harmoney" 
       # whether to use typeit animation for subtitle
       typeit = false
       # whether to show social links
